@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //////////////////////////////////////////////////////////////////
         //출처: https://altongmon.tistory.com/395
         int uiOptions = getWindow().getDecorView().getSystemUiVisibility();
         int newUiOptions = uiOptions;
@@ -29,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         newUiOptions ^= View.SYSTEM_UI_FLAG_FULLSCREEN;
         newUiOptions ^= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
-
         //////////////////////////////////////////////////////////////////
 
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
