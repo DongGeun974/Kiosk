@@ -8,29 +8,31 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/firstmenu2"
+        android:id="@+id/tohere"
+        android:layout_width="120sp"
+        android:layout_height="120sp"
+        android:src="@drawable/tohere"
+        android:tag="mainMenu"
+        app:layout_constraintBottom_toBottomOf="@+id/togo"
+        app:layout_constraintEnd_toStartOf="@+id/togo"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0"></ImageView>
+
+    <ImageView
+        android:id="@+id/togo"
         android:layout_width="120sp"
         android:layout_height="120sp"
         android:layout_marginTop="68dp"
         android:src="@drawable/togo"
+        android:tag="mainMenu"
         app:layout_constraintBottom_toTopOf="@+id/exitButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0"></ImageView>
-
-    <ImageView
-        android:id="@+id/firstmenu1"
-        android:layout_width="120sp"
-        android:layout_height="120sp"
-        android:src="@drawable/tohere"
-        app:layout_constraintBottom_toBottomOf="@+id/firstmenu2"
-        app:layout_constraintEnd_toEndOf="@+id/firstmenu2"
-        app:layout_constraintHorizontal_bias="0.18"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0"></ImageView>
 
     <TextView
         android:id="@+id/textView"

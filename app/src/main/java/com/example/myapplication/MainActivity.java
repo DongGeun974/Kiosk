@@ -1,12 +1,15 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
@@ -48,5 +51,15 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        ConstraintLayout cc = new ConstraintLayout(this);
+
+//        Log.d(cc.findViewWithTag("mainMenu"), "asdf");
+//        cc.findViewWithTag("mainMenu").setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d("mainmenu", "asdf");
+//            }
+//        });
     }
 }
