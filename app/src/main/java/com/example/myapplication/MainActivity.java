@@ -1,18 +1,23 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 
+public class MainActivity extends initActivity{
 
-public class MainActivity extends AppCompatActivity {
-
+    /**
+     * checkKeyButton 메서드를 통해 키 값 확인 후 해당 키 입력 이벤트 재정의해서 지움
+     *
+     * @param keycode 사용자 입력 키값
+     * @param event 미리 정의된 각 키 별 변수
+     * @return 조건에 일치 시 true, 아니라면 false
+     */
     //기능: 키이벤트 발생 시 처리
     public boolean onKeyDown(int keycode, KeyEvent event){
         if(checkKeyButton(keycode)){
@@ -21,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onKeyDown(keycode, event);
     }
 
+    /**
+     * 입력 키가 백버튼, 볼륨버튼, 왼쪽 소프트키, 오른쪽 소프트키인지 검사
+     * @param keycode 사용자 입력 키값
+     * @return 조건에 일치 시 true, 아니라면 false
+     */
     //기능: 눌린 키가 볼륨키 혹은 소프트키인지 식별 뒤 해당 키라면 T, 아니라면 F
     protected boolean checkKeyButton(int keycode){
         if(keycode == KeyEvent.KEYCODE_BACK ||
@@ -33,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
             return false;
     }
 
-    //기능: 메뉴버튼 클릭 시 액티비티 위치 변경 통해 유지
+    /**
+     * 메뉴버튼 클릭 시 액티비티 위치 변경 통해 유지
+     */
     protected void onPause() {
         super.onPause();
         ActivityManager activityManager = (ActivityManager) getApplicationContext()
@@ -43,37 +55,66 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        //////////////////////////////////////////////////////////////////
-        //출처: https://altongmon.tistory.com/395
-        //기능: 안드로이드에서 지원하는 몰입모드 플래그를 True로 설정
-        int uiOptions = getWindow().getDecorView().getSystemUiVisibility();
-        int newUiOptions = uiOptions;
-        boolean isImmersiveModeEnabled = ((uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) == uiOptions);
-        if (isImmersiveModeEnabled) {
-            Log.i("Is on?", "Turning immersive mode mode off. ");
-        } else {
-            Log.i("Is on?", "Turning immersive mode mode on.");
-        }
-        // 몰입 모드 적용용 플래그
-        newUiOptions ^= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-        newUiOptions ^= View.SYSTEM_UI_FLAG_FULLSCREEN;
-        newUiOptions ^= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-        getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
-        //////////////////////////////////////////////////////////////////
+        initScreen();
 
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
-        Button exitButton = (Button) findViewById(R.id.exitButton);
+        doExitButton();
 
-        exitButton.setOnClickListener(new View.OnClickListener(){
+        Button button1 = (Button) findViewById(R.id.beverage);
+        button1.setOnClickListener((new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                finish();
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), beverage.class);
+                startActivity(intent);
             }
-        });
+        }));
+
+        Button button2 = (Button) findViewById(R.id.box);
+        button2.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), box.class);
+                startActivity(intent);
+            }
+        }));
+
+        Button button3 = (Button) findViewById(R.id.burger);
+        button3.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), burger.class);
+                startActivity(intent);
+            }
+        }));
+
+        Button button4 = (Button) findViewById(R.id.chicken);
+        button4.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), chicken.class);
+                startActivity(intent);
+            }
+        }));
+
+        Button button5 = (Button) findViewById(R.id.set);
+        button5.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), set.class);
+                startActivity(intent);
+            }
+        }));
+
+        Button button6 = (Button) findViewById(R.id.side);
+        button6.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), side.class);
+                startActivity(intent);
+            }
+        }));
 
 //        ConstraintLayout cc = new ConstraintLayout(this);
     }

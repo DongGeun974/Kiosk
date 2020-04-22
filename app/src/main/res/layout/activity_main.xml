@@ -30,12 +30,13 @@
             android:layout_height="120sp"
             android:src="@drawable/tohere"
             android:tag="mainMenu"
-            app:layout_constraintBottom_toTopOf="@+id/nextbutton"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.219"
+            app:layout_constraintHorizontal_bias="0.25"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.246"></ImageView>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3"
+            app:layout_constraintVertical_chainStyle="spread"></ImageView>
 
         <ImageView
             android:id="@+id/togo"
@@ -45,37 +46,84 @@
             android:tag="mainMenu"
             app:layout_constraintBottom_toBottomOf="@+id/tohere"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.429"
-            app:layout_constraintStart_toEndOf="@+id/tohere"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tohere"
-            app:layout_constraintVertical_bias="0.0"></ImageView>
+            app:layout_constraintVertical_bias="1.0"></ImageView>
 
         <Button
-            android:id="@+id/nextbutton"
+            android:id="@+id/beverage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="next"
+            android:text="berverage"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.3"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.236"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
+            app:layout_constraintVertical_bias="0.499" />
+
+        <Button
+            android:id="@+id/box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="box"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/beverage"
+            app:layout_constraintTop_toBottomOf="@+id/beverage"
+            app:layout_constraintVertical_bias="0.05" />
+
+        <Button
+            android:id="@+id/burger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="burger"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/beverage"
+            app:layout_constraintTop_toBottomOf="@+id/beverage"
+            app:layout_constraintVertical_bias="0.261" />
+
+        <Button
+            android:id="@+id/chicken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="chicken"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/beverage"
+            app:layout_constraintTop_toBottomOf="@+id/beverage"
+            app:layout_constraintVertical_bias="0.486" />
+
+        <Button
+            android:id="@+id/side"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="side"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/beverage"
+            app:layout_constraintTop_toBottomOf="@+id/beverage"
+            app:layout_constraintVertical_bias="0.7" />
+
+        <Button
+            android:id="@+id/set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="set"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/beverage"
+            app:layout_constraintTop_toBottomOf="@+id/beverage"
+            app:layout_constraintVertical_bias="0.945" />
 
         <Button
             android:id="@+id/exitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="exit"
-            app:layout_constraintBottom_toBottomOf="@+id/nextbutton"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toEndOf="@+id/nextbutton"
-            app:layout_constraintTop_toTopOf="@+id/nextbutton"
-            app:layout_constraintVertical_bias="0.8" />
+            app:layout_constraintHorizontal_bias="0.777"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.871" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
-<!--<LinearLayout-->
-<!--android:layout_width=""-->
-<!--android:layout_height=""/>-->
