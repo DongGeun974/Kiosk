@@ -15,11 +15,15 @@ import android.widget.ImageView;
 import com.example.myapplication.R;
 
 public class BottomBarOpenFragment extends Fragment implements BottomBarState {
-
+    int state;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        state = getArguments().getInt("bottomBarState");
+        Log.d("open start", String.valueOf(state));
         View view = inflater.inflate(R.layout.fragment_bottom_bar_open, container, false);
+
+        StateView(view);
 
         View closeBar = (View) view.findViewById(R.id.view_close_bottom_bar);
 
@@ -32,34 +36,137 @@ public class BottomBarOpenFragment extends Fragment implements BottomBarState {
 
         view.findViewById(R.id.fragment_bottom_bar_open).bringToFront();
 
-        final ImageView a = (ImageView) view.findViewById(R.id.icon_wheel);
-
-        a.setOnClickListener(new View.OnClickListener(){
+        FrameLayout f1 = (FrameLayout) view.findViewById(R.id.icon_wheel);
+        f1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(a.getId() == R.id.ic_frame){
-                    Log.d("000000000000", String.valueOf(a.getBackground() == getResources().getDrawable(R.drawable.icon_frame)));
-                    a.setBackgroundResource(R.drawable.icon_frame_selected);
-                }else
-                    a.setBackgroundResource(R.drawable.icon_frame);
+                WheelViewChange(v);
             }
         });
 
+        FrameLayout f2 = (FrameLayout) view.findViewById(R.id.icon_bigger);
+        f2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                BiggerViewChange(v);
 
-        FrameLayout e = (FrameLayout) view.findViewById(R.id.qqq);
+            }
+        });
 
-
+        FrameLayout f3 = (FrameLayout) view.findViewById(R.id.icon_blind);
+        f3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                BlindViewChange(v);
+            }
+        });
 
         return view;
     }
-
 
     public void change(){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         BottomBarCloseFragment fragment = new BottomBarCloseFragment();
+//        fragmentTransaction.replace(R.id.frame_bottom_bar, fragment);
+
+        Bundle bundle = new Bundle(); bundle.putInt("bottomBarState", state); // Key, Value
+        fragment.setArguments(bundle);
+        Log.d("open end", String.valueOf(state));
+
         fragmentTransaction.replace(R.id.frame_bottom_bar, fragment);
+
         fragmentTransaction.commit();
+
+        this.onDestroyView();
+    }
+
+    public void StateView(View v){
+        ImageView WheelSel = (ImageView) v.findViewById(R.id.icon_wheel_selected);
+        ImageView WheelUnSel = (ImageView) v.findViewById(R.id.icon_wheel_unselected);
+        ImageView BiggerSel = (ImageView) v.findViewById(R.id.icon_bigger_selected);
+        ImageView BiggerUnSel = (ImageView) v.findViewById(R.id.icon_bigger_unselected);
+        ImageView BlindSel = (ImageView) v.findViewById(R.id.icon_blind_selected);
+        ImageView BlindUnSel = (ImageView) v.findViewById(R.id.icon_blind_unselected);
+
+        if((state & WHEEL) == 0) {
+            WheelSel.setVisibility(View.GONE);
+            WheelUnSel.setVisibility(View.VISIBLE);
+        }else {
+            WheelSel.setVisibility(View.VISIBLE);
+            WheelUnSel.setVisibility(View.GONE);
+        }
+
+        if((state & BIGGER) == 0){
+            BiggerSel.setVisibility(View.GONE);
+            BiggerUnSel.setVisibility(View.VISIBLE);
+        }else{
+            BiggerSel.setVisibility(View.VISIBLE);
+            BiggerUnSel.setVisibility(View.GONE);
+        }
+
+        if((state & COLORBLIND) == 0){
+            BlindSel.setVisibility(View.GONE);
+            BlindUnSel.setVisibility(View.VISIBLE);
+        }else{
+            BlindSel.setVisibility(View.VISIBLE);
+            BlindUnSel.setVisibility(View.GONE);
+        }
+    }
+
+    public void WheelViewChange(View v){
+        ImageView WheelSel = (ImageView) v.findViewById(R.id.icon_wheel_selected);
+        ImageView WheelUnSel = (ImageView) v.findViewById(R.id.icon_wheel_unselected);
+        Log.d("W start", String.valueOf(state));
+
+        if((state & WHEEL) != 0){
+            WheelSel.setVisibility(View.GONE);
+            WheelUnSel.setVisibility(View.VISIBLE);
+
+            state = state ^ WHEEL;
+
+        }else{
+            WheelSel.setVisibility(View.VISIBLE);
+            WheelUnSel.setVisibility(View.GONE);
+
+            state = state | WHEEL;
+        }
+    }
+
+    public void BiggerViewChange(View v){
+        ImageView BiggerSel = (ImageView) v.findViewById(R.id.icon_bigger_selected);
+        ImageView BiggerUnSel = (ImageView) v.findViewById(R.id.icon_bigger_unselected);
+
+        if((state & BIGGER) != 0){
+            BiggerSel.setVisibility(View.GONE);
+            BiggerUnSel.setVisibility(View.VISIBLE);
+
+            state = state ^ BIGGER;
+
+        }else{
+            BiggerSel.setVisibility(View.VISIBLE);
+            BiggerUnSel.setVisibility(View.GONE);
+
+            state = state | BIGGER;
+        }
+    }
+
+    public void BlindViewChange(View v){
+        ImageView BlindSel = (ImageView) v.findViewById(R.id.icon_blind_selected);
+        ImageView BlindUnSel = (ImageView) v.findViewById(R.id.icon_blind_unselected);
+
+        if((state & COLORBLIND) != 0){
+            BlindSel.setVisibility(View.GONE);
+            BlindUnSel.setVisibility(View.VISIBLE);
+
+            state = state ^ COLORBLIND;
+
+        }else{
+            BlindSel.setVisibility(View.VISIBLE);
+            BlindUnSel.setVisibility(View.GONE);
+
+            state = state | COLORBLIND;
+        }
     }
 }

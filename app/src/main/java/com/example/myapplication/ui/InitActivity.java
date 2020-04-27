@@ -68,6 +68,10 @@ public class InitActivity extends Activity {
 
         BottomBarCloseFragment fragment = new BottomBarCloseFragment();
         fragmentTransaction.add(R.id.frame_bottom_bar, fragment);
+
+        Bundle bundle = new Bundle(); bundle.putInt("bottomBarState", 0); // Key, Value
+        fragment.setArguments(bundle);
+
         fragmentTransaction.commit();
     }
 

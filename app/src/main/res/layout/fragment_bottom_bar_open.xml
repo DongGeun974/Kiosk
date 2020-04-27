@@ -35,15 +35,15 @@
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/qqq">
+                android:id="@+id/icon_wheel"
+                android:visibility="visible">
 
-                <ImageButton
-                    android:id="@+id/icon_wheel"
+                <ImageView
+                    android:id="@+id/icon_wheel_unselected"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:background="@drawable/icon_frame"
                     android:src="@drawable/icon1"
-                    android:scaleType="fitCenter"
                     android:visibility="visible" />
 
                 <ImageView
@@ -75,10 +75,12 @@
 
             <FrameLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/icon_bigger"
+                android:visibility="visible">
 
                 <ImageView
-                    android:id="@+id/icon_bigger"
+                    android:id="@+id/icon_bigger_unselected"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:background="@drawable/icon_frame"
@@ -115,10 +117,11 @@
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/icon_blind"
                 android:visibility="visible">
 
                 <ImageView
-                    android:id="@+id/icon_blind"
+                    android:id="@+id/icon_blind_unselected"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:background="@drawable/icon_frame"

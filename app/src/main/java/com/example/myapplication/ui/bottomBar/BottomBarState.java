@@ -9,6 +9,10 @@ public interface BottomBarState {
      */
     int state = 0;
 
+    int WHEEL = 0x00000001;
+    int BIGGER = 0x00000002;
+    int COLORBLIND = 0x00000004;
+
 //    void setState();
 //    void getState();
 }
