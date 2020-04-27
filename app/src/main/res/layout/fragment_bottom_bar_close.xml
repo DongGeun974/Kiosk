@@ -29,8 +29,9 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="4dp"
-                android:visibility="visible"
-                android:src="@drawable/icon1" />
+                android:background="@drawable/icon_frame"
+                android:src="@drawable/icon1"
+                android:visibility="visible" />
         </FrameLayout>
 
         <FrameLayout
@@ -45,8 +46,9 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="4dp"
-                android:visibility="visible"
-                android:src="@drawable/icon2" />
+                android:background="@drawable/icon_frame"
+                android:src="@drawable/icon2"
+                android:visibility="visible" />
         </FrameLayout>
 
         <FrameLayout
@@ -62,8 +64,9 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="4dp"
-                android:visibility="visible"
-                android:src="@drawable/icon3" />
+                android:background="@drawable/icon_frame"
+                android:src="@drawable/icon3"
+                android:visibility="visible" />
         </FrameLayout>
 
     </LinearLayout>

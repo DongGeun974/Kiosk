@@ -13,7 +13,9 @@ import android.widget.LinearLayout;
 
 import com.example.myapplication.R;
 
-public class BottomBarCloseFragment extends Fragment {
+public class BottomBarCloseFragment extends Fragment implements BottomBarState{
+    int state = 0;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -30,9 +32,6 @@ public class BottomBarCloseFragment extends Fragment {
             }
         });
 
-        l.bringToFront();
-
-
         return view;
     }
 
@@ -43,5 +42,11 @@ public class BottomBarCloseFragment extends Fragment {
         BottomBarOpenFragment fragment = new BottomBarOpenFragment();
         fragmentTransaction.replace(R.id.frame_bottom_bar, fragment);
         fragmentTransaction.commit();
+    }
+
+    public void buttonChange(View v){
+        if((state & 1) != 0){
+//            ImageView
+        }
     }
 }
