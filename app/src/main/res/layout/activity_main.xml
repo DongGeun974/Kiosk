@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -25,52 +26,94 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.17" />
 
-        <ImageView
-            android:id="@+id/tohere"
-            android:layout_width="120sp"
-            android:layout_height="120sp"
-            android:src="@drawable/tohere"
-            android:tag="mainMenu"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintVertical_chainStyle="spread"></ImageView>
+            app:layout_constraintVertical_bias="0.35">
 
-        <ImageView
-            android:id="@+id/togo"
-            android:layout_width="120sp"
-            android:layout_height="120sp"
-            android:src="@drawable/togo"
-            android:tag="mainMenu"
-            app:layout_constraintBottom_toBottomOf="@+id/tohere"
+            <ImageView
+                android:id="@+id/tohere"
+                android:layout_width="120sp"
+                android:layout_height="120sp"
+                android:background="@drawable/photo_frame"
+                android:src="@drawable/tohere"
+                android:tag="mainMenu"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="매장에서 먹기"
+                android:textColor="#000000"
+                android:textSize="20sp"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tohere"
-            app:layout_constraintVertical_bias="1.0"></ImageView>
+            app:layout_constraintTop_toTopOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.35">
+
+            <ImageView
+                android:id="@+id/togo"
+                android:layout_width="120sp"
+                android:layout_height="120sp"
+                android:background="@drawable/photo_frame"
+                android:src="@drawable/togo"
+                android:tag="mainMenu"
+                app:layout_constraintBottom_toBottomOf="@+id/tohere"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.75"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tohere"></ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="포장해서 먹기"
+                android:textColor="#000000"
+                android:textSize="20sp"></TextView>
+        </LinearLayout>
 
         <Button
-            android:id="@+id/exitButton"
+            android:id="@+id/button_exit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="exit"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/frame_bottom_bar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.777"
+            app:layout_constraintHorizontal_bias="0.9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.871" />
+            app:layout_constraintVertical_bias="0.6" />
 
         <FrameLayout
-            android:id="@+id/main_frame"
+            android:id="@+id/frame_bottom_bar"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="match_parent"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
