@@ -1,15 +1,29 @@
 package com.example.myapplication;
 
+import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewManager;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
-public class MainActivity extends initActivity{
+import com.example.myapplication.ui.bottomBar.BottomBarFragment;
+
+
+public class MainActivity extends Activity {
+
+    private BottomBarFragment F1;
 
     /**
      * checkKeyButton 메서드를 통해 키 값 확인 후 해당 키 입력 이벤트 재정의해서 지움
@@ -55,67 +69,87 @@ public class MainActivity extends initActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        initScreen();
+        //출처: https://altongmon.tistory.com/395
+        int uiOptions = getWindow().getDecorView().getSystemUiVisibility();
+        int newUiOptions = uiOptions;
+        boolean isImmersiveModeEnabled = ((uiOptions | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY) == uiOptions);
+        if (isImmersiveModeEnabled) {
+            Log.i("Is on?", "Turning immersive mode mode off. ");
+        } else {
+            Log.i("Is on?", "Turning immersive mode mode on.");
+        }
+        // 몰입 모드를 꼭 적용해야 한다면 아래의 3가지 속성을 모두 적용시켜야 합니다
+        newUiOptions ^= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        newUiOptions ^= View.SYSTEM_UI_FLAG_FULLSCREEN;
+        newUiOptions ^= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
+
+        //////////////////////////////////////////////////////////////////
 
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
-        doExitButton();
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        Button button1 = (Button) findViewById(R.id.beverage);
-        button1.setOnClickListener((new View.OnClickListener() {
+        LinearLayout linear = (LinearLayout) inflater.inflate(R.layout.fragment_bottom_bar_close, null);
+
+        LinearLayout.LayoutParams paramlinear = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+
+        addContentView(linear, paramlinear);
+
+        View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), beverage.class);
-                startActivity(intent);
+                switch (v.getId()){
+                    case R.id.bottom_bar :
+                        Log.d("log01","bottom");
+                        break;
+                    case R.id.exitButton :
+                        Log.d("log01","exit");
+                        break;
+                }
             }
-        }));
+        };
 
-        Button button2 = (Button) findViewById(R.id.box);
-        button2.setOnClickListener((new View.OnClickListener() {
+//        findViewById(R.id.bottom_bar).setOnClickListener(clickListener);
+
+//        FragmentManager fm = getFragmentManager();
+//        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+//        fragmentTransaction.add(R.layout.fragment_bottom_bar_open, );
+//        fragmentTransaction.commit();
+
+
+        findViewById(R.id.bottom_bar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), box.class);
-                startActivity(intent);
-            }
-        }));
+                if(v.getId()==R.id.bottom_bar){
+//                    setContentView(R.layout.activity_main);
 
-        Button button3 = (Button) findViewById(R.id.burger);
-        button3.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), burger.class);
-                startActivity(intent);
-            }
-        }));
+                    LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        Button button4 = (Button) findViewById(R.id.chicken);
-        button4.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), chicken.class);
-                startActivity(intent);
-            }
-        }));
+                    LinearLayout linear = (LinearLayout) inflater.inflate(R.layout.fragment_bottom_bar_open, null);
 
-        Button button5 = (Button) findViewById(R.id.set);
-        button5.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), set.class);
-                startActivity(intent);
-            }
-        }));
+                    LinearLayout.LayoutParams paramlinear = new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.MATCH_PARENT
+                    );
 
-        Button button6 = (Button) findViewById(R.id.side);
-        button6.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), side.class);
-                startActivity(intent);
-            }
-        }));
+                    addContentView(linear, paramlinear);
 
-//        ConstraintLayout cc = new ConstraintLayout(this);
+                    findViewById(R.id.close_bottom_bar).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                        }
+                    });
+
+                }
+            }
+        });
+
     }
 }
