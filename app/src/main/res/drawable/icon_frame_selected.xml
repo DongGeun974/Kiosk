@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ic_frame_sel"
+    android:shape="rectangle">
+    <stroke
+        android:width="2px"
+        android:color="#00000000" />
+
+    <solid android:color="#FBEA55"></solid>
+
+    <padding
+        android:bottom="10px"
+        android:left="10px"
+        android:right="10px"
+        android:top="10px" />
+
+    <corners
+        android:bottomLeftRadius="4dp"
+        android:bottomRightRadius="4dp"
+        android:topLeftRadius="4dp"
+        android:topRightRadius="4dp" />
+
+</shape>
