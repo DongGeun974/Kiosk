@@ -14,8 +14,7 @@ import android.widget.ImageView;
 
 import com.example.myapplication.R;
 
-public class BottomBarOpenFragment extends Fragment implements BottomBarState {
-    int state;
+public class BottomBarOpenFragment extends InitBottomBar {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -69,104 +68,12 @@ public class BottomBarOpenFragment extends Fragment implements BottomBarState {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         BottomBarCloseFragment fragment = new BottomBarCloseFragment();
-//        fragmentTransaction.replace(R.id.frame_bottom_bar, fragment);
 
         Bundle bundle = new Bundle(); bundle.putInt("bottomBarState", state); // Key, Value
         fragment.setArguments(bundle);
-        Log.d("open end", String.valueOf(state));
 
         fragmentTransaction.replace(R.id.frame_bottom_bar, fragment);
 
         fragmentTransaction.commit();
-
-        this.onDestroyView();
-    }
-
-    public void StateView(View v){
-        ImageView WheelSel = (ImageView) v.findViewById(R.id.icon_wheel_selected);
-        ImageView WheelUnSel = (ImageView) v.findViewById(R.id.icon_wheel_unselected);
-        ImageView BiggerSel = (ImageView) v.findViewById(R.id.icon_bigger_selected);
-        ImageView BiggerUnSel = (ImageView) v.findViewById(R.id.icon_bigger_unselected);
-        ImageView BlindSel = (ImageView) v.findViewById(R.id.icon_blind_selected);
-        ImageView BlindUnSel = (ImageView) v.findViewById(R.id.icon_blind_unselected);
-
-        if((state & WHEEL) == 0) {
-            WheelSel.setVisibility(View.GONE);
-            WheelUnSel.setVisibility(View.VISIBLE);
-        }else {
-            WheelSel.setVisibility(View.VISIBLE);
-            WheelUnSel.setVisibility(View.GONE);
-        }
-
-        if((state & BIGGER) == 0){
-            BiggerSel.setVisibility(View.GONE);
-            BiggerUnSel.setVisibility(View.VISIBLE);
-        }else{
-            BiggerSel.setVisibility(View.VISIBLE);
-            BiggerUnSel.setVisibility(View.GONE);
-        }
-
-        if((state & COLORBLIND) == 0){
-            BlindSel.setVisibility(View.GONE);
-            BlindUnSel.setVisibility(View.VISIBLE);
-        }else{
-            BlindSel.setVisibility(View.VISIBLE);
-            BlindUnSel.setVisibility(View.GONE);
-        }
-    }
-
-    public void WheelViewChange(View v){
-        ImageView WheelSel = (ImageView) v.findViewById(R.id.icon_wheel_selected);
-        ImageView WheelUnSel = (ImageView) v.findViewById(R.id.icon_wheel_unselected);
-        Log.d("W start", String.valueOf(state));
-
-        if((state & WHEEL) != 0){
-            WheelSel.setVisibility(View.GONE);
-            WheelUnSel.setVisibility(View.VISIBLE);
-
-            state = state ^ WHEEL;
-
-        }else{
-            WheelSel.setVisibility(View.VISIBLE);
-            WheelUnSel.setVisibility(View.GONE);
-
-            state = state | WHEEL;
-        }
-    }
-
-    public void BiggerViewChange(View v){
-        ImageView BiggerSel = (ImageView) v.findViewById(R.id.icon_bigger_selected);
-        ImageView BiggerUnSel = (ImageView) v.findViewById(R.id.icon_bigger_unselected);
-
-        if((state & BIGGER) != 0){
-            BiggerSel.setVisibility(View.GONE);
-            BiggerUnSel.setVisibility(View.VISIBLE);
-
-            state = state ^ BIGGER;
-
-        }else{
-            BiggerSel.setVisibility(View.VISIBLE);
-            BiggerUnSel.setVisibility(View.GONE);
-
-            state = state | BIGGER;
-        }
-    }
-
-    public void BlindViewChange(View v){
-        ImageView BlindSel = (ImageView) v.findViewById(R.id.icon_blind_selected);
-        ImageView BlindUnSel = (ImageView) v.findViewById(R.id.icon_blind_unselected);
-
-        if((state & COLORBLIND) != 0){
-            BlindSel.setVisibility(View.GONE);
-            BlindUnSel.setVisibility(View.VISIBLE);
-
-            state = state ^ COLORBLIND;
-
-        }else{
-            BlindSel.setVisibility(View.VISIBLE);
-            BlindUnSel.setVisibility(View.GONE);
-
-            state = state | COLORBLIND;
-        }
     }
 }

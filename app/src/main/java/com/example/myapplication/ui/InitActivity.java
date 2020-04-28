@@ -13,9 +13,13 @@ import android.view.View;
 import com.example.myapplication.R;
 import com.example.myapplication.ui.bottomBar.BottomBarCloseFragment;
 
-
-public class InitActivity extends Activity {
-
+public abstract class InitActivity extends Activity {
+    /**
+     * functionState: 기능 플래그 비트로 구성 (1: Wheel 2: bigger 4: color blind)
+     * goOrHere: 포장 유무(true: 매장, false: 포장)
+     */
+    static int functionState=0;
+    static boolean goOrHere;
     /**
      * checkKeyButton 메서드를 통해 키 값 확인 후 해당 키 입력 이벤트 재정의해서 지움
      *
@@ -62,15 +66,17 @@ public class InitActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         makeFullScreen();
+    }
 
+    protected void makeBottomBar(){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        BottomBarCloseFragment fragment = new BottomBarCloseFragment();
-        fragmentTransaction.add(R.id.frame_bottom_bar, fragment);
+        BottomBarCloseFragment bottomBarCloseFragment = new BottomBarCloseFragment();
+        fragmentTransaction.add(R.id.frame_bottom_bar, bottomBarCloseFragment);
 
-        Bundle bundle = new Bundle(); bundle.putInt("bottomBarState", 0); // Key, Value
-        fragment.setArguments(bundle);
+        Bundle bundle = new Bundle(); bundle.putInt("bottomBarState", functionState); // Key, Value
+        bottomBarCloseFragment.setArguments(bundle);
 
         fragmentTransaction.commit();
     }
@@ -89,5 +95,21 @@ public class InitActivity extends Activity {
         newUiOptions ^= View.SYSTEM_UI_FLAG_FULLSCREEN;
         newUiOptions ^= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
+    }
+
+    public static int getFunctionState() {
+        return functionState;
+    }
+
+    public static boolean getGoOrHere(){
+        return goOrHere;
+    }
+
+    public static void setFunctionState(int functionState) {
+        InitActivity.functionState = functionState;
+    }
+
+    public static void setGoOrHere(boolean goOrHere) {
+        InitActivity.goOrHere = goOrHere;
     }
 }

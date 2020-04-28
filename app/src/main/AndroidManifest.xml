@@ -12,12 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".beverage"></activity>
-        <activity android:name=".box"></activity>
-        <activity android:name=".burger"></activity>
-        <activity android:name=".chicken"></activity>
-        <activity android:name=".set"></activity>
-        <activity android:name=".side"></activity>
+        <activity android:name=".ui.BuyActivity.BuyActivity"
+            android:theme="@style/AppThemeBuy"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
