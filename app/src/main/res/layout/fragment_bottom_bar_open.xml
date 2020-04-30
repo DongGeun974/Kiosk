@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_bottom_bar_open"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33000000"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view_close_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_weight="1"></View>
+
+    <LinearLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_weight="1"
+        android:background="#9CACFF"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/icon_wheel"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/icon_wheel_unselected"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/icon_frame"
+                    android:src="@drawable/icon1"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/icon_wheel_selected"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/icon_frame_selected"
+                    android:src="@drawable/icon1"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="휠체어 이용자입니다."
+                android:background="#FFFFFF"
+                android:layout_marginLeft="10dp"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/icon_bigger"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/icon_bigger_unselected"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/icon_frame"
+                    android:src="@drawable/icon2"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/icon_bigger_selected"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/icon_frame_selected"
+                    android:src="@drawable/icon2"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="저시력 이용자입니다."
+                android:background="#FFFFFF"
+                android:layout_marginLeft="10dp"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/icon_blind"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/icon_blind_unselected"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/icon_frame"
+                    android:src="@drawable/icon3"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/icon_blind_selected"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/icon_frame_selected"
+                    android:src="@drawable/icon3"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="색맹 이용자입니다."
+                android:background="#FFFFFF"
+                android:layout_marginLeft="10dp"
+                android:padding="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
