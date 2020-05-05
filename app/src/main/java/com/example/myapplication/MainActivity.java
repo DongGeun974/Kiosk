@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.myapplication.ui.BuyActivity.BuyActivity;
+import com.example.myapplication.ui.MenuMain.MenuActivity;
 import com.example.myapplication.ui.InitActivity;
 
 public class MainActivity extends InitActivity {
@@ -33,7 +33,7 @@ public class MainActivity extends InitActivity {
             public void onClick(View v){
                 setGoOrHere(true);
 
-                Intent intent=new Intent(MainActivity.this, BuyActivity.class);
+                Intent intent=new Intent(MainActivity.this, MenuActivity.class);
                 startActivity(intent);
             }
         });
@@ -42,7 +42,7 @@ public class MainActivity extends InitActivity {
             public void onClick(View v){
                 setGoOrHere(false);
 
-                Intent intent=new Intent(MainActivity.this, BuyActivity.class);
+                Intent intent=new Intent(MainActivity.this, MenuActivity.class);
                 startActivity(intent);
             }
         });

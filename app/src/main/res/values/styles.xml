@@ -1,5 +1,5 @@
 <resources>
-
+<!--    https://lktprogrammer.tistory.com/147-->
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -10,6 +10,26 @@
 
     <style name="AppThemeBuy" parent="Theme.AppCompat.Light.DarkActionBar">
 
+    </style>
+    
+    <style name="act_buy_menu">
+        <item name = "android:layout_width">0dp</item>
+        <item name = "android:layout_height">match_parent</item>
+        <item name = "android:layout_weight">1</item>
+        <item name = "android:gravity">center</item>
+        <item name = "android:textColor">@color/buy_menu_text_color</item>
+        <item name = "android:textSize">12sp</item>
+        <item name = "android:background">@drawable/frame_act_buy_menu_ic_unselected</item>
+    </style>
+
+    <style name="act_buy_menu_sel" parent="act_buy_menu">
+        <item name = "android:layout_width">0dp</item>
+        <item name = "android:layout_height">match_parent</item>
+        <item name = "android:layout_weight">1</item>
+        <item name = "android:gravity">center</item>
+        <item name = "android:textColor">@color/main_color</item>
+        <item name = "android:textSize">15sp</item>
+        <item name = "android:background">@drawable/frame_act_buy_menu_ic_selected</item>
     </style>
 
 </resources>

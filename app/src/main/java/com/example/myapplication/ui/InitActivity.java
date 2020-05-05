@@ -20,6 +20,7 @@ public abstract class InitActivity extends Activity {
      */
     static int functionState=0;
     static boolean goOrHere;
+
     /**
      * checkKeyButton 메서드를 통해 키 값 확인 후 해당 키 입력 이벤트 재정의해서 지움
      *

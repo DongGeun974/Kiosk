@@ -8,10 +8,11 @@ import com.example.myapplication.R;
 
 public class InitBottomBar extends Fragment {
     /**
+     * 추가 기능을 플래그 형식으로 나타냄
      * 비트로 구성
-     * 1: Wheel
-     * 2: bigger
-     * 4: color blind
+     * 1: WHEEL
+     * 2: BIGGER
+     * 4: COLORBLIND
      */
     static int state;
     int WHEEL = 0x00000001;

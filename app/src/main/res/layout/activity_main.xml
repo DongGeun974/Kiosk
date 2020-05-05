@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -11,6 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".MainActivity">
 
         <TextView
@@ -18,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Kiosk Demo"
-            android:textSize="24sp"
+            android:textSize="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -30,8 +34,8 @@
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.2"
@@ -41,11 +45,11 @@
 
             <ImageView
                 android:id="@+id/tohere"
-                android:layout_width="120sp"
-                android:layout_height="120sp"
-                android:background="@drawable/photo_frame"
-                android:src="@drawable/tohere"
-                android:tag="mainMenu"></ImageView>
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/frame_act_main_ic"
+                android:src="@drawable/ic_act_main_tohere_white"
+                android:tag="mainMenu" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -53,15 +57,15 @@
                 android:paddingTop="10dp"
                 android:text="매장에서 먹기"
                 android:textColor="#000000"
-                android:textSize="20sp"></TextView>
+                android:textSize="20dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.8"
@@ -71,16 +75,16 @@
 
             <ImageView
                 android:id="@+id/togo"
-                android:layout_width="120sp"
-                android:layout_height="120sp"
-                android:background="@drawable/photo_frame"
-                android:src="@drawable/togo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/frame_act_main_ic"
+                android:src="@drawable/ic_act_main_togo_white"
                 android:tag="mainMenu"
                 app:layout_constraintBottom_toBottomOf="@+id/tohere"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tohere"></ImageView>
+                app:layout_constraintTop_toTopOf="@+id/tohere" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -88,7 +92,7 @@
                 android:paddingTop="10dp"
                 android:text="포장해서 먹기"
                 android:textColor="#000000"
-                android:textSize="20sp"></TextView>
+                android:textSize="20dp" />
         </LinearLayout>
 
         <Button
@@ -96,24 +100,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="exit"
-            app:layout_constraintBottom_toBottomOf="@+id/frame_bottom_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.55" />
-
-        <FrameLayout
-            android:id="@+id/frame_bottom_bar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </FrameLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/frame_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
