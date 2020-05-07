@@ -82,6 +82,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/burger2" />
+
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -105,9 +106,15 @@
                         android:src="@drawable/burger2"
                         android:background="@drawable/frame_act_buy_menu_ic_unselected"/>
                     <TextView
+                        android:id="@+id/abc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="항목2입니다"
+                        android:text="여기자리"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="여기자리"
                         android:layout_gravity="center"/>
                 </LinearLayout>
                 <LinearLayout
