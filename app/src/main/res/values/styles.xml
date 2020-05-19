@@ -12,24 +12,26 @@
 
     </style>
     
-    <style name="act_buy_menu">
+    <style name="btn_act_menu_menu">
         <item name = "android:layout_width">0dp</item>
-        <item name = "android:layout_height">match_parent</item>
+        <item name = "android:layout_height">@dimen/ic_buy_menu_height</item>
+        <item name = "android:gravity">center|bottom</item>
+        <item name = "android:textColor">@color/dark_grey</item>
+        <item name = "android:textSize">12dp</item>
+        <item name = "android:paddingBottom">5dp</item>
         <item name = "android:layout_weight">1</item>
-        <item name = "android:gravity">center</item>
-        <item name = "android:textColor">@color/buy_menu_text_color</item>
-        <item name = "android:textSize">12sp</item>
-        <item name = "android:background">@drawable/frame_act_buy_menu_ic_unselected</item>
+        <item name = "android:layout_marginRight">8dp</item>
+        <item name = "android:layout_marginLeft">8dp</item>
     </style>
 
-    <style name="act_buy_menu_sel" parent="act_buy_menu">
-        <item name = "android:layout_width">0dp</item>
-        <item name = "android:layout_height">match_parent</item>
-        <item name = "android:layout_weight">1</item>
-        <item name = "android:gravity">center</item>
-        <item name = "android:textColor">@color/main_color</item>
-        <item name = "android:textSize">15sp</item>
-        <item name = "android:background">@drawable/frame_act_buy_menu_ic_selected</item>
-    </style>
+<!--    <style name="act_buy_menu_sel" parent="act_buy_menu">-->
+<!--        <item name = "android:layout_width">0dp</item>-->
+<!--        <item name = "android:layout_height">match_parent</item>-->
+<!--        <item name = "android:layout_weight">1</item>-->
+<!--        <item name = "android:gravity">center</item>-->
+<!--        <item name = "android:textColor">@color/main_color</item>-->
+<!--        <item name = "android:textSize">15sp</item>-->
+<!--        <item name = "android:background">@drawable/frame_act_buy_menu_ic_selected</item>-->
+<!--    </style>-->
 
 </resources>

@@ -62,85 +62,85 @@
                     android:layout_weight="1"/>
             </LinearLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="5"
-                android:background="#C4DBFF">
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="5"-->
+<!--                android:background="#C4DBFF">-->
 
-                <LinearLayout
-                    android:id="@+id/item1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/item2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:orientation="vertical">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/item1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toStartOf="@id/item2"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    android:orientation="vertical">-->
 
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/burger2" />
+<!--                    <ImageView-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="100dp"-->
+<!--                        android:src="@drawable/burger2" />-->
 
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="항목1입니다"
-                            android:layout_gravity="center"/>
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="항목1입니다"-->
+<!--                            android:layout_gravity="center"/>-->
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/item2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/item3"
-                    app:layout_constraintStart_toEndOf="@id/item1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:orientation="vertical">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/item2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toStartOf="@id/item3"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/item1"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    android:orientation="vertical">-->
 
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/burger2"
-                        android:background="@drawable/frame_act_buy_menu_ic_unselected"/>
-                    <TextView
-                        android:id="@+id/abc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="여기자리"
-                        android:layout_gravity="center"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="여기자리"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/item3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/item2"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:orientation="vertical">
+<!--                    <ImageView-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="100dp"-->
+<!--                        android:src="@drawable/burger2"-->
+<!--                        android:background="@drawable/frame_act_buy_menu_ic_unselected"/>-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/abc"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="여기자리"-->
+<!--                        android:layout_gravity="center"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="여기자리"-->
+<!--                        android:layout_gravity="center"/>-->
+<!--                </LinearLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/item3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/item2"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    android:orientation="vertical">-->
 
 
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/burger2"
-                        android:background="@drawable/frame_frag_bottombar_ic_unselected"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="항목3입니다"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
+<!--                    <ImageView-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="100dp"-->
+<!--                        android:src="@drawable/burger2"-->
+<!--                        android:background="@drawable/frame_frag_bottombar_ic_unselected"/>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="항목3입니다"-->
+<!--                        android:layout_gravity="center"/>-->
+<!--                </LinearLayout>-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
             <LinearLayout
                 android:id="@+id/basket"
@@ -189,7 +189,14 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2" />
+                android:layout_weight="2" >
+
+                <ImageButton
+                    android:id="@+id/qwe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"/>
+            </FrameLayout>
         </LinearLayout>
     </LinearLayout>
 

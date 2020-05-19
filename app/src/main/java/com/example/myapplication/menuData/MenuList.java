@@ -2,30 +2,29 @@ package com.example.myapplication.menuData;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class MenuList {
-    private GitHubService gitHubService;
-    private List<Menu> menu;
-    private Retrofit retrofit;
+    private ArrayList<Menu> menuList = new ArrayList<>();
 
-    public void setMenuList(Call<List<Menu>> call) {
-//        retrofit = new Retrofit.Builder()
-//                .baseUrl("http://rldnd2637.dothome.co.kr")
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//        gitHubService = retrofit.create(GitHubService.class);
-
-
+    public void setMenuList(List<Menu> input) {
+        menuList = (ArrayList<Menu>) input;
     }
 
     public List<Menu> getMenuList(){
-        return menu;
+        return menuList;
+    }
+
+    public void setCategoryMenuList(MenuList dbMenuList, String category){
+        setMenuList(new ArrayList<>());
+        Log.d("asasas", " / "+category);
+        for(Menu item : dbMenuList.getMenuList()){
+//            Log.d("aaaaaaaa", item.getCategory()+"  "+category);
+//            Log.d("aaaaaaaa", String.valueOf(item.getCategory().equals(category)));
+            if(item.getCategory().equals(category)) {
+                getMenuList().add(item);
+            }
+        }
     }
 }

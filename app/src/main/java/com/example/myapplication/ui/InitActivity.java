@@ -11,7 +11,18 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import com.example.myapplication.R;
+import com.example.myapplication.menuData.GitHubService;
+import com.example.myapplication.menuData.Menu;
+import com.example.myapplication.menuData.MenuList;
 import com.example.myapplication.ui.bottomBar.BottomBarCloseFragment;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public abstract class InitActivity extends Activity {
     /**
@@ -20,6 +31,7 @@ public abstract class InitActivity extends Activity {
      */
     static int functionState=0;
     static boolean goOrHere;
+    static MenuList dbMenuList = new MenuList();
 
     /**
      * checkKeyButton 메서드를 통해 키 값 확인 후 해당 키 입력 이벤트 재정의해서 지움
@@ -67,6 +79,8 @@ public abstract class InitActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         makeFullScreen();
+
+        getFromNetwork();
     }
 
     protected void makeBottomBar(){
@@ -98,6 +112,29 @@ public abstract class InitActivity extends Activity {
         getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
     }
 
+    public void getFromNetwork(){
+        GitHubService gitHubService;
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://rldnd2637.dothome.co.kr")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        gitHubService = retrofit.create(GitHubService.class);
+        Call<List<Menu>> call = gitHubService.getRepos();
+
+        call.enqueue(new Callback<List<Menu>>() {
+            @Override
+            public void onResponse(Call<List<Menu>> call, Response<List<Menu>> response) {
+                if (response.isSuccessful()) {
+                    dbMenuList.setMenuList(response.body());
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Menu>> call, Throwable t) {
+                Log.e("Not Response", call + " " + t.getLocalizedMessage());
+            }
+        });
+    }
+
     public static int getFunctionState() {
         return functionState;
     }
@@ -106,11 +143,19 @@ public abstract class InitActivity extends Activity {
         return goOrHere;
     }
 
+    public static MenuList getDbMenuList() {
+        return dbMenuList;
+    }
+
     public static void setFunctionState(int functionState) {
         InitActivity.functionState = functionState;
     }
 
     public static void setGoOrHere(boolean goOrHere) {
         InitActivity.goOrHere = goOrHere;
+    }
+
+    public static void setDbMenuList(MenuList dbMenuList) {
+        InitActivity.dbMenuList = dbMenuList;
     }
 }

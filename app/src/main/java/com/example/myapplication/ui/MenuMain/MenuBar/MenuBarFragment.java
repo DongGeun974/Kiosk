@@ -9,10 +9,13 @@ import android.view.ViewGroup;
 import android.widget.ToggleButton;
 
 import com.example.myapplication.R;
+import com.example.myapplication.ui.MenuMain.MenuActivity;
+
+import static com.example.myapplication.ui.InitActivity.getDbMenuList;
 
 
 public class MenuBarFragment extends Fragment {
-    private String[] menuList = {"special", "premium", "burger", "alldayking", "chicken", "side", "drinkdesssert"};
+    private String[] categoryList = {"chichen", "burger", "set", "beverage", "side"};
     private int menuState;
 
     @Override
@@ -26,18 +29,14 @@ public class MenuBarFragment extends Fragment {
     }
 
     public void setMenuButtonEvent(View v) {
-        final int menuBtnCount = 8;
+        final int menuBtnCount = 4;
         final ToggleButton[] menuBtnList = new ToggleButton[menuBtnCount];
 
-        for (int i = 0; i < menuBtnCount; i++) {
+        for (int i = 0; i < menuBtnCount; i++)
             menuBtnList[i] = v.findViewWithTag("menu" + i);
-            if(i==0){
-                menuBtnList[i].setChecked(true);
-                menuBtnList[i].setBackgroundDrawable(getResources().getDrawable(R.drawable.frame_act_buy_menu_ic_selected));
-                menuBtnList[i].setTextSize(15);
-                menuBtnList[i].setTextColor(getResources().getColor(R.color.main_color));
-            }
-        }
+
+        menuBtnList[0].setTextColor(getResources().getColor(R.color.white));
+        menuBtnList[0].setChecked(true);
 
         for (final ToggleButton menuBtn : menuBtnList) {
             menuBtn.setOnClickListener(new View.OnClickListener() {
@@ -47,19 +46,22 @@ public class MenuBarFragment extends Fragment {
                     ToggleButton beforeOnBtn = menuBtnList[menuState];
 
                     if (menuBtn.isChecked()) {
-                        beforeOnBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.frame_act_buy_menu_ic_unselected));
-                        beforeOnBtn.setTextSize(12);
-                        beforeOnBtn.setTextColor(getResources().getColor(R.color.buy_menu_text_color));
+                        beforeOnBtn.setTextColor(getResources().getColor(R.color.dark_grey));
                         beforeOnBtn.setChecked(false);
 
-                        menuBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.frame_act_buy_menu_ic_selected));
-                        menuBtn.setTextSize(15);
-                        menuBtn.setTextColor(getResources().getColor(R.color.main_color));
+                        menuBtn.setTextColor(getResources().getColor(R.color.white));
                         menuBtn.setChecked(true);
 
                         menuState = nowBtnState;
+                        ((MenuActivity)getActivity()).setMenuState(menuState);
+                        ((MenuActivity)getActivity()).getCt().setCategoryMenuList(getDbMenuList(), categoryList[menuState]);
+                        ((MenuActivity)getActivity()).displayMenuList();
 
-                        Log.d("Menu_bar", "버튼 On & "+menuList[menuState]);
+                        Log.d("Menu_bar", "버튼 On & "+categoryList[menuState]);
+
+                    }else if(menuBtn == beforeOnBtn){
+                        menuBtn.setTextColor(getResources().getColor(R.color.white));
+                        menuBtn.setChecked(true);
                     }
                 }
             });
