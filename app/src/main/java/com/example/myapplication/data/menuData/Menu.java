@@ -1,4 +1,6 @@
-package com.example.myapplication.menuData;
+package com.example.myapplication.data.menuData;
+
+import androidx.annotation.NonNull;
 
 public class Menu {
     private int id;
@@ -43,10 +45,10 @@ public class Menu {
     public String toString() {
         return "Menu{" +
                 "id=" + id +
-                ",category='" + category +'\'' +
+                ", category='" + category + '\'' +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", url='" + url +'\'' +
+                ", url='" + url + '\'' +
                 '}';
     }
 }

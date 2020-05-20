@@ -11,9 +11,9 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import com.example.myapplication.R;
-import com.example.myapplication.menuData.GitHubService;
-import com.example.myapplication.menuData.Menu;
-import com.example.myapplication.menuData.MenuList;
+import com.example.myapplication.data.menuData.GitHubService;
+import com.example.myapplication.data.menuData.Menu;
+import com.example.myapplication.data.menuData.MenuList;
 import com.example.myapplication.ui.bottomBar.BottomBarCloseFragment;
 
 import java.util.List;
@@ -83,7 +83,7 @@ public abstract class InitActivity extends Activity {
         getFromNetwork();
     }
 
-    protected void makeBottomBar(){
+    protected void displayBottomBar(){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 

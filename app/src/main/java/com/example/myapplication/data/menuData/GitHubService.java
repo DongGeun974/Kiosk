@@ -1,4 +1,4 @@
-package com.example.myapplication.menuData;
+package com.example.myapplication.data.menuData;
 
 import java.util.List;
 

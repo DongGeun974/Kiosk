@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.MenuMain.MenuBar;
+package com.example.myapplication.ui.MenuCategoryBar;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import com.example.myapplication.ui.MenuMain.MenuActivity;
 import static com.example.myapplication.ui.InitActivity.getDbMenuList;
 
 
-public class MenuBarFragment extends Fragment {
+public class MenuCategoryBarFragment extends Fragment {
     private String[] categoryList = {"chichen", "burger", "set", "beverage", "side"};
     private int menuState;
 
@@ -53,8 +53,8 @@ public class MenuBarFragment extends Fragment {
                         menuBtn.setChecked(true);
 
                         menuState = nowBtnState;
-                        ((MenuActivity)getActivity()).setMenuState(menuState);
-                        ((MenuActivity)getActivity()).getCt().setCategoryMenuList(getDbMenuList(), categoryList[menuState]);
+                        ((MenuActivity)getActivity()).setCategoryState(menuState);
+                        ((MenuActivity)getActivity()).getCategoryMenuList().setMenuListWithCategory(getDbMenuList(), categoryList[menuState]);
                         ((MenuActivity)getActivity()).displayMenuList();
 
                         Log.d("Menu_bar", "버튼 On & "+categoryList[menuState]);

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import com.example.myapplication.ui.MenuMain.MenuActivity;
 import com.example.myapplication.ui.InitActivity;
@@ -16,7 +15,7 @@ public class MainActivity extends InitActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        makeBottomBar();
+        displayBottomBar();
 
         Button exit = (Button) findViewById(R.id.button_exit);
         exit.setOnClickListener(new View.OnClickListener() {
@@ -26,25 +25,34 @@ public class MainActivity extends InitActivity {
             }
         });
 
-        ImageView toHere = (ImageView) findViewById(R.id.tohere);
-        ImageView toGo = (ImageView) findViewById(R.id.togo);
-        toHere.setOnClickListener(new View.OnClickListener(){
+        Button start = (Button) findViewById(R.id.act_main_btn_start);
+        start.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                setGoOrHere(true);
-
+            public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this, MenuActivity.class);
                 startActivity(intent);
             }
         });
-        toGo.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                setGoOrHere(false);
 
-                Intent intent=new Intent(MainActivity.this, MenuActivity.class);
-                startActivity(intent);
-            }
-        });
+//        ImageView toHere = (ImageView) findViewById(R.id.tohere);
+//        ImageView toGo = (ImageView) findViewById(R.id.togo);
+//        toHere.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                setGoOrHere(true);
+//
+//                Intent intent=new Intent(MainActivity.this, MenuActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//        toGo.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                setGoOrHere(false);
+//
+//                Intent intent=new Intent(MainActivity.this, MenuActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }

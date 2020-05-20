@@ -1,4 +1,4 @@
-package com.example.myapplication.menuData;
+package com.example.myapplication.data.menuData;
 
 import android.util.Log;
 
@@ -16,15 +16,26 @@ public class MenuList {
         return menuList;
     }
 
-    public void setCategoryMenuList(MenuList dbMenuList, String category){
+    public void addMenuList(Menu menu){
+        getMenuList().add(menu);
+    }
+
+    public void setMenuListWithCategory(MenuList dbMenuList, String category){
         setMenuList(new ArrayList<>());
-        Log.d("asasas", " / "+category);
+        Log.d("setMenuListWithCategory", "category is "+ category);
+
         for(Menu item : dbMenuList.getMenuList()){
-//            Log.d("aaaaaaaa", item.getCategory()+"  "+category);
-//            Log.d("aaaaaaaa", String.valueOf(item.getCategory().equals(category)));
             if(item.getCategory().equals(category)) {
                 getMenuList().add(item);
             }
         }
+    }
+
+    public Menu getMenuWithId(int id){
+        for(Menu menu: getMenuList())
+            if (menu.getId() == id)
+                return menu;
+
+        return null;
     }
 }
