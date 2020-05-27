@@ -23,7 +23,7 @@ public class BottomBarCloseFragment extends InitBottomBar{
 
         StateView(view);
 
-        LinearLayout l = (LinearLayout) view.findViewById(R.id.bottom_bar);
+        LinearLayout l = (LinearLayout) view.findViewById(R.id.lay_fragBottombarClose_bottomBar);
         l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

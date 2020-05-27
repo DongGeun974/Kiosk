@@ -6,13 +6,18 @@ import android.widget.ImageView;
 
 import com.example.myapplication.R;
 
+
 public class InitBottomBar extends Fragment {
     /**
      * 추가 기능을 플래그 형식으로 나타냄
      * 비트로 구성
-     * 1: WHEEL
-     * 2: BIGGER
-     * 4: COLORBLIND
+     * 1: WHEEL (0001)
+     * 2: BIGGER (0010)
+     * 4: COLORBLIND (0100)
+     * state=1 >> WHEEL만 적용
+     * state=3 >> WHEEL이랑 BIGGER랑 적용
+     * state=5
+     *
      */
     static int state;
     int WHEEL = 0x00000001;
@@ -92,13 +97,15 @@ public class InitBottomBar extends Fragment {
         ImageView BlindSel = (ImageView) v.findViewById(R.id.icon_blind_selected);
         ImageView BlindUnSel = (ImageView) v.findViewById(R.id.icon_blind_unselected);
 
+        //여기가 껐을때
         if((state & COLORBLIND) != 0){
             BlindSel.setVisibility(View.GONE);
             BlindUnSel.setVisibility(View.VISIBLE);
 
             state = state ^ COLORBLIND;
 
-        }else{
+        }//여기가 켰을때
+        else{
             BlindSel.setVisibility(View.VISIBLE);
             BlindUnSel.setVisibility(View.GONE);
 

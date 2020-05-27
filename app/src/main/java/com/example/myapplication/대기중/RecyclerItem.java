@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.MenuMain;
+package com.example.myapplication.대기중;
 
 import android.graphics.drawable.Drawable;
 

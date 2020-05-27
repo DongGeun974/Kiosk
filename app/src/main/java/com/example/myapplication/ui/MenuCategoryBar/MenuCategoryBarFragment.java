@@ -15,7 +15,7 @@ import static com.example.myapplication.ui.InitActivity.getDbMenuList;
 
 
 public class MenuCategoryBarFragment extends Fragment {
-    private String[] categoryList = {"chichen", "burger", "set", "beverage", "side"};
+    private String[] categoryList = {"chicken", "burger&set&box", "side", "beverage"};
     private int menuState;
 
     @Override
@@ -53,8 +53,10 @@ public class MenuCategoryBarFragment extends Fragment {
                         menuBtn.setChecked(true);
 
                         menuState = nowBtnState;
+
+                        ((MenuActivity)getActivity()).setMenuPage(0);
                         ((MenuActivity)getActivity()).setCategoryState(menuState);
-                        ((MenuActivity)getActivity()).getCategoryMenuList().setMenuListWithCategory(getDbMenuList(), categoryList[menuState]);
+                        ((MenuActivity)getActivity()).getCategoryMenuList().setMenuListWithCategory(getDbMenuList(), categoryList[menuState].split("&"));
                         ((MenuActivity)getActivity()).displayMenuList();
 
                         Log.d("Menu_bar", "버튼 On & "+categoryList[menuState]);

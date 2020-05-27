@@ -7,58 +7,60 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHeight_percent="0.9"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="Kiosk Demo"
-            android:textSize="24dp"
-            android:layout_weight="2"
             android:gravity="center"
-            android:layout_gravity="center"/>
+            android:text="Kiosk Demo"
+            android:textSize="40dp"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintBottom_toTopOf="@+id/btn_act_main_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/act_main_btn_start"
-            android:layout_width="match_parent"
+            android:id="@+id/btn_act_main_start"
+            android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="#2CFF3E3E"
             android:text="화면을 클릭해 시작하세요."
-            android:layout_weight="8"
-            android:background="#2CFF3E3E"/>
+            android:textSize="40dp"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintBottom_toTopOf="@+id/btn_act_main_exit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <Button
-            android:id="@+id/button_exit"
-            android:layout_width="wrap_content"
+            android:id="@+id/btn_act_main_exit"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="exit"
-            android:layout_weight="1"
-            android:layout_margin="10dp"
-            android:textColor="@color/white"
             android:background="@color/dark_grey"
-            android:layout_gravity="center" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-    </LinearLayout>
+            android:text="exit"
+            android:textColor="@color/white"
+            android:textSize="40dp"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_act_main_start" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:id="@+id/frame_bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

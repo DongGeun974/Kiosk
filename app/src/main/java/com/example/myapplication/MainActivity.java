@@ -17,7 +17,7 @@ public class MainActivity extends InitActivity {
 
         displayBottomBar();
 
-        Button exit = (Button) findViewById(R.id.button_exit);
+        Button exit = (Button) findViewById(R.id.btn_act_main_exit);
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,7 +25,7 @@ public class MainActivity extends InitActivity {
             }
         });
 
-        Button start = (Button) findViewById(R.id.act_main_btn_start);
+        Button start = (Button) findViewById(R.id.btn_act_main_start);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -20,15 +20,15 @@ public class MenuList {
         getMenuList().add(menu);
     }
 
-    public void setMenuListWithCategory(MenuList dbMenuList, String category){
+    public void setMenuListWithCategory(MenuList dbMenuList, String... categorys){
         setMenuList(new ArrayList<>());
-        Log.d("setMenuListWithCategory", "category is "+ category);
+        Log.d("setMenuListWithCategory", "category is "+ categorys);
 
-        for(Menu item : dbMenuList.getMenuList()){
-            if(item.getCategory().equals(category)) {
-                getMenuList().add(item);
-            }
-        }
+        for(Menu item : dbMenuList.getMenuList())
+            for(String category : categorys)
+                if(item.getCategory().equals(category))
+                    getMenuList().add(item);
+
     }
 
     public Menu getMenuWithId(int id){

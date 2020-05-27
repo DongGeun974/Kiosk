@@ -1,6 +1,6 @@
 package com.example.myapplication.data.menuData;
 
-import androidx.annotation.NonNull;
+import android.media.Image;
 
 public class Menu {
     private int id;
@@ -8,6 +8,7 @@ public class Menu {
     private String name;
     private int price;
     private String url;
+    private Image img;
 
     public int getId() {
         return id;

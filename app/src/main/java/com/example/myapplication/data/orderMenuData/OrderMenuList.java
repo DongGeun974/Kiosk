@@ -20,4 +20,11 @@ public class OrderMenuList {
     public void clearOrderMenuList(){
         setOrderMenuList(new ArrayList<>());
     }
+
+    @Override
+    public String toString() {
+        return "OrderMenuList{" +
+                "orderMenuList=" + orderMenuList +
+                '}';
+    }
 }

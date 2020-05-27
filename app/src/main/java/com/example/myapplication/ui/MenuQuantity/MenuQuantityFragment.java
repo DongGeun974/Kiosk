@@ -76,6 +76,8 @@ public class MenuQuantityFragment extends Fragment {
                 OrderMenu orderMenu = new OrderMenu(selMenu, quantity[0]);
                 ((MenuActivity)getActivity()).getOrderMenuList().addOrderMenuList(orderMenu);
                 Log.d("At Quantity", String.valueOf(orderMenu));
+                Log.d("At Quantity", String.valueOf(((MenuActivity)getActivity()).getOrderMenuList()));
+                ((MenuActivity)getActivity()).a();
 
                 FragmentManager fragmentManager = getActivity().getFragmentManager();
                 fragmentManager.beginTransaction().remove(MenuQuantityFragment.this).commit();

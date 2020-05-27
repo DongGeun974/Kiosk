@@ -12,9 +12,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="11" />
+        android:layout_weight="9"/>
     <LinearLayout
-        android:id="@+id/bottom_bar"
+        android:id="@+id/lay_fragBottombarClose_bottomBar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="#323232"
@@ -43,17 +43,17 @@
                 android:layout_gravity="bottom">
                 <ImageView
                     android:id="@+id/icon_wheel_unselected"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/frame_frag_bottombar_ic_unselected"
-                    android:src="@drawable/ic_frag_bottombar_wheel"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/frame_fragbottombar_icunselected"
+                    android:src="@drawable/ic_fragbottombar_wheel"
                     android:visibility="visible" />
                 <ImageView
                     android:id="@+id/icon_wheel_selected"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/frame_frag_bottombar_ic_selected"
-                    android:src="@drawable/ic_frag_bottombar_wheel"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/frame_fragbottombar_icselected"
+                    android:src="@drawable/ic_fragbottombar_wheel"
                     android:visibility="gone" />
             </FrameLayout>
 
@@ -68,17 +68,17 @@
                 android:visibility="visible">
                 <ImageView
                     android:id="@+id/icon_bigger_unselected"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/frame_frag_bottombar_ic_unselected"
-                    android:src="@drawable/ic_frag_bottombar_bigger"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/frame_fragbottombar_icunselected"
+                    android:src="@drawable/ic_fragbottombar_bigger"
                     android:visibility="visible" />
                 <ImageView
                     android:id="@+id/icon_bigger_selected"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/frame_frag_bottombar_ic_selected"
-                    android:src="@drawable/ic_frag_bottombar_bigger"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/frame_fragbottombar_icselected"
+                    android:src="@drawable/ic_fragbottombar_bigger"
                     android:visibility="gone" />
             </FrameLayout>
 
@@ -93,17 +93,17 @@
                 android:visibility="visible">
                 <ImageView
                     android:id="@+id/icon_blind_unselected"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/frame_frag_bottombar_ic_unselected"
-                    android:src="@drawable/ic_frag_bottombar_color_blind"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/frame_fragbottombar_icunselected"
+                    android:src="@drawable/ic_fragbottombar_colorblind"
                     android:visibility="visible" />
                 <ImageView
                     android:id="@+id/icon_blind_selected"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/frame_frag_bottombar_ic_selected"
-                    android:src="@drawable/ic_frag_bottombar_color_blind"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/frame_fragbottombar_icselected"
+                    android:src="@drawable/ic_fragbottombar_colorblind"
                     android:visibility="gone" />
             </FrameLayout>
         </LinearLayout>
@@ -144,8 +144,8 @@
 <!--                android:layout_marginTop="4dp"-->
 <!--                android:layout_marginRight="8dp"-->
 <!--                android:layout_marginBottom="4dp"-->
-<!--                android:background="@drawable/frame_frag_bottombar_ic_unselected"-->
-<!--                android:src="@drawable/ic_frag_bottombar_wheel"-->
+<!--                android:background="@drawable/frame_fragbottombar_icunselected"-->
+<!--                android:src="@drawable/ic_fragbottombar_wheel"-->
 <!--                android:visibility="visible" />-->
 
 <!--            <ImageView-->
@@ -156,8 +156,8 @@
 <!--                android:layout_marginTop="4dp"-->
 <!--                android:layout_marginRight="8dp"-->
 <!--                android:layout_marginBottom="4dp"-->
-<!--                android:background="@drawable/frame_frag_bottombar_ic_selected"-->
-<!--                android:src="@drawable/ic_frag_bottombar_wheel"-->
+<!--                android:background="@drawable/frame_fragbottombar_icselected"-->
+<!--                android:src="@drawable/ic_fragbottombar_wheel"-->
 <!--                android:visibility="gone" />-->
 <!--        </FrameLayout>-->
 
@@ -176,8 +176,8 @@
 <!--                android:layout_marginTop="4dp"-->
 <!--                android:layout_marginRight="8dp"-->
 <!--                android:layout_marginBottom="4dp"-->
-<!--                android:background="@drawable/frame_frag_bottombar_ic_unselected"-->
-<!--                android:src="@drawable/ic_frag_bottombar_bigger"-->
+<!--                android:background="@drawable/frame_fragbottombar_icunselected"-->
+<!--                android:src="@drawable/ic_fragbottombar_bigger"-->
 <!--                android:visibility="visible" />-->
 <!--            <ImageView-->
 <!--                android:id="@+id/icon_bigger_selected"-->
@@ -187,8 +187,8 @@
 <!--                android:layout_marginTop="4dp"-->
 <!--                android:layout_marginRight="8dp"-->
 <!--                android:layout_marginBottom="4dp"-->
-<!--                android:background="@drawable/frame_frag_bottombar_ic_selected"-->
-<!--                android:src="@drawable/ic_frag_bottombar_bigger"-->
+<!--                android:background="@drawable/frame_fragbottombar_icselected"-->
+<!--                android:src="@drawable/ic_fragbottombar_bigger"-->
 <!--                android:visibility="gone" />-->
 <!--        </FrameLayout>-->
 
@@ -206,8 +206,8 @@
 <!--                android:layout_marginTop="4dp"-->
 <!--                android:layout_marginRight="8dp"-->
 <!--                android:layout_marginBottom="4dp"-->
-<!--                android:background="@drawable/frame_frag_bottombar_ic_unselected"-->
-<!--                android:src="@drawable/ic_frag_bottombar_color_blind"-->
+<!--                android:background="@drawable/frame_fragbottombar_icunselected"-->
+<!--                android:src="@drawable/ic_fragbottombar_colorblind"-->
 <!--                android:visibility="visible" />-->
 <!--            <ImageView-->
 <!--                android:id="@+id/icon_blind_selected"-->
@@ -217,8 +217,8 @@
 <!--                android:layout_marginTop="4dp"-->
 <!--                android:layout_marginRight="8dp"-->
 <!--                android:layout_marginBottom="4dp"-->
-<!--                android:background="@drawable/frame_frag_bottombar_ic_selected"-->
-<!--                android:src="@drawable/ic_frag_bottombar_color_blind"-->
+<!--                android:background="@drawable/frame_fragbottombar_icselected"-->
+<!--                android:src="@drawable/ic_fragbottombar_colorblind"-->
 <!--                android:visibility="gone" />-->
 <!--        </FrameLayout>-->
 

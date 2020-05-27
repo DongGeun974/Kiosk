@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.MenuMain;
+package com.example.myapplication.대기중;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
         Context context = parent.getContext() ;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
 
-//        View view = inflater.inflate(R.layout.fragment_menu_recycler_item, parent, false) ;
-        view = inflater.inflate(R.layout.fragment_menu_recycler_item, parent, false) ;
+//        View view = inflater.inflate(R.layout.fragment_buy_recycler_item, parent, false) ;
+        view = inflater.inflate(R.layout.fragment_buy_recycler_item, parent, false) ;
 //        RecyclerImageTextAdapter.ViewHolder vh = new RecyclerImageTextAdapter.ViewHolder(view) ;
         vh = new RecyclerImageTextAdapter.ViewHolder(view) ;
 
