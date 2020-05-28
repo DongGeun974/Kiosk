@@ -12,7 +12,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.MyAdapter;
 import com.example.myapplication.R;
 import com.example.myapplication.data.orderMenuData.OrderMenu;
 import com.example.myapplication.data.orderMenuData.OrderMenuList;
@@ -23,20 +22,24 @@ import com.example.myapplication.ui.MenuCategoryBar.MenuCategoryBarFragment;
 import com.example.myapplication.ui.InitActivity;
 import com.example.myapplication.ui.MenuQuantity.MenuQuantityFragment;
 
-import java.util.ArrayList;
-
 public class MenuActivity extends InitActivity {
     private String[] categoryNameList = {"chicken", "burger&box&set", "side", "beverage"};
     private int categoryState =0;
     private int menuPage=0;
     private int menuUISize = 6;
     private MenuList categoryMenuList = new MenuList();//
-    private OrderMenuList orderMenuList = new OrderMenuList();//장바구니 친구
+    private OrderMenuList cart = new OrderMenuList();//장바구니 친구
 
-//    RecyclerView mRecyclerView = null ;
-//    RecyclerImageTextAdapter mAdapter = null ;
-//    ArrayList<RecyclerItem> mList = new ArrayList<RecyclerItem>();
 
+    /**
+     * 처음 액티비티 생성에서 실행
+     * 메뉴화면의 왼쪽, 오른쪽 화살표 버튼에 대한 이벤트 설정
+     * 메뉴화면의 구매 버튼 이벤트 설정
+     *
+     * BottomBarClose 프래그먼트, MenuCategory 프래그먼트 이용
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +57,6 @@ public class MenuActivity extends InitActivity {
         });
 
         categoryMenuList.setMenuListWithCategory(getDbMenuList(), categoryNameList[categoryState].split(("&")));
-        Log.d("aa", String.valueOf(categoryNameList[categoryState].split(("&"))));
 
         displayMenuList();
 
@@ -90,8 +92,8 @@ public class MenuActivity extends InitActivity {
             }
         });
 
-        Button q = (Button) findViewById(R.id.btn_actMenu_Buy);
-        q.setOnClickListener(new View.OnClickListener() {
+        Button btnBuy = (Button) findViewById(R.id.btn_actMenu_Buy);
+        btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
@@ -100,34 +102,26 @@ public class MenuActivity extends InitActivity {
                 MenuBuyFragment menuBuyFragment = new MenuBuyFragment();
                 fragmentTransaction.add(R.id.lay_actMenu_buy, menuBuyFragment);
 
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("selMenu", selMenu.getId()); // Key, Value
-//                Log.d("In selMenu", String.valueOf(selMenu.getId()));
-//                menuQuantityFragment.setArguments(bundle);
-
                 fragmentTransaction.commit();
             }
         });
 
-        ////////////////////////////////
-//        mRecyclerView = findViewById(R.id.ReLayout) ;
-//
-//        mAdapter = new RecyclerImageTextAdapter(mList) ;
-//        mRecyclerView.setAdapter(mAdapter) ;
-//
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this)) ;
-//
-        //////////////////////////////////////
+
     }
 
     //변수 하나(역할: 입력되면 gilde 이미지 가져와서 출력)
 
+    /**
+     * 메뉴를 보여주는 6개 버튼을 지정
+     * 각 버튼의 이벤트 설정
+     */
     public void displayMenuList() {
         String tagName = "lay_actMenu_menuImg";
         LinearLayout ll = findViewById(R.id.lay_actMenu_eachMenuList);
 
         for(int i=0; i<menuUISize; i++){
             int categoryIndex = menuPage*6+i;
+            Log.d("display", String.valueOf(categoryIndex));
 
             LinearLayout ll2 = ll.findViewWithTag(tagName+i);
 
@@ -137,6 +131,9 @@ public class MenuActivity extends InitActivity {
                 //표시되는 메뉴 이름
                 TextView t = (TextView) ll2.getChildAt(1);
                 t.setText(selMenu.getName());
+
+                TextView t2 = (TextView) ll2.getChildAt(2);
+                t2.setText(String.valueOf(selMenu.getPrice())+"원") ;
 
                 //표시되는 메뉴 이미지를 url에서 가져와서 출력
                 String imageUrl = selMenu.getUrl();
@@ -175,15 +172,6 @@ public class MenuActivity extends InitActivity {
     }
 
 
-    //https://black-jin0427.tistory.com/100 참고
-//    public void addItem(Drawable menuImg, String menuName) {
-//        RecyclerItem item = new RecyclerItem();
-//
-//        item.setIcon(menuImg);
-//        item.setTitle(menuName);
-//
-//        mList.add(item);
-//    }
     public void displayCategoryBar(){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -198,16 +186,16 @@ public class MenuActivity extends InitActivity {
         this.categoryState = categoryState;
     }
 
-    public void setOrderMenuList(OrderMenuList orderMenuList) {
-        this.orderMenuList = orderMenuList;
+    public void setCart(OrderMenuList cart) {
+        this.cart = cart;
     }
 
     public void setMenuPage(int menuPage) {
         this.menuPage = menuPage;
     }
 
-    public OrderMenuList getOrderMenuList() {
-        return orderMenuList;
+    public OrderMenuList getCart() {
+        return cart;
     }
 
     public MenuList getCategoryMenuList() {
@@ -218,10 +206,13 @@ public class MenuActivity extends InitActivity {
         return menuPage;
     }
 
-    public void a(){
+    public void changeOrderItemListState(){
         int sum = 0;
         int quantity = 0;
-        for(OrderMenu orderMenu: orderMenuList.getOrderMenuList()){
+
+        cart.deleteZeroQuantityItem();
+
+        for(OrderMenu orderMenu: cart.getOrderMenuList()){
             quantity += orderMenu.getQuantity();
             sum += orderMenu.getQuantity() * orderMenu.getMenu().getPrice();
         }
@@ -231,11 +222,12 @@ public class MenuActivity extends InitActivity {
         Log.d("aaaaaaaaaaaaaaaaaaaaaa", String.valueOf(sum));
 
 
+/////////////////////////////리스트뷰 내용(임시로 둠)
         ListView lv = (ListView) findViewById(R.id.lv);
-        final MyAdapter myAdapter = new MyAdapter(this, orderMenuList);
+        final MyAdapter myAdapter = new MyAdapter(this, cart);
 
         lv.setAdapter(myAdapter);
-
+////////////////////////////
 
     }
 

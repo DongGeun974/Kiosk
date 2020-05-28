@@ -74,10 +74,10 @@ public class MenuQuantityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 OrderMenu orderMenu = new OrderMenu(selMenu, quantity[0]);
-                ((MenuActivity)getActivity()).getOrderMenuList().addOrderMenuList(orderMenu);
+                ((MenuActivity)getActivity()).getCart().addOrderMenuAtList(orderMenu);
                 Log.d("At Quantity", String.valueOf(orderMenu));
-                Log.d("At Quantity", String.valueOf(((MenuActivity)getActivity()).getOrderMenuList()));
-                ((MenuActivity)getActivity()).a();
+                Log.d("At Quantity", String.valueOf(((MenuActivity)getActivity()).getCart()));
+                ((MenuActivity)getActivity()).changeOrderItemListState();
 
                 FragmentManager fragmentManager = getActivity().getFragmentManager();
                 fragmentManager.beginTransaction().remove(MenuQuantityFragment.this).commit();

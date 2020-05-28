@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.ui.MenuMain;
 
 import android.content.Context;
 import android.util.Log;
@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.myapplication.R;
 import com.example.myapplication.data.menuData.Menu;
 import com.example.myapplication.data.orderMenuData.OrderMenu;
 import com.example.myapplication.data.orderMenuData.OrderMenuList;
@@ -51,12 +52,13 @@ public class MyAdapter extends BaseAdapter {
         TextView name = (TextView)view.findViewById(R.id.listmenuname);
         TextView count = (TextView)view.findViewById(R.id.listmenucount);
 
-//        Glide.with(view).load(sample.getOrderMenuList().get(position).getMenu().getUrl()).into(imageView);
+        Glide.with(view.getContext()).load(sample.getOrderMenuList().get(position).getMenu().getUrl()).into(imageView);
+        Log.d("마이어뎁터에서", sample.getOrderMenuList().get(position).getMenu().getUrl());
 
-//        imageView.setImageResource(sample.get(position).getMenu().getUrl());
         name.setText(String.valueOf(sample.getOrderMenuList().get(position).getMenu().getName()));
         count.setText(String.valueOf(sample.getOrderMenuList().get(position).getQuantity()));
 
         return view;
     }
+
 }

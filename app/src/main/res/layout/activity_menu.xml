@@ -87,7 +87,7 @@
                     android:orientation="vertical"
                     android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHeight_percent="0.5"
+                    app:layout_constraintHeight_percent="0.55"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/lay_actMain_menuBar">
 
@@ -111,8 +111,7 @@
                                 android:layout_height="0dp"
                                 android:layout_weight="4"
                                 android:background="@drawable/frame_actbuy_menu_ic_unselected"
-                                android:scaleType="fitCenter"
-                                android:contentDescription="11111111111111111111111111" />
+                                android:scaleType="fitCenter" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -120,7 +119,17 @@
                                 android:layout_margin="3dp"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:textColor="#000000" />
+                                android:textColor="#000000"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_margin="3dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColor="#000000"
+                                android:textSize="18dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -147,7 +156,17 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="클릭가능 항목"
-                                android:textColor="#000000" />
+                                android:textColor="#000000"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_margin="3dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColor="#000000"
+                                android:textSize="18dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -174,7 +193,17 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="클릭가능 항목"
-                                android:textColor="#000000" />
+                                android:textColor="#000000"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_margin="3dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColor="#000000"
+                                android:textSize="18dp" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -210,7 +239,17 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="클릭가능 항목"
-                                android:textColor="#000000" />
+                                android:textColor="#000000"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_margin="3dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColor="#000000"
+                                android:textSize="18dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -238,7 +277,17 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="클릭가능 항목"
-                                android:textColor="#000000" />
+                                android:textColor="#000000"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_margin="3dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColor="#000000"
+                                android:textSize="18dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -265,7 +314,17 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="클릭가능 항목"
-                                android:textColor="#000000" />
+                                android:textColor="#000000"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_margin="3dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColor="#000000"
+                                android:textSize="18dp" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -305,7 +364,7 @@
                     android:background="#FFF4D7"
                     android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHeight_percent="0.2"
+                    app:layout_constraintHeight_percent="0.15"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/lay_actMenu_eachMenuList">
 
@@ -322,6 +381,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"/>
 <!--                    <LinearLayout-->
+<!--                        android:id="@+id/lay_actMenu_orderitem0"-->
 <!--                        android:layout_width="0dp"-->
 <!--                        android:layout_height="wrap_content"-->
 <!--                        android:orientation="vertical"-->
@@ -334,10 +394,12 @@
 <!--                        <TextView-->
 <!--                            android:layout_width="match_parent"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="name1"/>-->
+<!--                            android:text="name1"-->
+<!--                            android:gravity="center"/>-->
 <!--                    </LinearLayout>-->
 
 <!--                    <LinearLayout-->
+<!--                        android:id="@+id/lay_actMenu_orderitem1"-->
 <!--                        android:layout_width="0dp"-->
 <!--                        android:layout_height="wrap_content"-->
 <!--                        android:orientation="vertical"-->
@@ -350,11 +412,13 @@
 <!--                        <TextView-->
 <!--                            android:layout_width="match_parent"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="name1"/>-->
+<!--                            android:text="name1"-->
+<!--                            android:gravity="center"/>-->
 <!--                    </LinearLayout>-->
 
 
 <!--                    <LinearLayout-->
+<!--                        android:id="@+id/lay_actMenu_orderitem2"-->
 <!--                        android:layout_width="0dp"-->
 <!--                        android:layout_height="wrap_content"-->
 <!--                        android:orientation="vertical"-->
@@ -367,8 +431,8 @@
 <!--                        <TextView-->
 <!--                            android:layout_width="match_parent"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="name1"/>-->
-
+<!--                            android:text="name1"-->
+<!--                            android:gravity="center"/>-->
 <!--                    </LinearLayout>-->
                     <ImageButton
                         android:id="@+id/imgBtn_actMenu_orderNext"

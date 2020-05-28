@@ -13,12 +13,19 @@ public class OrderMenuList {
         this.orderMenuList = menuCart;
     }
 
-    public void addOrderMenuList(OrderMenu orderMenu){
+    public void addOrderMenuAtList(OrderMenu orderMenu){
         getOrderMenuList().add(orderMenu);
     }
 
     public void clearOrderMenuList(){
         setOrderMenuList(new ArrayList<>());
+    }
+
+    public void deleteZeroQuantityItem(){
+        for(OrderMenu orderMenu: getOrderMenuList())
+            if(orderMenu.getQuantity() == 0) {
+                getOrderMenuList().remove(orderMenu);
+            }
     }
 
     @Override
