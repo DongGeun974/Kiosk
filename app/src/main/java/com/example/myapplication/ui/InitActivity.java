@@ -27,10 +27,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public abstract class InitActivity extends Activity {
     /**
      * functionState: 기능 플래그 비트로 구성 (1: Wheel 2: bigger 4: color blind)
-     * goOrHere: 포장 유무(true: 매장, false: 포장)
      */
     static int functionState=0;
-    static boolean goOrHere;
     static MenuList dbMenuList = new MenuList();
 
     /**
@@ -135,12 +133,10 @@ public abstract class InitActivity extends Activity {
         });
     }
 
+//    public abstract void checkActivity();
+
     public static int getFunctionState() {
         return functionState;
-    }
-
-    public static boolean getGoOrHere(){
-        return goOrHere;
     }
 
     public static MenuList getDbMenuList() {
@@ -149,10 +145,6 @@ public abstract class InitActivity extends Activity {
 
     public static void setFunctionState(int functionState) {
         InitActivity.functionState = functionState;
-    }
-
-    public static void setGoOrHere(boolean goOrHere) {
-        InitActivity.goOrHere = goOrHere;
     }
 
     public static void setDbMenuList(MenuList dbMenuList) {

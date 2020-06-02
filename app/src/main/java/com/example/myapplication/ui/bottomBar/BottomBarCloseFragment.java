@@ -14,6 +14,7 @@ import com.example.myapplication.ui.InitActivity;
 
 public class BottomBarCloseFragment extends InitBottomBar{
     View view;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,5 +61,6 @@ public class BottomBarCloseFragment extends InitBottomBar{
         super.onPause();
 
         ((InitActivity)getActivity()).setFunctionState(state);
+//        ((InitActivity)getActivity()).checkActivity();
     }
 }
