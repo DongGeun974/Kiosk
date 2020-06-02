@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/all_lay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75">
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/all_lay"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHeight_percent="0.6"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.9">-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/frgMenu_title"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="#E4E4E4"
+                    android:gravity="center|left"
+                    android:text="KFC"
+                    android:textColor="@color/main_color"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/lay_actMain_menuBar"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="#E4E4E4"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintHeight_percent="0.55"
+                    app:layout_constraintEnd_toStartOf="@id/lay"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/frgMenu_title"
+                    app:layout_constraintWidth_percent="0.2" />
+
+                <!--            <androidx.recyclerview.widget.RecyclerView-->
+                <!--                android:id="@+id/ReLayout"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="0dp"-->
+                <!--                android:layout_weight="6"-->
+                <!--                android:padding="10dp">-->
+                <!--            </androidx.recyclerview.widget.RecyclerView>-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/lay"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.55"
+                    app:layout_constraintStart_toEndOf="@id/lay_actMain_menuBar"
+                    app:layout_constraintTop_toTopOf="@id/lay_actMain_menuBar">
+
+                    <ImageButton
+                        android:id="@+id/imgBtn_actMenu_menuBefore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_actmenu_leftarrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/lay_actMenu_eachMenuList"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <LinearLayout
+                        android:id="@+id/lay_actMenu_eachMenuList"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        app:layout_constraintTop_toTopOf="@id/lay"
+                        app:layout_constraintStart_toEndOf="@id/imgBtn_actMenu_menuBefore"
+                        app:layout_constraintEnd_toStartOf="@id/imgBtn_actMenu_menuNext">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="3"
+                            android:padding="5dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center|top"
+                                android:orientation="vertical"
+                                android:tag="lay_actMenu_menuImg0">
+
+                                <ImageButton
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="4"
+                                    android:background="@drawable/frame_actbuy_menu_ic_unselected"
+                                    android:scaleType="fitCenter" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:textColor="#000000"
+                                    android:textSize="18dp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:textColor="#000000"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center|top"
+                                android:orientation="vertical"
+                                android:tag="lay_actMenu_menuImg1">
+
+                                <ImageButton
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="4"
+                                    android:background="@drawable/frame_actbuy_menu_ic_unselected"
+                                    android:contentDescription="TODO"
+                                    android:scaleType="fitCenter" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="클릭가능 항목"
+                                    android:textColor="#000000"
+                                    android:textSize="18dp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:textColor="#000000"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center|top"
+                                android:orientation="vertical"
+                                android:tag="lay_actMenu_menuImg2">
+
+                                <ImageButton
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="4"
+                                    android:background="@drawable/frame_actbuy_menu_ic_unselected"
+                                    android:contentDescription="TODO"
+                                    android:scaleType="fitCenter" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="클릭가능 항목"
+                                    android:textColor="#000000"
+                                    android:textSize="18dp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:textColor="#000000"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="3"
+                            android:padding="5dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center|top"
+                                android:orientation="vertical"
+                                android:tag="lay_actMenu_menuImg3">
+
+                                <ImageButton
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="4"
+                                    android:background="@drawable/frame_actbuy_menu_ic_unselected"
+                                    android:contentDescription="TODO"
+                                    android:scaleType="fitCenter" />
+
+                                <TextView
+                                    android:id="@+id/menu_name3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="클릭가능 항목"
+                                    android:textColor="#000000"
+                                    android:textSize="18dp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:textColor="#000000"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center|top"
+                                android:orientation="vertical"
+                                android:tag="lay_actMenu_menuImg4">
+
+
+                                <ImageButton
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="4"
+                                    android:background="@drawable/frame_actbuy_menu_ic_unselected"
+                                    android:contentDescription="TODO"
+                                    android:scaleType="fitCenter" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="클릭가능 항목"
+                                    android:textColor="#000000"
+                                    android:textSize="18dp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:textColor="#000000"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center|top"
+                                android:orientation="vertical"
+                                android:tag="lay_actMenu_menuImg5">
+
+                                <ImageButton
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="4"
+                                    android:background="@drawable/frame_actbuy_menu_ic_unselected"
+                                    android:contentDescription="TODO"
+                                    android:scaleType="fitCenter" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="클릭가능 항목"
+                                    android:textColor="#000000"
+                                    android:textSize="18dp" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:textColor="#000000"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/imgBtn_actMenu_menuNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_actmenu_rightarrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/lay_actMenu_eachMenuList"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/lay_actMenu_basket"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="#FFF4D7"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lay">
+
+
+                    <ImageButton
+                        android:id="@+id/imgBtn_actMenu_orderBefore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_actmenu_leftarrow" />
+
+                    <ListView
+                        android:id="@+id/lv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                    <!--                    <LinearLayout-->
+                    <!--                        android:id="@+id/lay_actMenu_orderitem0"-->
+                    <!--                        android:layout_width="0dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:orientation="vertical"-->
+                    <!--                        android:layout_weight="1"-->
+                    <!--                        android:gravity="center">-->
+                    <!--                        <ImageView-->
+                    <!--                            android:id="@+id/img_actMwnu_orderItem0"-->
+                    <!--                            android:layout_width="150dp"-->
+                    <!--                            android:layout_height="150dp"/>-->
+                    <!--                        <TextView-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:text="name1"-->
+                    <!--                            android:gravity="center"/>-->
+                    <!--                    </LinearLayout>-->
+
+                    <!--                    <LinearLayout-->
+                    <!--                        android:id="@+id/lay_actMenu_orderitem1"-->
+                    <!--                        android:layout_width="0dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:orientation="vertical"-->
+                    <!--                        android:layout_weight="1"-->
+                    <!--                        android:gravity="center">-->
+                    <!--                        <ImageView-->
+                    <!--                            android:id="@+id/img_actMwnu_orderItem1"-->
+                    <!--                            android:layout_width="150dp"-->
+                    <!--                            android:layout_height="150dp"/>-->
+                    <!--                        <TextView-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:text="name1"-->
+                    <!--                            android:gravity="center"/>-->
+                    <!--                    </LinearLayout>-->
+
+
+                    <!--                    <LinearLayout-->
+                    <!--                        android:id="@+id/lay_actMenu_orderitem2"-->
+                    <!--                        android:layout_width="0dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:orientation="vertical"-->
+                    <!--                        android:layout_weight="1"-->
+                    <!--                        android:gravity="center">-->
+                    <!--                        <ImageView-->
+                    <!--                            android:id="@+id/img_actMwnu_orderItem2"-->
+                    <!--                            android:layout_width="150dp"-->
+                    <!--                            android:layout_height="150dp"/>-->
+                    <!--                        <TextView-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:text="name1"-->
+                    <!--                            android:gravity="center"/>-->
+                    <!--                    </LinearLayout>-->
+                    <ImageButton
+                        android:id="@+id/imgBtn_actMenu_orderNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_actmenu_rightarrow" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lay_actMenu_sum"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lay_actMenu_basket">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingLeft="5dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="수량" />
+
+                            <TextView
+                                android:id="@+id/text_actMenu_quantity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#000000"
+                                android:textSize="30dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingLeft="5dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="금액" />
+
+                            <TextView
+                                android:id="@+id/text_actMenu_sum"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#000000"
+                                android:textSize="30dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_actMenu_back"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:background="#A5A5A5"
+                        android:text="취소"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/btn_actMenu_Buy"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:background="#FF2929"
+                        android:text="구매"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/lay_actMenu_quantity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible" />
+
+        <FrameLayout
+            android:id="@+id/lay_actMenu_buy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        <android.support.v7.widget.RecyclerView-->
+<!--            android:id="@+id/recycler1"-->
+<!--            android:scrollbars="vertical"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="5"/>-->
