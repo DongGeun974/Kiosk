@@ -19,8 +19,6 @@ import com.example.myapplication.R;
 import com.example.myapplication.data.orderMenuData.OrderMenu;
 import com.example.myapplication.ui.MenuMain.MenuActivity;
 
-import java.util.ArrayList;
-
 /**
  * 구매 확인하는 창 띄우는 프래그먼트
  * <p>
@@ -56,7 +54,7 @@ public class MenuBuyFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_menu_buy, container, false);
         int totalPrice = 0;
 
-        FrameLayout c = (FrameLayout) view.findViewById(R.id.frag_menu_buy_background);
+        FrameLayout c = (FrameLayout) view.findViewById(R.id.frag_menuBuy_background);
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +62,7 @@ public class MenuBuyFragment extends Fragment {
             }
         });
 
-        Button backBtn =  (Button) view.findViewById(R.id.btn_frag_menubuy_back);
+        Button backBtn =  (Button) view.findViewById(R.id.btn_fragMenuBuy_back);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +75,7 @@ public class MenuBuyFragment extends Fragment {
             }
         });
 
-        Button buyBtn = (Button) view.findViewById(R.id.btn_frag_menubuy_buy);
+        Button buyBtn = (Button) view.findViewById(R.id.btn_fragMenuBuy_buy);
         buyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

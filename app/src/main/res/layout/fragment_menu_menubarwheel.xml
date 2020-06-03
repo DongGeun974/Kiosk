@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <ToggleButton
-        android:id="@+id/menu_bar_chicken"
+        android:id="@+id/toggleBtn_fragMenuBar_chicken"
         style="@style/btn_act_menu_wheelSel"
         android:background="@drawable/btn_fragmenubar_chicken"
         android:tag="menu0"
@@ -18,7 +18,7 @@
 
     <ToggleButton
 
-        android:id="@+id/menu_bar_burger"
+        android:id="@+id/toggleBtn_fragMenuBar_burger"
         style="@style/btn_act_menu_wheelSel"
         android:background="@drawable/btn_fragmenubar_burger"
         android:tag="menu1"
@@ -27,7 +27,7 @@
     <!--        style="@style/btn_act_menu_wheelSel"/>-->
 
     <ToggleButton
-        android:id="@+id/menu_bar_side"
+        android:id="@+id/toggleBtn_fragMenuBar_side"
         style="@style/btn_act_menu_wheelSel"
         android:background="@drawable/btn_fragmenubar_side"
         android:tag="menu2"
@@ -36,7 +36,7 @@
     <!--    style="@style/btn_act_menu_wheelSel"/>-->
 
     <ToggleButton
-        android:id="@+id/menu_bar_drink"
+        android:id="@+id/toggleBtn_fragMenuBar_drink"
         style="@style/btn_act_menu_wheelSel"
         android:background="@drawable/btn_fragmenubar_drink"
         android:tag="menu3"

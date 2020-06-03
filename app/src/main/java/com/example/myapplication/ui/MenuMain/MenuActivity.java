@@ -516,7 +516,7 @@ public class MenuActivity extends InitActivity {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
                 MenuBuyFragment menuBuyFragment = new MenuBuyFragment();
-                fragmentTransaction.add(R.id.lay_actMenu_buy, menuBuyFragment);
+                fragmentTransaction.add(R.id.frame_actMenu_buy, menuBuyFragment);
 
                 fragmentTransaction.commit();
             }
@@ -563,7 +563,7 @@ public class MenuActivity extends InitActivity {
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
                         MenuQuantityFragment menuQuantityFragment = new MenuQuantityFragment();
-                        fragmentTransaction.add(R.id.lay_actMenu_quantity, menuQuantityFragment);
+                        fragmentTransaction.add(R.id.frame_actMenu_quantity, menuQuantityFragment);
 
                         Bundle bundle = new Bundle();
                         bundle.putInt("selMenu", selMenu.getId()); // Key, Value

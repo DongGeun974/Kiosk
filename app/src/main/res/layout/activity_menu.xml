@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/all_lay"
+        android:id="@+id/lay_actMenu_all"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,7 +46,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/frgMenu_title"
+                    android:id="@+id/text_actMenu_title"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="#E4E4E4"
@@ -70,7 +70,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHeight_percent="0.15"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/frgMenu_title" />
+                    app:layout_constraintTop_toBottomOf="@+id/text_actMenu_title" />
 
                 <!--            <androidx.recyclerview.widget.RecyclerView-->
                 <!--                android:id="@+id/ReLayout"-->
@@ -528,14 +528,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <FrameLayout
-            android:id="@+id/lay_actMenu_quantity"
+            android:id="@+id/frame_actMenu_quantity"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:visibility="visible" />
 
         <FrameLayout
-            android:id="@+id/lay_actMenu_buy"
+            android:id="@+id/frame_actMenu_buy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"

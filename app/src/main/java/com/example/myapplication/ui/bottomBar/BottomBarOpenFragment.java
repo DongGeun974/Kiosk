@@ -1,16 +1,13 @@
 package com.example.myapplication.ui.bottomBar;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.ui.InitActivity;
@@ -59,7 +56,7 @@ public class BottomBarOpenFragment extends InitBottomBar {
             public void onClick(View v) {}
         });
 
-        FrameLayout f1 = (FrameLayout) view.findViewById(R.id.icon_wheel);
+        FrameLayout f1 = (FrameLayout) view.findViewById(R.id.frame_fragBottomBarClose_iconWheel);
         f1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -67,7 +64,7 @@ public class BottomBarOpenFragment extends InitBottomBar {
             }
         });
 
-        FrameLayout f2 = (FrameLayout) view.findViewById(R.id.icon_bigger);
+        FrameLayout f2 = (FrameLayout) view.findViewById(R.id.frame_fragBottomBarClose_iconBigger);
         f2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

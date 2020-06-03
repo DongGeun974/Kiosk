@@ -9,17 +9,17 @@
 
 
     <ImageView
-        android:id="@+id/menu_img"
+        android:id="@+id/img_recyclerBuy_menu"
         android:layout_width="@dimen/ic_buy_menu_height"
         android:layout_height="@dimen/ic_buy_menu_height"
 
-        app:layout_constraintBottom_toTopOf="@id/menu_name"
+        app:layout_constraintBottom_toTopOf="@id/text_recyclerNuy_menuName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/menu_name"
+        android:id="@+id/text_recyclerNuy_menuName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -28,11 +28,11 @@
         android:text="이름"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_img"
-        app:layout_constraintBottom_toTopOf="@id/menu_price"/>
+        app:layout_constraintTop_toBottomOf="@id/img_recyclerBuy_menu"
+        app:layout_constraintBottom_toTopOf="@id/text_recyclerBuy_menuPrice"/>
 
     <TextView
-        android:id="@+id/menu_price"
+        android:id="@+id/text_recyclerBuy_menuPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -41,19 +41,19 @@
         android:text="가격"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_name"
-        app:layout_constraintBottom_toTopOf="@id/minus"/>
+        app:layout_constraintTop_toBottomOf="@id/text_recyclerNuy_menuName"
+        app:layout_constraintBottom_toTopOf="@id/btn_recyclerBuy_minus"/>
 
 
     <Button
-        android:id="@+id/minus"
+        android:id="@+id/btn_recyclerBuy_minus"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:text="-"
         android:textSize="50dp"
         app:layout_constraintEnd_toStartOf="@id/text_fragMenuBuy_quantity"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_price"
+        app:layout_constraintTop_toBottomOf="@id/text_recyclerBuy_menuPrice"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
@@ -62,19 +62,19 @@
         android:layout_height="wrap_content"
         android:text="수량"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/minus"
-        app:layout_constraintEnd_toStartOf="@id/plus"
-        app:layout_constraintStart_toEndOf="@id/minus"
-        app:layout_constraintTop_toTopOf="@id/minus" />
+        app:layout_constraintBottom_toBottomOf="@+id/btn_recyclerBuy_minus"
+        app:layout_constraintEnd_toStartOf="@id/btn_recyclerBuy_plus"
+        app:layout_constraintStart_toEndOf="@id/btn_recyclerBuy_minus"
+        app:layout_constraintTop_toTopOf="@id/btn_recyclerBuy_minus" />
     <Button
-        android:id="@+id/plus"
+        android:id="@+id/btn_recyclerBuy_plus"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:text="+"
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_fragMenuBuy_quantity"
-        app:layout_constraintTop_toTopOf="@id/minus" />
+        app:layout_constraintTop_toTopOf="@id/btn_recyclerBuy_minus" />
 
 
 

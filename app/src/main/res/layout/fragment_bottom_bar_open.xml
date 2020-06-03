@@ -35,7 +35,7 @@
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/icon_wheel"
+                android:id="@+id/frame_fragBottomBarClose_iconWheel"
                 android:visibility="visible">
 
                 <ImageView
@@ -77,7 +77,7 @@
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/icon_bigger"
+                android:id="@+id/frame_fragBottomBarClose_iconBigger"
                 android:visibility="visible">
 
                 <ImageView

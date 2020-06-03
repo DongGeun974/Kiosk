@@ -48,14 +48,14 @@ public class MenuQuantityFragment extends Fragment {
         Menu selMenu = getDbMenuList().getMenuWithId(selMenuId);
 
         // 선택한 메뉴의 수량을 가져옴
-        TextView q = (TextView) view.findViewById(R.id.frag_menu_quantity_menu_quantity);
+        TextView q = (TextView) view.findViewById(R.id.text_fragMenuQuantity_quantity);
         final int[] quantity = {Integer.parseInt((String) q.getText())};
 
         // 메소드 통해 선택한 메뉴 id 바탕으로 화면 출력
         displaySelMenu(view, selMenu);
 
         // 수량 뺴기 버튼
-        Button subBtn = (Button) view.findViewById(R.id.frag_menu_quantity_sub);
+        Button subBtn = (Button) view.findViewById(R.id.btn_fragMenuQuantity_sub);
         subBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +66,7 @@ public class MenuQuantityFragment extends Fragment {
         });
 
         // 수량 더하기 버튼
-        Button addBtn = (Button) view.findViewById(R.id.frag_menu_quantity_add);
+        Button addBtn = (Button) view.findViewById(R.id.btn_fragMenuQuantity_add);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +76,7 @@ public class MenuQuantityFragment extends Fragment {
         });
 
         // 프래그먼트 배경 부분에 대해 클릭 이벤트가 없도록 변경
-        FrameLayout c = (FrameLayout) view.findViewById(R.id.frag_menu_quantity_background);
+        FrameLayout c = (FrameLayout) view.findViewById(R.id.frame_fragMenuQuantity_background);
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +85,7 @@ public class MenuQuantityFragment extends Fragment {
         });
 
         // 뒤로가기 버튼, 현재 프래그먼트 종료
-        Button backBtn =  (Button) view.findViewById(R.id.back_btn_menu_quantity);
+        Button backBtn =  (Button) view.findViewById(R.id.btn_fragMenuQuantity_back);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +96,7 @@ public class MenuQuantityFragment extends Fragment {
         });
 
         // 추가하기 버튼, MenuActivity의 cart에 추가하고 현재 프래그먼트 종료
-        Button cartAddBtn = (Button) view.findViewById(R.id.frag_menu_quantity_btn_cart_add);
+        Button cartAddBtn = (Button) view.findViewById(R.id.btn_fragMenuQuantity_cartAdd);
         cartAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,8 +121,8 @@ public class MenuQuantityFragment extends Fragment {
      * @param selMenu 선택한 Menu 객체
      */
     private void displaySelMenu(View view, Menu selMenu){
-        Glide.with(this).load(selMenu.getUrl()).into((ImageView)view.findViewById(R.id.select_menu_img));
-        TextView a = (TextView)view.findViewById(R.id.select_menu_name);
+        Glide.with(this).load(selMenu.getUrl()).into((ImageView)view.findViewById(R.id.img_fragMenuQuantity_selectMenu));
+        TextView a = (TextView)view.findViewById(R.id.text_fragMenuQuantity_selectMenuName);
         a.setText(selMenu.getName());
     }
 }

@@ -34,7 +34,7 @@
             android:layout_marginLeft="4dp">
 
             <FrameLayout
-                android:id="@+id/icon_wheel"
+                android:id="@+id/frame_fragBottomBarClose_iconWheel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -58,7 +58,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/icon_bigger"
+                android:id="@+id/frame_fragBottomBarClose_iconBigger"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -83,7 +83,7 @@
             </FrameLayout>
 
             <FrameLayout
-                android:id="@+id/icon_blind"
+                android:id="frame_fragBottomBarClose_iconBlind"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"

@@ -85,12 +85,12 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
             super(itemView) ;
 
             // 뷰 객체에 대한 참조. (hold strong reference)
-            menuImg = itemView.findViewById(R.id.menu_img) ;
-            menuName = itemView.findViewById(R.id.menu_name) ;
+            menuImg = itemView.findViewById(R.id.img_recyclerBuy_menu) ;
+            menuName = itemView.findViewById(R.id.text_recyclerNuy_menuName) ;
             menuQuantity = itemView.findViewById(R.id.text_fragMenuBuy_quantity);
-            menuPrice = itemView.findViewById(R.id.menu_price);
-            minus = itemView.findViewById(R.id.minus);
-            plus = itemView.findViewById(R.id.plus);
+            menuPrice = itemView.findViewById(R.id.text_recyclerBuy_menuPrice);
+            minus = itemView.findViewById(R.id.btn_recyclerBuy_minus);
+            plus = itemView.findViewById(R.id.btn_recyclerBuy_plus);
 
             ////////////////////////////////////////////////////////////////////
             //https://recipes4dev.tistory.com/168

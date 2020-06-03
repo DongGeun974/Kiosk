@@ -8,7 +8,7 @@
     android:gravity="center">
 
     <ToggleButton
-        android:id="@+id/menu_bar_chicken"
+        android:id="@+id/toggleBtn_fragMenuBar_chicken"
         android:tag="menu0"
         android:textOff="치킨"
         android:textOn="치킨"
@@ -18,7 +18,7 @@
 
     <ToggleButton
 
-        android:id="@+id/menu_bar_burger"
+        android:id="@+id/toggleBtn_fragMenuBar_burger"
         android:tag="menu1"
         android:textOff="버거/세트/박스"
         android:textOn="버거/세트/박스"
@@ -27,7 +27,7 @@
     <!--        style="@style/btn_act_menu_wheelSel"/>-->
 
     <ToggleButton
-        android:id="@+id/menu_bar_side"
+        android:id="@+id/toggleBtn_fragMenuBar_side"
         android:tag="menu2"
         android:textOff="사이드"
         android:textOn="사이드"
@@ -36,7 +36,7 @@
 <!--    style="@style/btn_act_menu_wheelSel"/>-->
 
     <ToggleButton
-        android:id="@+id/menu_bar_drink"
+        android:id="@+id/toggleBtn_fragMenuBar_drink"
         android:tag="menu3"
         android:textOff="음료"
         android:textOn="음료"

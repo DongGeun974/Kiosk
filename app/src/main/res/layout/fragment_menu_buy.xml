@@ -7,7 +7,7 @@
     android:background="#33000000">
 
     <FrameLayout
-        android:id="@+id/frag_menu_buy_background"
+        android:id="@+id/frag_menuBuy_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
@@ -78,7 +78,7 @@
             android:gravity="center"
             android:layout_weight="1">
             <Button
-                android:id="@+id/btn_frag_menubuy_back"
+                android:id="@+id/btn_fragMenuBuy_back"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -87,7 +87,7 @@
                 android:textColor="@color/white"
                 android:background="@color/grey"/>
             <Button
-                android:id="@+id/btn_frag_menubuy_buy"
+                android:id="@+id/btn_fragMenuBuy_buy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

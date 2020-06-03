@@ -26,33 +26,33 @@
         app:layout_constraintVertical_bias="0">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/text_layMain_title"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:gravity="center"
             android:text="Kiosk Demo"
             android:textSize="40dp"
             app:layout_constraintHeight_percent="0.2"
-            app:layout_constraintBottom_toTopOf="@+id/btn_act_main_start"
+            app:layout_constraintBottom_toTopOf="@+id/btn_actMain_start"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btn_act_main_start"
+            android:id="@+id/btn_actMain_start"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="#2CFF3E3E"
             android:text="화면을 클릭해 시작하세요."
             android:textSize="40dp"
             app:layout_constraintHeight_percent="0.6"
-            app:layout_constraintBottom_toTopOf="@+id/btn_act_main_exit"
+            app:layout_constraintBottom_toTopOf="@+id/btn_actMain_exit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/text_layMain_title" />
 
         <Button
-            android:id="@+id/btn_act_main_exit"
+            android:id="@+id/btn_actMain_exit"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/dark_grey"
@@ -64,7 +64,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.15"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_act_main_start" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_actMain_start" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
