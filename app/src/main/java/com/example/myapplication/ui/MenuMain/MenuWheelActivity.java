@@ -5,6 +5,8 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.myapplication.R;
 import com.example.myapplication.ui.MenuCategoryBar.MenuCategoryBarWheelFragment;
@@ -27,6 +29,23 @@ public class MenuWheelActivity extends MenuActivity {
         displayMenuList();
 
         setEvent();
+    }
+
+    @Override
+    public void setEvent(){
+        super.setEvent();
+
+        Button back = (Button) findViewById(R.id.btn_actMenu_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    //이전 액티비티 종료
+                    menuActivity.finish();
+                }catch (Exception ex){}
+                finish();
+            }
+        });
     }
 
     @Override
@@ -54,10 +73,10 @@ public class MenuWheelActivity extends MenuActivity {
             try {
                 //이전 액티비티 종료
                 menuActivity.finish();
-
-                //전환된 액티비티에서 이전 액티비티 종료용
-                menuWheelActivity = this;
             }catch (Exception ex){}
+
+            //전환된 액티비티에서 이전 액티비티 종료용
+            menuWheelActivity = this;
 
             Intent intent=new Intent(MenuWheelActivity.this, MenuActivity.class);
 

@@ -13,8 +13,8 @@
     </style>
     
     <style name="btn_act_menu_normal">
-        <item name = "android:layout_width">150dp</item>
-        <item name = "android:layout_height">150dp</item>
+        <item name = "android:layout_width">140dp</item>
+        <item name = "android:layout_height">140dp</item>
         <item name = "android:gravity">center|bottom</item>
         <item name = "android:textColor">@color/dark_grey</item>
         <item name = "android:textSize">20dp</item>

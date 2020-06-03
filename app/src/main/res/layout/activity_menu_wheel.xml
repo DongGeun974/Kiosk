@@ -138,8 +138,10 @@
                                     android:layout_margin="3dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:text="갓양념블랙라벨치킨 3조각"
                                     android:textColor="#000000"
-                                    android:textSize="18dp" />
+                                    android:autoSizeTextType="uniform" />
+                                <!--                                    android:textSize="12dp" />-->
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -147,6 +149,7 @@
                                     android:layout_margin="3dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:text="1000"
                                     android:textColor="#000000"
                                     android:textSize="18dp" />
                             </LinearLayout>
@@ -176,7 +179,8 @@
                                     android:gravity="center"
                                     android:text="클릭가능 항목"
                                     android:textColor="#000000"
-                                    android:textSize="18dp" />
+                                    android:autoSizeTextType="uniform" />
+                                <!--                                    android:textSize="12dp"/>-->
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -213,7 +217,8 @@
                                     android:gravity="center"
                                     android:text="클릭가능 항목"
                                     android:textColor="#000000"
-                                    android:textSize="18dp" />
+                                    android:autoSizeTextType="uniform" />
+<!--                                android:textSize="12dp" />-->
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -259,7 +264,8 @@
                                     android:gravity="center"
                                     android:text="클릭가능 항목"
                                     android:textColor="#000000"
-                                    android:textSize="18dp" />
+                                    android:autoSizeTextType="uniform" />
+<!--                                    android:textSize="18dp" />-->
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -297,7 +303,8 @@
                                     android:gravity="center"
                                     android:text="클릭가능 항목"
                                     android:textColor="#000000"
-                                    android:textSize="18dp" />
+                                    android:autoSizeTextType="uniform" />
+                                <!--                                    android:textSize="18dp" />-->
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -334,7 +341,8 @@
                                     android:gravity="center"
                                     android:text="클릭가능 항목"
                                     android:textColor="#000000"
-                                    android:textSize="18dp" />
+                                    android:autoSizeTextType="uniform" />
+                                <!--                                    android:textSize="18dp" />-->
 
                                 <TextView
                                     android:layout_width="match_parent"
