@@ -14,11 +14,11 @@ import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import com.example.myapplication.data.orderMenuData.OrderMenu;
 import com.example.myapplication.data.orderMenuData.OrderMenuList;
-import com.example.myapplication.ui.MenuMain.MenuActivity;
 
 import java.util.ArrayList;
 
 /**
+ * <p>
  * 참고
  * https://chebaum.tistory.com/10
  * 리사이클러뷰에 구분선 넣기
@@ -26,7 +26,8 @@ import java.util.ArrayList;
  * Glide 사용법
  * https://black-jin0427.tistory.com/100
  * 리사이클러뷰와 glide
- *
+ * </p>
+ * {@link MenuBuyFragment}의 리싸이클러뷰 어댑터, 자세한 설명 생략
  */
 public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImageTextAdapter.ViewHolder> {
     private ArrayList<RecyclerItem> mData = null ;

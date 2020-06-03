@@ -12,9 +12,29 @@ import android.widget.LinearLayout;
 import com.example.myapplication.R;
 import com.example.myapplication.ui.InitActivity;
 
+/**
+ * 하단 바 프래그먼트, {@link InitBottomBar}에서 상속
+ * <p>
+ * 인스턴스 변수:
+ * view(별 역할 x)
+ * </p>
+ * <p>
+ * 메소드:
+ * {@link BottomBarCloseFragment#onCreateView(LayoutInflater, ViewGroup, Bundle)},
+ * {@link BottomBarCloseFragment#change()}, {@link BottomBarCloseFragment#onStart()},
+ * {@link BottomBarCloseFragment#onResume()}
+ * </p>
+ */
 public class BottomBarCloseFragment extends InitBottomBar{
     View view;
 
+    /**
+     * xml 요소 이벤트 설정 및 클릭시 {@link BottomBarCloseFragment#change()} 실행
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,6 +55,9 @@ public class BottomBarCloseFragment extends InitBottomBar{
         return view;
     }
 
+    /**
+     * {@link BottomBarOpenFragment} 프래그먼트 실행
+     */
     public void change(){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -49,6 +72,9 @@ public class BottomBarCloseFragment extends InitBottomBar{
         fragmentTransaction.commit();
     }
 
+    /**
+     * 시작시 현재 {@link InitBottomBar#state}에 따라 보여지는 버튼 모양 변경
+     */
     @Override
     public void onStart() {
         super.onStart();
@@ -56,6 +82,10 @@ public class BottomBarCloseFragment extends InitBottomBar{
         StateView(view);
     }
 
+    /**
+     * {@link BottomBarOpenFragment}에서 돌아오면 현재 state를 {@link InitActivity#setFunctionState(int)} 통해 전달,
+     * 또한 {@link InitActivity#checkFunctionState()} 호출해서 추가기능 여부 확인
+     */
     @Override
     public void onResume(){
         super.onResume();

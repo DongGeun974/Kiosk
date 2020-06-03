@@ -57,12 +57,18 @@ public class MainActivity extends InitActivity {
 
     /**
      * {@link InitActivity#checkFunctionState()} 재정의
+     * <p>
      * 휠체어: 화면 크기만 변경
      *
+     * </p>
+     * <p>
      * 돋보기: 각자 적기
      *
+     * </p>
+     * <p>
      * 색맹: 각자 적기
      *
+     * </p>
      */
     @Override
     public void checkFunctionState() {

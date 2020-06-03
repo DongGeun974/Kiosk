@@ -6,6 +6,18 @@ import android.widget.ImageView;
 
 import com.example.myapplication.R;
 
+/**
+ * 하단 바들의 상위 클래스, 이미지뷰를 이용한 상태라 토글버튼으로 수정 필요함(중요도 중간)
+ * <p>
+ * 인스턴스 변수:
+ * {@link InitBottomBar#state}, {@link InitBottomBar#WHEEL},
+ * {@link InitBottomBar#BIGGER}, {@link InitBottomBar#COLORBLIND}
+ * </p>
+ * <p>
+ * 메소드:
+ * {@link InitBottomBar#StateView(View)}, {@link InitBottomBar#WheelViewChange(View)},
+ * {@link InitBottomBar#BiggerViewChange(View)}, {@link InitBottomBar#BlindViewChange(View)}
+ * </p> */
 public class InitBottomBar extends Fragment {
     /**
      * 추가 기능을 플래그 형식으로 나타냄
@@ -23,6 +35,10 @@ public class InitBottomBar extends Fragment {
     public static int BIGGER = 0x00000002;
     public static int COLORBLIND = 0x00000004;
 
+    /**
+     * xml의 6가지 이미지 뷰를 현재 상태에 맞게 수정함(아주 안 좋은 방법)
+     * @param v
+     */
     public void StateView(View v){
         ImageView WheelSel = (ImageView) v.findViewById(R.id.icon_wheel_selected);
         ImageView WheelUnSel = (ImageView) v.findViewById(R.id.icon_wheel_unselected);

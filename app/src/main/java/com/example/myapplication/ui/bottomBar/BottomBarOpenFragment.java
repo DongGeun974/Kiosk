@@ -15,7 +15,25 @@ import android.widget.ImageView;
 import com.example.myapplication.R;
 import com.example.myapplication.ui.InitActivity;
 
+/**
+ * 하단 바 클릭시 프래그먼트, {@link InitBottomBar}에서 상속
+ * <p>
+ * 인스턴스 변수: x
+ * </p>
+ * <p>
+ * 메소드:
+ * {@link BottomBarCloseFragment#onCreateView(LayoutInflater, ViewGroup, Bundle)},
+ * {@link BottomBarCloseFragment#change()}
+ * </p>
+ */
 public class BottomBarOpenFragment extends InitBottomBar {
+    /**
+     * xml 요소 이벤트 설정 및 클릭시 {@link BottomBarOpenFragment#change()} 실행
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,7 +58,6 @@ public class BottomBarOpenFragment extends InitBottomBar {
         bottombar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {}
         });
-//        view.findViewById(R.id.fragment_bottom_bar_open).bringToFront();
 
         FrameLayout f1 = (FrameLayout) view.findViewById(R.id.icon_wheel);
         f1.setOnClickListener(new View.OnClickListener(){
@@ -70,6 +87,9 @@ public class BottomBarOpenFragment extends InitBottomBar {
         return view;
     }
 
+    /**
+     * {@link BottomBarCloseFragment} 프래그먼트 실행
+     */
     public void change(){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

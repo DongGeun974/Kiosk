@@ -2,6 +2,17 @@ package com.example.myapplication.data.menuData;
 
 import android.media.Image;
 
+/**
+ * 메뉴 하나를 저장하는 클래스
+ * <p>
+ * 인스턴스 변수:
+ * id, category, name, price, url
+ * </p>
+ * <p>
+ * 메소드:
+ * getter와 setter
+ * </p>
+ */
 public class Menu {
     private int id;
     private String category;

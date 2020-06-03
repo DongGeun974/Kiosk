@@ -292,20 +292,41 @@ import java.util.TimerTask;
  * 메소드(타이머부분 제외):
  * {@link MenuActivity#onCreate(Bundle)}. {@link MenuActivity#setEvent()},
  * {@link MenuActivity#displayMenuList()}, {@link MenuActivity#displayCategoryBar()},
- * {@link MenuActivity#changeOrderItemListState()},
+ * {@link MenuActivity#changeCartState()}, {@link MenuActivity#checkFunctionState()}
  * </p>
  */
 public class MenuActivity extends InitActivity {
+    /**
+     * 카테고리 이름 저장한 리스트, 4개 항목 있음
+     */
     private String[] categoryNameList = {"chicken", "burger&box&set", "side", "beverage"};
+    /**
+     * 현재 카테고리
+     */
     private int categoryState = 0;
+    /**
+     * 현재 메뉴 페이지
+     */
     private int menuPage = 0;
+    /**
+     * xml상 보여지는 메뉴 객체의 수
+     */
     private int menuUISize = 6;
-    private MenuList categoryMenuList = new MenuList();//
-    //장바구니 친구
+    /**
+     * 카테고리에 해당하는 메뉴들을 담은 객체
+     */
+    private MenuList categoryMenuList = new MenuList();
+    /**
+     * 현재 구매 버튼을 누른 메뉴들을 저장한 객체
+     */
     private OrderMenuList cart = new OrderMenuList();
-    //일반 >> 휠체어 시 일반 액티비티 종료용
+    /**
+     *  수정 필요   일반 >> 휠체어 시 일반 액티비티 종료용
+     */
     public static MenuActivity menuActivity;
-    //휠체어 >> 일반 시 휠체어 액티비티 종료용
+    /**
+     *  수정 필요   휠체어 >> 일반 시 휠체어 액티비티 종료용
+     */
     MenuWheelActivity menuWheelActivity = (MenuWheelActivity)MenuWheelActivity.menuWheelActivity;
 
     /////////////////////////////////////////////////////////////////////
@@ -404,12 +425,11 @@ public class MenuActivity extends InitActivity {
     ////////////////////////////////////////////////////////////////////////
 
     /**
-     * 처음 액티비티 생성에서 실행
-     * 메뉴화면의 왼쪽, 오른쪽 화살표 버튼에 대한 이벤트 설정
-     * 메뉴화면의 구매 버튼 이벤트 설정
+     * 이벤트 설정({@link MenuActivity#setEvent()}), 카테고리 프래그먼트 실행({@link MenuActivity#displayCategoryBar()},
+     * 카테고리의 메뉴들 화면으로 출력({@link MenuActivity#displayMenuList()}
      * <p>
      * BottomBarClose 프래그먼트, MenuCategory 프래그먼트 이용
-     *
+     * </p>
      * @param savedInstanceState
      */
     @Override
@@ -431,7 +451,6 @@ public class MenuActivity extends InitActivity {
         categoryMenuList.setMenuListWithCategory(getDbMenuList(), categoryNameList[categoryState].split(("&")));
 
         displayMenuList();
-
     }
 
     @Override
@@ -440,6 +459,9 @@ public class MenuActivity extends InitActivity {
         timer.cancel();
     }
 
+    /**
+     * 각종 이벤트를 따로 빼둠
+     */
     public void setEvent(){
 
         Button back = (Button) findViewById(R.id.btn_actMenu_back);
@@ -500,20 +522,23 @@ public class MenuActivity extends InitActivity {
             }
         });
     }
+
     /**
-     * 메뉴를 보여주는 6개 버튼을 지정
-     * 각 버튼의 이벤트 설정
+     * 해당 카테고리의 메뉴를 보여주는 6개 버튼을 지정하고 각 버튼의 이벤트 설정
      */
     public void displayMenuList() {
+        // 6개 버튼의 태그명
         String tagName = "lay_actMenu_menuImg";
         LinearLayout ll = findViewById(R.id.lay_actMenu_eachMenuList);
 
+        // 6개 버튼 각각에 대해
         for(int i=0; i<menuUISize; i++){
             int categoryIndex = menuPage*6+i;
             Log.d("display", String.valueOf(categoryIndex));
 
             LinearLayout ll2 = ll.findViewWithTag(tagName+i);
 
+            // catrgoryMenuList에서 해당하는 인덱스의 Menu를 가져와 보여준다.
             try {
                 Menu selMenu = categoryMenuList.getMenuList().get(menuPage * 6 + i);
 
@@ -529,6 +554,7 @@ public class MenuActivity extends InitActivity {
                 ImageButton iv = (ImageButton) ll2.getChildAt(0);
                 Glide.with(this).load(imageUrl).into(iv);
 
+                //각 버튼을 클릭했을 때 수량확인 프래그먼트 실행
                 int finalI = i;
                 iv.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -557,10 +583,11 @@ public class MenuActivity extends InitActivity {
                 iv.setBackgroundResource(R.drawable.frame_actbuy_menu_ic_unselected);
             }
         }
-        Log.d("for", "end");
     }
 
-
+    /**
+     * {@link MenuCategoryBarFragment} 실행
+     */
     public void displayCategoryBar(){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -595,20 +622,25 @@ public class MenuActivity extends InitActivity {
         return menuPage;
     }
 
-    public void changeOrderItemListState(){
+    /**
+     * 현재 {@link MenuActivity#cart} 에 따라 화면에 보여지는 총수량, 총합 수정
+     */
+    public void changeCartState(){
         int sum = 0;
         int quantity = 0;
 
         cart.deleteZeroQuantityItem();
 
+        //cart에 담겨진 주문들의 총수량, 총합 계산
         for(OrderMenu orderMenu: cart.getOrderMenuList()){
             quantity += orderMenu.getQuantity();
             sum += orderMenu.getQuantity() * orderMenu.getMenu().getPrice();
         }
 
+        //화면에 보여지는 총수량, 총합 수정 부분
         ((TextView)findViewById(R.id.text_actMenu_quantity)).setText(String.valueOf(quantity));
         ((TextView)findViewById(R.id.text_actMenu_sum)).setText(String.valueOf(sum));
-        Log.d("aaaaaaaaaaaaaaaaaaaaaa", String.valueOf(sum));
+        Log.d("메뉴화면에서", String.valueOf(sum));
 
 
 /////////////////////////////리스트뷰 내용(임시로 둠)
@@ -620,6 +652,21 @@ public class MenuActivity extends InitActivity {
 
     }
 
+    /**
+     * {@link InitActivity#checkFunctionState()} 재정의
+     * <p>
+     * 휠체어: {@link MenuWheelActivity} 로 전환
+     *
+     * </p>
+     * <p>
+     * 돋보기: 각자 적기
+     *
+     * </p>
+     * <p>
+     * 색맹: 각자 적기
+     *
+     * </p>
+     */
     @Override
     public void checkFunctionState() {
         int functionState =  getFunctionState();

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +21,34 @@ import com.example.myapplication.ui.MenuMain.MenuActivity;
 
 import java.util.ArrayList;
 
+/**
+ * 구매 확인하는 창 띄우는 프래그먼트
+ * <p>
+ * 인스턴스 변수:
+ * {@link MenuBuyFragment#mRecyclerView}, {@link MenuBuyFragment#mAdapter},
+ * </p>
+ * <p>
+ * 메소드:
+ * {@link MenuBuyFragment#onCreateView(LayoutInflater, ViewGroup, Bundle)}
+ * </p>
+ */
 public class MenuBuyFragment extends Fragment {
+    /**
+     * 리싸이클러 뷰를 저장하는 객체
+     */
     RecyclerView mRecyclerView = null ;
+    /**
+     * 리싸이클러 뷰 어댑터를 저장하는 객체
+     */
     RecyclerImageTextAdapter mAdapter = null ;
-    ArrayList<RecyclerItem> mList = new ArrayList<RecyclerItem>();
 
+    /**
+     * 화면의 각종 이벤트 설정 및 리싸이클러뷰 적용
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,43 +107,7 @@ public class MenuBuyFragment extends Fragment {
         mRecyclerView.addItemDecoration(new DividerItemDecoration(view.getContext(), 1));
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext())) ;
-
-//////////////////////////////////////
-        //수량 변경 버튼 이벤트
-//        mAdapter.setOnItemClickListener(new RecyclerImageTextAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(View v, int position) {
-//                // TODO : 아이템 클릭 이벤트를 MainActivity에서 처리.
-//
-//                Button plus =  v.findViewById(R.id.plus);
-//                TextView menuQuantity = v.findViewById(R.id.text_fragMenuBuy_quantity);
-//                plus.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-////                        int pos = getAdapterPosition() ;
-//                        int afterQuantity = Integer.parseInt((String) menuQuantity.getText())+1;
-//                        menuQuantity.setText(String.valueOf(afterQuantity));
-//                        ((MenuActivity) getActivity()).getCart().getOrderMenuList().get(position).setQuantity(afterQuantity);
-//                    }
-//                });
-//
-//                Log.d("메뉴바이프레그먼트에서", String.valueOf(position));
-//            }
-//        }) ;
-
-
-//        Button plus =  view.findViewById(R.id.plus);
-//        TextView menuQuantity = view.findViewById(R.id.text_fragMenuBuy_quantity);
-//        plus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                        int pos = getAdapterPosition() ;
-//                int afterQuantity = Integer.parseInt((String) menuQuantity.getText())+1;
-//                menuQuantity.setText(String.valueOf(afterQuantity));
-//                ((MenuActivity) getActivity()).getCart().getOrderMenuList().get(position).setQuantity(afterQuantity);
-//            }
-//        });
-        /////////////////////////////////////
+        ////////////////////////////////
 
         return view;
     }
@@ -130,6 +116,6 @@ public class MenuBuyFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
 
-        ((MenuActivity)getActivity()).changeOrderItemListState();
+        ((MenuActivity)getActivity()).changeCartState();
     }
 }
