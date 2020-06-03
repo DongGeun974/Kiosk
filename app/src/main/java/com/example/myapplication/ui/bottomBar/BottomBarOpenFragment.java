@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.ui.InitActivity;
 
 public class BottomBarOpenFragment extends InitBottomBar {
     @Override
@@ -29,11 +30,17 @@ public class BottomBarOpenFragment extends InitBottomBar {
         closeBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((InitActivity)getActivity()).setFunctionState(state);
                 change();
             }
         });
 
-        view.findViewById(R.id.fragment_bottom_bar_open).bringToFront();
+        View bottombar = view.findViewById(R.id.lay_fragBottombarClose_bottomBar);
+
+        bottombar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {}
+        });
+//        view.findViewById(R.id.fragment_bottom_bar_open).bringToFront();
 
         FrameLayout f1 = (FrameLayout) view.findViewById(R.id.icon_wheel);
         f1.setOnClickListener(new View.OnClickListener(){

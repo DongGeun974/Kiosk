@@ -6,7 +6,6 @@ import android.widget.ImageView;
 
 import com.example.myapplication.R;
 
-
 public class InitBottomBar extends Fragment {
     /**
      * 추가 기능을 플래그 형식으로 나타냄
@@ -20,9 +19,9 @@ public class InitBottomBar extends Fragment {
      *
      */
     static int state;
-    int WHEEL = 0x00000001;
-    int BIGGER = 0x00000002;
-    int COLORBLIND = 0x00000004;
+    public static int WHEEL = 0x00000001;
+    public static int BIGGER = 0x00000002;
+    public static int COLORBLIND = 0x00000004;
 
     public void StateView(View v){
         ImageView WheelSel = (ImageView) v.findViewById(R.id.icon_wheel_selected);

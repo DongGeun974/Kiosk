@@ -57,10 +57,10 @@ public class BottomBarCloseFragment extends InitBottomBar{
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
+    public void onResume(){
+        super.onResume();
 
         ((InitActivity)getActivity()).setFunctionState(state);
-//        ((InitActivity)getActivity()).checkActivity();
+        ((InitActivity)getActivity()).checkFunctionState();
     }
 }

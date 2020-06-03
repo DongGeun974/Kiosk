@@ -30,8 +30,8 @@
         <item name = "android:textColor">@color/dark_grey</item>
         <item name = "android:textSize">12dp</item>
         <item name = "android:paddingBottom">5dp</item>
-        <item name = "android:layout_marginRight">8dp</item>
-        <item name = "android:layout_marginLeft">8dp</item>
+        <item name = "android:layout_marginTop">8dp</item>
+        <item name = "android:layout_marginBottom">8dp</item>
     </style>
 
 <!--    <style name="act_buy_menu_sel" parent="act_buy_menu">-->

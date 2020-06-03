@@ -272,38 +272,61 @@ import com.example.myapplication.ui.MenuBuy.MenuBuyFragment;
 import com.example.myapplication.ui.MenuCategoryBar.MenuCategoryBarFragment;
 import com.example.myapplication.ui.InitActivity;
 import com.example.myapplication.ui.MenuQuantity.MenuQuantityFragment;
+import com.example.myapplication.ui.bottomBar.InitBottomBar;
 
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * <p>
+ * {@link InitActivity}에서 상속받은 메뉴 보여주는 액티비티
+ * </p>
+ * <p>
+ * 인스턴스 변수:
+ * {@link MenuActivity#categoryNameList}, {@link MenuActivity#categoryState},
+ * {@link MenuActivity#menuPage}, {@link MenuActivity#menuUISize},
+ * {@link MenuActivity#categoryMenuList}, {@link MenuActivity#cart},
+ * </p>
+ * <p>
+ * 메소드(타이머부분 제외):
+ * {@link MenuActivity#onCreate(Bundle)}. {@link MenuActivity#setEvent()},
+ * {@link MenuActivity#displayMenuList()}, {@link MenuActivity#displayCategoryBar()},
+ * {@link MenuActivity#changeOrderItemListState()},
+ * </p>
+ */
 public class MenuActivity extends InitActivity {
     private String[] categoryNameList = {"chicken", "burger&box&set", "side", "beverage"};
-    private int categoryState =0;
-    private int menuPage=0;
+    private int categoryState = 0;
+    private int menuPage = 0;
     private int menuUISize = 6;
     private MenuList categoryMenuList = new MenuList();//
-    private OrderMenuList cart = new OrderMenuList();//장바구니 친구
+    //장바구니 친구
+    private OrderMenuList cart = new OrderMenuList();
+    //일반 >> 휠체어 시 일반 액티비티 종료용
+    public static MenuActivity menuActivity;
+    //휠체어 >> 일반 시 휠체어 액티비티 종료용
+    MenuWheelActivity menuWheelActivity = (MenuWheelActivity)MenuWheelActivity.menuWheelActivity;
 
     /////////////////////////////////////////////////////////////////////
     /**
      * 여기부터 타이머
      */
     int i = 0; // timer
-    int check= 0;
+    int check = 0;
     Timer timer = new Timer();
     TimerTask timerTask = new TimerTask() {
         @Override
         public void run() {
             //timer handling
-            if (i == 20){
-                Log.i(this.getClass().getName(),"system re-boot");
+            if (i == 20) {
+                Log.i(this.getClass().getName(), "system re-boot");
                 restart();
-            } else if (i == 10){
+            } else if (i == 10) {
                 Log.i(this.getClass().getName(), "voice start");
                 AlarmNoInputSound();
             }
-            Log.i(this.getClass().getName(), Integer.toString(i) +", check :"+ Integer.toString(check));
+            Log.i(this.getClass().getName(), Integer.toString(i) + ", check :" + Integer.toString(check));
             i++;
         }
     };
@@ -313,12 +336,12 @@ public class MenuActivity extends InitActivity {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                if (i == 20){
-                    Log.i(this.getClass().getName(),"system re-boot");
-                } else if (i == 10){
+                if (i == 20) {
+                    Log.i(this.getClass().getName(), "system re-boot");
+                } else if (i == 10) {
                     Log.i(this.getClass().getName(), "voice start");
                 }
-                Log.i(this.getClass().getName(), Integer.toString(i) +", check :"+ Integer.toString(check));
+                Log.i(this.getClass().getName(), Integer.toString(i) + ", check :" + Integer.toString(check));
                 i++;
             }
         };
@@ -334,7 +357,7 @@ public class MenuActivity extends InitActivity {
         return super.onTouchEvent(event);
     }
 
-    public void restart(){
+    public void restart() {
         finish();
         startActivity(new Intent(this, MainActivity.class));
     }
@@ -384,7 +407,7 @@ public class MenuActivity extends InitActivity {
      * 처음 액티비티 생성에서 실행
      * 메뉴화면의 왼쪽, 오른쪽 화살표 버튼에 대한 이벤트 설정
      * 메뉴화면의 구매 버튼 이벤트 설정
-     *
+     * <p>
      * BottomBarClose 프래그먼트, MenuCategory 프래그먼트 이용
      *
      * @param savedInstanceState
@@ -396,7 +419,7 @@ public class MenuActivity extends InitActivity {
 
         //////////////////////////////////////////////////
         //타이머 시작
-        timer.schedule(timerTask, 1000 , 1000);
+        timer.schedule(timerTask, 1000, 1000);
 
         //시작 음성 안내 시작
         AlarmStartSound();
@@ -404,55 +427,69 @@ public class MenuActivity extends InitActivity {
 
         displayCategoryBar();
         displayBottomBar();
+        setEvent();
+        categoryMenuList.setMenuListWithCategory(getDbMenuList(), categoryNameList[categoryState].split(("&")));
+
+        displayMenuList();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        timer.cancel();
+    }
+
+    public void setEvent(){
 
         Button back = (Button) findViewById(R.id.btn_actMenu_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+                    //이전 액티비티 종료
+                    menuWheelActivity.finish();
+                }catch (Exception ex){}
                 finish();
             }
         });
 
-        categoryMenuList.setMenuListWithCategory(getDbMenuList(), categoryNameList[categoryState].split(("&")));
-
-        displayMenuList();
-
         ImageButton btnBefore = (ImageButton) findViewById(R.id.imgBtn_actMenu_menuBefore);
-        btnBefore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try{
-                    menuPage--;
-                    displayMenuList();
-                }catch(Exception e){
-                    menuPage++;
-                    displayMenuList();
-                }
+            btnBefore.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick (View v){
+                    try {
+                        menuPage--;
+                        displayMenuList();
+                    } catch (Exception e) {
+                        menuPage++;
+                        displayMenuList();
+                    }
 
-                Log.d("menuPage:", String.valueOf(menuPage));
-            }
+                    Log.d("menuPage:", String.valueOf(menuPage));
+                }
         });
 
         ImageButton btnNext = (ImageButton) findViewById(R.id.imgBtn_actMenu_menuNext);
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                menuPage++;
+            btnNext.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick (View v){
+                    menuPage++;
 
-                if(menuPage > categoryMenuList.getMenuList().size() / 6)
-                    menuPage--;
+                    if (menuPage > categoryMenuList.getMenuList().size() / 6)
+                        menuPage--;
 
-                displayMenuList();
+                    displayMenuList();
 
-                Log.d("menuPage:", String.valueOf(menuPage));
+                    Log.d("menuPage:", String.valueOf(menuPage));
 
-            }
+                }
         });
 
         Button btnBuy = (Button) findViewById(R.id.btn_actMenu_Buy);
         btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick (View v){
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -463,14 +500,6 @@ public class MenuActivity extends InitActivity {
             }
         });
     }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        timer.cancel();
-    }
-
-
     /**
      * 메뉴를 보여주는 6개 버튼을 지정
      * 각 버튼의 이벤트 설정
@@ -592,15 +621,42 @@ public class MenuActivity extends InitActivity {
     }
 
     @Override
-    protected void displayBottomBar() {
-        super.displayBottomBar();
+    public void checkFunctionState() {
+        int functionState =  getFunctionState();
 
+        Log.d("메뉴화면에서", String.valueOf(functionState));
 
-        //변했는 걸 어떻게 알까?
-        //1. 하단바 클릭해서 돌아오면 무조건 확인(하단바 프래그먼트 들어가는 XML의 뷰에 클릭 이벤트 설정해서)
-        //2. 하단바 상태를 가져와서 바뀌었으면 확인
+        if((functionState & InitBottomBar.WHEEL) != 0) {
+            Log.d("메뉴화면에서", "휠체어로 변환");
 
+            try {
+                //이전 액티비티 종료
+                menuWheelActivity.finish();
 
-        //변했을 떄 메서드 실행
+                //전환된 액티비티에서 이전 액티비티 종료용
+                menuActivity = this;
+            }catch (Exception ex){}
+
+            Intent intent=new Intent(MenuActivity.this, MenuWheelActivity.class);
+
+            // 출처: https://wingsnote.com/128 [날개의 노트 (Wing's Note)]
+            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+
+            startActivity(intent);
+        }else{
+            Log.d("메뉴화면에서", "휠체어에서 일반으로 변환");
+        }
+
+        if((functionState & InitBottomBar.BIGGER) != 0){
+            Log.d("메뉴화면에서", "돋보기 기능");
+        }else{
+            Log.d("메뉴화면에서", "돋보기 해제");
+        }
+
+        if((functionState & InitBottomBar.COLORBLIND) != 0){
+            Log.d("메뉴화면에서", "색맹으로 전환");
+        }else{
+            Log.d("메뉴화면에서", "색맹 해제");
+        }
     }
 }

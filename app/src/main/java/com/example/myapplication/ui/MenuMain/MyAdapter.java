@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
-import com.example.myapplication.data.menuData.Menu;
 import com.example.myapplication.data.orderMenuData.OrderMenu;
 import com.example.myapplication.data.orderMenuData.OrderMenuList;
 
-import java.util.ArrayList;
-
+/**
+ * 하단에 보이는 노란 배경 장바구니 리스트뷰 어댑터
+ */
 public class MyAdapter extends BaseAdapter {
 
     Context mContext = null;
