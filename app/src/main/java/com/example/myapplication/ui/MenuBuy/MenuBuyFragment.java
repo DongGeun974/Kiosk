@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -61,6 +62,26 @@ public class MenuBuyFragment extends Fragment {
 
             }
         });
+
+        ToggleButton toGoBtn = (ToggleButton) view.findViewById(R.id.toggleBtn_fragMenuBuy_toGo);
+        ToggleButton toHereBtn = (ToggleButton) view.findViewById(R.id.toggleBtn_fragMenuBuy_toHere);
+
+        toGoBtn.setChecked(true);
+        toGoBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                toGoBtn.setChecked(true);
+                toHereBtn.setChecked(false);
+            }
+        });
+        toHereBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                toGoBtn.setChecked(false);
+                toHereBtn.setChecked(true);
+            }
+        });
+
 
         Button backBtn =  (Button) view.findViewById(R.id.btn_fragMenuBuy_back);
         backBtn.setOnClickListener(new View.OnClickListener() {

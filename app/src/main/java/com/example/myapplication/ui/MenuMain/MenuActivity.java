@@ -86,6 +86,7 @@ public class MenuActivity extends InitActivity {
     /**
      * 여기부터 타이머
      */
+    /*
     int i = 0; // timer
     int check = 0;
     Timer timer = new Timer();
@@ -135,6 +136,8 @@ public class MenuActivity extends InitActivity {
         finish();
         startActivity(new Intent(this, MainActivity.class));
     }
+
+     */
     /**
      * 여기까지 타이머
      */
@@ -209,7 +212,7 @@ public class MenuActivity extends InitActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        timer.cancel();
+//        timer.cancel();
     }
 
     /**

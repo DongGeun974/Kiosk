@@ -44,7 +44,7 @@ public class MenuCategoryBarFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_menu_menubar, container, false);
+        View view = inflater.inflate(R.layout.fragment_menu_categorybar, container, false);
 
         setCategoryButtonEvent(view);
 
