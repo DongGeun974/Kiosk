@@ -13,6 +13,9 @@ import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import com.example.myapplication.data.orderMenuData.OrderMenu;
 import com.example.myapplication.data.orderMenuData.OrderMenuList;
+import com.example.myapplication.ui.bottomBar.InitBottomBar;
+
+import static com.example.myapplication.ui.InitActivity.getFunctionState;
 
 /**
  * 하단에 보이는 노란 배경 장바구니 리스트뷰 어댑터
@@ -52,7 +55,12 @@ public class MyAdapter extends BaseAdapter {
         TextView name = (TextView)view.findViewById(R.id.listmenuname);
         TextView count = (TextView)view.findViewById(R.id.listmenucount);
 
-        Glide.with(view.getContext()).load(sample.getOrderMenuList().get(position).getMenu().getUrl()).into(imageView);
+        String url = sample.getOrderMenuList().get(position).getMenu().getUrl();
+
+        if((getFunctionState() & InitBottomBar.COLORBLIND) != 0)
+            url = url.replace("original", "colorblind");
+
+        Glide.with(view.getContext()).load(url).into(imageView);
         Log.d("마이어뎁터에서", sample.getOrderMenuList().get(position).getMenu().getUrl());
 
         name.setText(String.valueOf(sample.getOrderMenuList().get(position).getMenu().getName()));

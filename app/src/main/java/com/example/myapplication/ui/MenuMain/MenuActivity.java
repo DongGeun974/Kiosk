@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -12,7 +13,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Magnifier;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.MainActivity;
@@ -82,7 +87,34 @@ public class MenuActivity extends InitActivity {
      */
     MenuWheelActivity menuWheelActivity = (MenuWheelActivity)MenuWheelActivity.menuWheelActivity;
 
-    /////////////////////////////////////////////////////////////////////
+    //돋보기 객체
+    private Magnifier magnifier;
+    //돋보기 레이아웃 접근
+    private ConstraintLayout constraintLayout1;
+    //돋보기 리스
+    private View.OnTouchListener magnifierTouchListener = new View.OnTouchListener() {
+        @RequiresApi(api = Build.VERSION_CODES.P)
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                case MotionEvent.ACTION_MOVE: {
+                    final int[] viewPosition = new int[2];
+                    v.getLocationOnScreen(viewPosition);
+                    magnifier.show(event.getRawX() - viewPosition[0],
+                            event.getRawY() - viewPosition[1]);
+                    break;
+                }
+                case MotionEvent.ACTION_CANCEL:
+                case MotionEvent.ACTION_UP: {
+                    magnifier.dismiss();
+                }
+            }
+            return true;
+        }
+    };
+
+        /////////////////////////////////////////////////////////////////////
     /**
      * 여기부터 타이머
      */
@@ -188,10 +220,19 @@ public class MenuActivity extends InitActivity {
      * </p>
      * @param savedInstanceState
      */
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        //돋보기
+        constraintLayout1 = findViewById(R.id.lay_actMenu_all);
+        Magnifier.Builder builder = new Magnifier.Builder(constraintLayout1);
+        builder.setSize(400, 300);
+        //builder.setInitialZoom(10f);
+        magnifier = builder.build();
+        //돋보기
 
         //////////////////////////////////////////////////
         //타이머 시작
@@ -308,6 +349,10 @@ public class MenuActivity extends InitActivity {
                 //표시되는 메뉴 이미지를 url에서 가져와서 출력
                 String imageUrl = selMenu.getUrl();
                 ImageButton iv = (ImageButton) ll2.getChildAt(0);
+
+                if((getFunctionState() & InitBottomBar.COLORBLIND) != 0)
+                    imageUrl = imageUrl.replace("original", "colorblind");
+
                 Glide.with(this).load(imageUrl).error(R.drawable.frame_fragbottombar_icunselected).into(iv);
 
                 //각 버튼을 클릭했을 때 수량확인 프래그먼트 실행
@@ -362,30 +407,6 @@ public class MenuActivity extends InitActivity {
         fragmentTransaction.add(R.id.lay_actMain_menuBar, buyMenu);
 
         fragmentTransaction.commit();
-    }
-
-    public void setCategoryState(int categoryState) {
-        this.categoryState = categoryState;
-    }
-
-    public void setCart(OrderMenuList cart) {
-        this.cart = cart;
-    }
-
-    public void setMenuPage(int menuPage) {
-        this.menuPage = menuPage;
-    }
-
-    public OrderMenuList getCart() {
-        return cart;
-    }
-
-    public MenuList getCategoryMenuList() {
-        return categoryMenuList;
-    }
-
-    public int getMenuPage() {
-        return menuPage;
     }
 
     /**
@@ -459,14 +480,45 @@ public class MenuActivity extends InitActivity {
 
         if((functionState & InitBottomBar.BIGGER) != 0){
             Log.d("메뉴화면에서", "돋보기 기능");
+            magnifier.show(constraintLayout1.getWidth() * 5, constraintLayout1.getHeight() * 5);
+            constraintLayout1.setOnTouchListener(magnifierTouchListener);
         }else{
             Log.d("메뉴화면에서", "돋보기 해제");
+            constraintLayout1.setOnTouchListener(null);
         }
+        displayMenuList();
 
         if((functionState & InitBottomBar.COLORBLIND) != 0){
+
             Log.d("메뉴화면에서", "색맹으로 전환");
         }else{
+
             Log.d("메뉴화면에서", "색맹 해제");
         }
     }
+
+    public void setCategoryState(int categoryState) {
+        this.categoryState = categoryState;
+    }
+
+    public void setCart(OrderMenuList cart) {
+        this.cart = cart;
+    }
+
+    public void setMenuPage(int menuPage) {
+        this.menuPage = menuPage;
+    }
+
+    public OrderMenuList getCart() {
+        return cart;
+    }
+
+    public MenuList getCategoryMenuList() {
+        return categoryMenuList;
+    }
+
+    public int getMenuPage() {
+        return menuPage;
+    }
+
 }

@@ -17,8 +17,10 @@ import com.example.myapplication.R;
 import com.example.myapplication.data.orderMenuData.OrderMenu;
 import com.example.myapplication.data.menuData.Menu;
 import com.example.myapplication.ui.MenuMain.MenuActivity;
+import com.example.myapplication.ui.bottomBar.InitBottomBar;
 
 import static com.example.myapplication.ui.InitActivity.getDbMenuList;
+import static com.example.myapplication.ui.InitActivity.getFunctionState;
 
 /**
  * <p>
@@ -121,7 +123,12 @@ public class MenuQuantityFragment extends Fragment {
      * @param selMenu 선택한 Menu 객체
      */
     private void displaySelMenu(View view, Menu selMenu){
-        Glide.with(this).load(selMenu.getUrl()).into((ImageView)view.findViewById(R.id.img_fragMenuQuantity_selectMenu));
+        String url = selMenu.getUrl();
+
+        if((getFunctionState() & InitBottomBar.COLORBLIND) != 0)
+            url = url.replace("original", "colorblind");
+
+        Glide.with(this).load(url).into((ImageView)view.findViewById(R.id.img_fragMenuQuantity_selectMenu));
         TextView a = (TextView)view.findViewById(R.id.text_fragMenuQuantity_selectMenuName);
         a.setText(selMenu.getName());
     }

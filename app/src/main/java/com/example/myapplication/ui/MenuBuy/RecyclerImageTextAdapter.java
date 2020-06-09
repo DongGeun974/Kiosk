@@ -14,8 +14,11 @@ import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import com.example.myapplication.data.orderMenuData.OrderMenu;
 import com.example.myapplication.data.orderMenuData.OrderMenuList;
+import com.example.myapplication.ui.bottomBar.InitBottomBar;
 
 import java.util.ArrayList;
+
+import static com.example.myapplication.ui.InitActivity.getFunctionState;
 
 /**
  * <p>
@@ -59,8 +62,14 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
     public void onBindViewHolder(RecyclerImageTextAdapter.ViewHolder holder, int position) {
         OrderMenu item = mData2.getOrderMenuList().get(position);
 
+        String url = item.getMenu().getUrl();
+
+        if((getFunctionState() & InitBottomBar.COLORBLIND) != 0)
+            url = url.replace("original", "colorblind");
+
+
         Glide.with(holder.itemView.getContext())
-                .load(item.getMenu().getUrl())
+                .load(url)
                 .into(holder.menuImg);
         holder.menuName.setText(item.getMenu().getName());
         holder.menuQuantity.setText(String.valueOf(item.getQuantity()));
