@@ -92,5 +92,7 @@ public class BottomBarCloseFragment extends InitBottomBar{
 
         ((InitActivity)getActivity()).setFunctionState(state);
         ((InitActivity)getActivity()).checkFunctionState();
+
+
     }
 }

@@ -53,8 +53,9 @@
                     android:gravity="center|left"
                     android:text="KFC"
                     android:textColor="@color/main_color"
-                    android:textSize="20dp"
+                    android:textSize="40dp"
                     android:textStyle="bold"
+                    android:textAlignment="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHeight_percent="0.05"
                     app:layout_constraintStart_toStartOf="parent"
@@ -508,7 +509,7 @@
                         android:background="#A5A5A5"
                         android:text="취소"
                         android:textColor="#FFFFFF"
-                        android:textSize="20dp" />
+                        android:textSize="40dp" />
 
                     <Button
                         android:id="@+id/btn_actMenu_Buy"
@@ -519,27 +520,13 @@
                         android:background="#FF2929"
                         android:text="구매"
                         android:textColor="#FFFFFF"
-                        android:textSize="20dp" />
+                        android:textSize="40dp" />
 
                 </LinearLayout>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <FrameLayout
-            android:id="@+id/frame_actMenu_quantity"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:visibility="visible" />
-
-        <FrameLayout
-            android:id="@+id/frame_actMenu_buy"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
@@ -547,6 +534,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:visibility="visible" />
+
+    <FrameLayout
+        android:id="@+id/frame_actMenu_quantity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" />
+
+    <FrameLayout
+        android:id="@+id/frame_actMenu_buy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

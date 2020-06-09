@@ -8,8 +8,10 @@ import android.widget.Button;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.example.myapplication.data.orderMenuData.OrderMenuList;
 import com.example.myapplication.ui.MenuMain.MenuActivity;
 import com.example.myapplication.ui.InitActivity;
+import com.example.myapplication.ui.MenuMain.MenuWheelActivity;
 import com.example.myapplication.ui.bottomBar.InitBottomBar;
 
 /**
@@ -48,10 +50,18 @@ public class MainActivity extends InitActivity {
                 // 출처: https://wingsnote.com/128 [날개의 노트 (Wing's Note)]
                 intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
 
+                MenuActivity.setCart(new OrderMenuList());
                 startActivity(intent);
             }
         });
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("시작화면에서", "액티비티 생성");
 
     }
 

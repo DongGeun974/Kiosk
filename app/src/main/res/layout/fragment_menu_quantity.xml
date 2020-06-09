@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#33000000">
@@ -11,92 +12,130 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/white"
-        android:orientation="vertical"
         android:gravity="center"
-        app:layout_constraintHeight_percent="0.8"
-        app:layout_constraintWidth_percent="0.6"
-        app:layout_constraintVertical_bias="0.3"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintWidth_percent="0.6">
 
         <ImageView
             android:id="@+id/img_fragMenuQuantity_selectMenu"
             android:layout_width="400dp"
-            android:layout_height="400dp"/>
+            android:layout_height="400dp"
+            app:layout_constraintBottom_toTopOf="@+id/text_fragMenuQuantity_selectMenuName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_fragMenuQuantity_selectMenuName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="메뉴이름"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_fragMenuQuantity_selectMenu" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="수량을 선택하세요."
-            android:textSize="30dp"/>
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/linearLayout8"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
-            <Button
-                android:id="@+id/btn_fragMenuQuantity_sub"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="-"
-                android:textSize="50dp"
-                android:background="@drawable/frame_actbuy_menu_ic_unselected"/>
+            android:orientation="vertical"
+            app:layout_constraintWidth_percent="0.8"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_fragMenuQuantity_selectMenuName" >
+
             <TextView
-                android:id="@+id/text_fragMenuQuantity_quantity"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="0"
-                android:textSize="30dp"
-                android:textColor="#000000"
-                android:gravity="center"/>
-            <Button
-                android:id="@+id/btn_fragMenuQuantity_add"
-                android:layout_width="0dp"
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="+"
-                android:textSize="50dp"
-                android:background="@drawable/frame_actbuy_menu_ic_unselected"/>
+                android:text="수량을 선택하세요."
+                android:textSize="30dp"/>
+
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_fragMenuQuantity_sub"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/frame_actbuy_menu_ic_unselected"
+                    android:text="-"
+                    android:textSize="50dp" />
+
+                <TextView
+                    android:id="@+id/text_fragMenuQuantity_quantity"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="30dp" />
+
+                <Button
+                    android:id="@+id/btn_fragMenuQuantity_add"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/frame_actbuy_menu_ic_unselected"
+                    android:text="+"
+                    android:textSize="50dp" />
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/linearLayout7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout8"
+            app:layout_constraintWidth_percent="0.8">
+
             <Button
                 android:id="@+id/btn_fragMenuQuantity_back"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/grey"
                 android:text="취소"
-                android:textSize="30dp"
                 android:textColor="@color/white"
-                android:background="@color/grey"/>
+                android:textSize="30dp" />
+
             <Button
                 android:id="@+id/btn_fragMenuQuantity_cartAdd"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/main_color"
                 android:text="담기"
-                android:textSize="30dp"
                 android:textColor="@color/white"
-                android:background="@color/main_color"/>
+                android:textSize="30dp" />
         </LinearLayout>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

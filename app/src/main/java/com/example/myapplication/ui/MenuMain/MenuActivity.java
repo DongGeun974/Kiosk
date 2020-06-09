@@ -77,15 +77,15 @@ public class MenuActivity extends InitActivity {
     /**
      * 현재 구매 버튼을 누른 메뉴들을 저장한 객체
      */
-    private OrderMenuList cart = new OrderMenuList();
-    /**
-     *  수정 필요   일반 >> 휠체어 시 일반 액티비티 종료용
-     */
-    public static MenuActivity menuActivity;
-    /**
-     *  수정 필요   휠체어 >> 일반 시 휠체어 액티비티 종료용
-     */
-    MenuWheelActivity menuWheelActivity = (MenuWheelActivity)MenuWheelActivity.menuWheelActivity;
+    private static OrderMenuList cart = new OrderMenuList();
+//    /**
+//     *  수정 필요   일반 >> 휠체어 시 일반 액티비티 종료용
+//     */
+//    public static MenuActivity menuActivity;
+//    /**
+//     *  수정 필요   휠체어 >> 일반 시 휠체어 액티비티 종료용
+//     */
+//    MenuWheelActivity menuWheelActivity;
 
     //돋보기 객체
     private Magnifier magnifier;
@@ -229,8 +229,8 @@ public class MenuActivity extends InitActivity {
         //돋보기
         constraintLayout1 = findViewById(R.id.lay_actMenu_all);
         Magnifier.Builder builder = new Magnifier.Builder(constraintLayout1);
-        builder.setSize(400, 300);
-        //builder.setInitialZoom(10f);
+        builder.setSize(600, 400);
+        builder.setInitialZoom(3f);
         magnifier = builder.build();
         //돋보기
 
@@ -246,6 +246,7 @@ public class MenuActivity extends InitActivity {
         displayBottomBar();
         setEvent();
         categoryMenuList.setMenuListWithCategory(getDbMenuList(), categoryNameList[categoryState].split(("&")));
+        changeCartState();
 
         displayMenuList();
     }
@@ -265,10 +266,6 @@ public class MenuActivity extends InitActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    //이전 액티비티 종료
-                    menuWheelActivity.finish();
-                }catch (Exception ex){}
                 finish();
             }
         });
@@ -283,8 +280,6 @@ public class MenuActivity extends InitActivity {
                         menuPage = 0;
 
                     displayMenuList();
-
-                    Log.d("menuPage:", String.valueOf(menuPage));
                 }
         });
 
@@ -300,9 +295,6 @@ public class MenuActivity extends InitActivity {
                     }
 
                     displayMenuList();
-
-                    Log.d("menuPage:", String.valueOf(menuPage));
-
                 }
         });
 
@@ -452,21 +444,13 @@ public class MenuActivity extends InitActivity {
      *
      * </p>
      */
+    @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     public void checkFunctionState() {
         int functionState =  getFunctionState();
 
-        Log.d("메뉴화면에서", String.valueOf(functionState));
-
         if((functionState & InitBottomBar.WHEEL) != 0) {
             Log.d("메뉴화면에서", "휠체어로 변환");
-
-            try {
-                //이전 액티비티 종료
-                menuWheelActivity.finish();
-            }catch (Exception ex){}
-            //전환된 액티비티에서 이전 액티비티 종료용
-            menuActivity = this;
 
             Intent intent=new Intent(MenuActivity.this, MenuWheelActivity.class);
 
@@ -474,13 +458,13 @@ public class MenuActivity extends InitActivity {
             intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
 
             startActivity(intent);
+            finish();
         }else{
             Log.d("메뉴화면에서", "휠체어에서 일반으로 변환");
         }
 
         if((functionState & InitBottomBar.BIGGER) != 0){
             Log.d("메뉴화면에서", "돋보기 기능");
-            magnifier.show(constraintLayout1.getWidth() * 5, constraintLayout1.getHeight() * 5);
             constraintLayout1.setOnTouchListener(magnifierTouchListener);
         }else{
             Log.d("메뉴화면에서", "돋보기 해제");
@@ -501,24 +485,21 @@ public class MenuActivity extends InitActivity {
         this.categoryState = categoryState;
     }
 
-    public void setCart(OrderMenuList cart) {
-        this.cart = cart;
+    public static OrderMenuList getCart() {
+        return cart;
+    }
+
+    public static void setCart(OrderMenuList cart) {
+        MenuActivity.cart = cart;
     }
 
     public void setMenuPage(int menuPage) {
         this.menuPage = menuPage;
     }
 
-    public OrderMenuList getCart() {
-        return cart;
-    }
 
     public MenuList getCategoryMenuList() {
         return categoryMenuList;
-    }
-
-    public int getMenuPage() {
-        return menuPage;
     }
 
 }
