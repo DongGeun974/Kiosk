@@ -11,10 +11,44 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import com.example.myapplication.R;
+import com.example.myapplication.data.menuData.GitHubService;
+import com.example.myapplication.data.menuData.Menu;
+import com.example.myapplication.data.menuData.MenuList;
 import com.example.myapplication.ui.bottomBar.BottomBarCloseFragment;
 
+import java.util.List;
 
-public class InitActivity extends Activity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+/**
+ * <p>
+ * 다른 액티비티들의 최상위 액티비티용 클래스
+ *
+ * </p>
+ * <p>
+ * 인스턴스 변수: {@link InitActivity#functionState}, {@link InitActivity#dbMenuList}
+ * </p>
+ * <p>
+ * 메소드: {@link InitActivity#onKeyDown(int, KeyEvent)}(재정의), {@link InitActivity#checkKeyButton(int)},
+ * {@link InitActivity#onPause()}(재정의), {@link InitActivity#onCreate(Bundle)}((재정의),
+ * {@link InitActivity#displayBottomBar()}, {@link InitActivity#makeFullScreen()},
+ * {@link InitActivity#getFromNetwork()}, {@link InitActivity#checkFunctionState()},
+ *
+ * </p>
+ */
+public abstract class InitActivity extends Activity {
+    /**
+     * functionState: 기능 플래그 비트로 구성 (1: Wheel 2: bigger 4: color blind)
+     */
+    static int functionState=0;
+    /**
+     * DB에서 가져온 항목들을 {@link MenuList} 클래스로 저장
+     */
+    static MenuList dbMenuList = new MenuList();
 
     /**
      * checkKeyButton 메서드를 통해 키 값 확인 후 해당 키 입력 이벤트 재정의해서 지움
@@ -48,29 +82,51 @@ public class InitActivity extends Activity {
     }
 
     /**
-     * 메뉴버튼 클릭 시 액티비티 위치 변경 통해 유지
+     * 메뉴버튼 클릭 시 액티비티 위치 변경 통해 유지 및 액티비티 전환 애니메이션 삭제
      */
     @Override
     protected void onPause() {
         super.onPause();
+
         ActivityManager activityManager = (ActivityManager) getApplicationContext()
                 .getSystemService(Context.ACTIVITY_SERVICE);
         activityManager.moveTaskToFront(getTaskId(), 0);
+
+        //https://wingsnote.com/128
+        overridePendingTransition(0,0);
     }
 
+    /**
+     * 최대화면으로 전환({@link InitActivity#makeFullScreen()}, 네트워크에서 DB 가져오기({@link InitActivity#getFromNetwork()}
+     * @param savedInstanceState 액티비티 전환 간 데이터 전달하는 {@link Bundle} 객체
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         makeFullScreen();
 
+        getFromNetwork();
+    }
+
+    /**
+     * {@link BottomBarCloseFragment}를 화면으로 보여줌
+     */
+    protected void displayBottomBar(){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        BottomBarCloseFragment fragment = new BottomBarCloseFragment();
-        fragmentTransaction.add(R.id.frame_bottom_bar, fragment);
+        BottomBarCloseFragment bottomBarCloseFragment = new BottomBarCloseFragment();
+        fragmentTransaction.add(R.id.frame_bottom_bar, bottomBarCloseFragment);
+
+        Bundle bundle = new Bundle(); bundle.putInt("bottomBarState", functionState); // Key, Value
+        bottomBarCloseFragment.setArguments(bundle);
+
         fragmentTransaction.commit();
     }
 
+    /**
+     * 몰입 모드(전체화면) 적용하기 위해 해당하는 플래그 설정
+     */
     protected void makeFullScreen(){
         int uiOptions = getWindow().getDecorView().getSystemUiVisibility();
         int newUiOptions = uiOptions;
@@ -85,5 +141,60 @@ public class InitActivity extends Activity {
         newUiOptions ^= View.SYSTEM_UI_FLAG_FULLSCREEN;
         newUiOptions ^= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
+    }
+
+    /**
+     * DB에서 각 항목들을 가져와 {@link InitActivity#dbMenuList}에 저장
+     */
+    public void getFromNetwork(){
+        GitHubService gitHubService;
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://rldnd2637.dothome.co.kr")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        gitHubService = retrofit.create(GitHubService.class);
+        Call<List<Menu>> call = gitHubService.getRepos();
+
+        call.enqueue(new Callback<List<Menu>>() {
+            @Override
+            public void onResponse(Call<List<Menu>> call, Response<List<Menu>> response) {
+                if (response.isSuccessful()) {
+                    dbMenuList.setMenuList(response.body());
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Menu>> call, Throwable t) {
+                Log.e("Not Response", call + " " + t.getLocalizedMessage());
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        makeFullScreen();
+    }
+
+    /**
+     * 하단바 상태 변경 확인하는 메서드,
+     * 추상 클래스라 상속받은 모든 클래스에서는 필수적으로 재정의 필요
+     */
+    public abstract void checkFunctionState();
+
+    public static int getFunctionState() {
+        return functionState;
+    }
+
+    public static MenuList getDbMenuList() {
+        return dbMenuList;
+    }
+
+    public static void setFunctionState(int functionState) {
+        InitActivity.functionState = functionState;
+    }
+
+    public static void setDbMenuList(MenuList dbMenuList) {
+        InitActivity.dbMenuList = dbMenuList;
     }
 }

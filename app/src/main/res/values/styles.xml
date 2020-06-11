@@ -1,5 +1,5 @@
 <resources>
-
+<!--    https://lktprogrammer.tistory.com/147-->
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -7,5 +7,41 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="AppThemeBuy" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    </style>
+    
+    <style name="btn_act_menu_normal">
+        <item name = "android:layout_width">140dp</item>
+        <item name = "android:layout_height">140dp</item>
+        <item name = "android:gravity">center|bottom</item>
+        <item name = "android:textColor">@color/dark_grey</item>
+        <item name = "android:textSize">20dp</item>
+        <item name = "android:paddingBottom">5dp</item>
+        <item name = "android:layout_marginRight">8dp</item>
+        <item name = "android:layout_marginLeft">8dp</item>
+    </style>
+
+    <style name="btn_act_menu_wheelSel">
+        <item name = "android:layout_width">80dp</item>
+        <item name = "android:layout_height">80dp</item>
+        <item name = "android:gravity">center|bottom</item>
+        <item name = "android:textColor">@color/dark_grey</item>
+        <item name = "android:textSize">12dp</item>
+        <item name = "android:paddingBottom">5dp</item>
+        <item name = "android:layout_marginTop">8dp</item>
+        <item name = "android:layout_marginBottom">8dp</item>
+    </style>
+
+<!--    <style name="act_buy_menu_sel" parent="act_buy_menu">-->
+<!--        <item name = "android:layout_width">0dp</item>-->
+<!--        <item name = "android:layout_height">match_parent</item>-->
+<!--        <item name = "android:layout_weight">1</item>-->
+<!--        <item name = "android:gravity">center</item>-->
+<!--        <item name = "android:textColor">@color/main_color</item>-->
+<!--        <item name = "android:textSize">15sp</item>-->
+<!--        <item name = "android:background">@drawable/frame_act_buy_menu_ic_selected</item>-->
+<!--    </style>-->
 
 </resources>
