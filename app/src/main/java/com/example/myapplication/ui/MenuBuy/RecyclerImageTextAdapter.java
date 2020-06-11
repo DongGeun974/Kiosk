@@ -1,11 +1,13 @@
 package com.example.myapplication.ui.MenuBuy;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import com.example.myapplication.data.orderMenuData.OrderMenu;
 import com.example.myapplication.data.orderMenuData.OrderMenuList;
+import com.example.myapplication.ui.MenuMain.MenuActivity;
 import com.example.myapplication.ui.bottomBar.InitBottomBar;
 
 import java.util.ArrayList;
@@ -37,6 +40,7 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
     private OrderMenuList mData2 = null;
     private View view;
     private RecyclerImageTextAdapter.ViewHolder vh;
+    private ViewGroup parentViewGroup;
 
     // 생성자에서 데이터 리스트 객체를 전달받음.
     public RecyclerImageTextAdapter(ArrayList<RecyclerItem> list) {
@@ -54,6 +58,7 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
 
         view = inflater.inflate(R.layout.buy_recycler_item, parent, false) ;
         vh = new RecyclerImageTextAdapter.ViewHolder(view) ;
+        parentViewGroup = parent;
 
         return vh ;
     }
@@ -70,6 +75,7 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
 
         Glide.with(holder.itemView.getContext())
                 .load(url)
+                .placeholder(R.drawable.ic_loading)
                 .into(holder.menuImg);
         holder.menuName.setText(item.getMenu().getName());
         holder.menuQuantity.setText(String.valueOf(item.getQuantity()));
@@ -124,12 +130,20 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
                 public void onClick(View v) {
                     int pos = getAdapterPosition() ;
                     int afterQuantity = Integer.parseInt((String) menuQuantity.getText())-1;
+                    int totalPrice=0;
 
                     if(afterQuantity < 0)
                         afterQuantity = 0;
 
                     menuQuantity.setText(String.valueOf(afterQuantity));
                     mData2.getOrderMenuList().get(pos).setQuantity(afterQuantity);
+
+                    TextView tv = ((LinearLayout)parentViewGroup.getParent()).findViewById(R.id.text_fragMenuBuy_totalPrice);
+
+                    for(OrderMenu orderMenu: mData2.getOrderMenuList())
+                        totalPrice += orderMenu.getQuantity() * orderMenu.getMenu().getPrice();
+
+                    tv.setText(String.valueOf(totalPrice));
                 }
             });
 
@@ -138,8 +152,17 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
                 public void onClick(View v) {
                     int pos = getAdapterPosition() ;
                     int afterQuantity = Integer.parseInt((String) menuQuantity.getText())+1;
+                    int totalPrice=0;
+
                     menuQuantity.setText(String.valueOf(afterQuantity));
                     mData2.getOrderMenuList().get(pos).setQuantity(afterQuantity);
+
+                    TextView tv = ((LinearLayout)parentViewGroup.getParent()).findViewById(R.id.text_fragMenuBuy_totalPrice);
+
+                    for(OrderMenu orderMenu: mData2.getOrderMenuList())
+                        totalPrice += orderMenu.getQuantity() * orderMenu.getMenu().getPrice();
+
+                    tv.setText(String.valueOf(totalPrice));
                 }
             });
             ////////////////////////////////////////////////////////////////

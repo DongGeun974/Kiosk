@@ -331,6 +331,7 @@ public class MenuActivity extends InitActivity {
             try {
                 Menu selMenu = categoryMenuList.getMenuList().get(menuPage * 6 + i);
 
+
                 //표시되는 메뉴 이름
                 TextView t = (TextView) ll2.getChildAt(1);
                 t.setText(selMenu.getName());
@@ -345,7 +346,10 @@ public class MenuActivity extends InitActivity {
                 if((getFunctionState() & InitBottomBar.COLORBLIND) != 0)
                     imageUrl = imageUrl.replace("original", "colorblind");
 
-                Glide.with(this).load(imageUrl).error(R.drawable.frame_fragbottombar_icunselected).into(iv);
+                Glide.with(this)
+                        .load(imageUrl)
+                        .placeholder(R.drawable.ic_loading)
+                        .into(iv);
 
                 //각 버튼을 클릭했을 때 수량확인 프래그먼트 실행
                 int finalI = i;
@@ -366,7 +370,7 @@ public class MenuActivity extends InitActivity {
                         fragmentTransaction.commit();
                     }
                 });
-            }catch (Exception e){
+            }catch (IndexOutOfBoundsException e){
                 //표시되는 메뉴 이름
                 TextView t = (TextView) ll2.getChildAt(1);
                 t.setText(null);
@@ -382,6 +386,40 @@ public class MenuActivity extends InitActivity {
                     @Override
                     public void onClick(View v) {
 
+                    }
+                });
+            }catch (Exception e){
+                Menu selMenu = categoryMenuList.getMenuList().get(menuPage * 6 + i);
+
+                //표시되는 메뉴 이름
+                TextView t = (TextView) ll2.getChildAt(1);
+                t.setText(selMenu.getName());
+
+                TextView t2 = (TextView) ll2.getChildAt(2);
+                t2.setText(String.valueOf(selMenu.getPrice())+"원") ;
+
+                //기존 이미지에 덮어쓰기
+                ImageButton iv = (ImageButton) ll2.getChildAt(0);
+
+                Glide.with(this)
+                        .load(R.drawable.ic_loading)
+                        .into(iv);
+
+                iv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FragmentManager fragmentManager = getFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                        MenuQuantityFragment menuQuantityFragment = new MenuQuantityFragment();
+                        fragmentTransaction.add(R.id.frame_actMenu_quantity, menuQuantityFragment);
+
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("selMenu", selMenu.getId()); // Key, Value
+
+                        menuQuantityFragment.setArguments(bundle);
+
+                        fragmentTransaction.commit();
                     }
                 });
             }
@@ -470,7 +508,6 @@ public class MenuActivity extends InitActivity {
             Log.d("메뉴화면에서", "돋보기 해제");
             constraintLayout1.setOnTouchListener(null);
         }
-        displayMenuList();
 
         if((functionState & InitBottomBar.COLORBLIND) != 0){
 
@@ -479,6 +516,8 @@ public class MenuActivity extends InitActivity {
 
             Log.d("메뉴화면에서", "색맹 해제");
         }
+        displayMenuList();
+        changeCartState();
     }
 
     public void setCategoryState(int categoryState) {

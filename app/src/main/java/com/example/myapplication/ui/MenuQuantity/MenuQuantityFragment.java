@@ -128,7 +128,10 @@ public class MenuQuantityFragment extends Fragment {
         if((getFunctionState() & InitBottomBar.COLORBLIND) != 0)
             url = url.replace("original", "colorblind");
 
-        Glide.with(this).load(url).into((ImageView)view.findViewById(R.id.img_fragMenuQuantity_selectMenu));
+        Glide.with(this)
+                .load(url)
+                .placeholder(R.drawable.ic_loading)
+                .into((ImageView)view.findViewById(R.id.img_fragMenuQuantity_selectMenu));
         TextView a = (TextView)view.findViewById(R.id.text_fragMenuQuantity_selectMenuName);
         a.setText(selMenu.getName());
     }

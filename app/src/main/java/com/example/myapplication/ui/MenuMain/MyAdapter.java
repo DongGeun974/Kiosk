@@ -60,7 +60,10 @@ public class MyAdapter extends BaseAdapter {
         if((getFunctionState() & InitBottomBar.COLORBLIND) != 0)
             url = url.replace("original", "colorblind");
 
-        Glide.with(view.getContext()).load(url).into(imageView);
+        Glide.with(view.getContext())
+                .load(url)
+                .placeholder(R.drawable.ic_loading)
+                .into(imageView);
         Log.d("마이어뎁터에서", sample.getOrderMenuList().get(position).getMenu().getUrl());
 
         name.setText(String.valueOf(sample.getOrderMenuList().get(position).getMenu().getName()));

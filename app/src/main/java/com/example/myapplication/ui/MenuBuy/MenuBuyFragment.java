@@ -112,10 +112,6 @@ public class MenuBuyFragment extends Fragment {
             }
         });
 
-        if((InitActivity.getFunctionState() & InitBottomBar.BIGGER) != 0){
-            Log.d("왜", "메뉴프래그먼트의 On");
-        }
-
         ToggleButton toGoBtn = (ToggleButton) view.findViewById(R.id.toggleBtn_fragMenuBuy_toGo);
         ToggleButton toHereBtn = (ToggleButton) view.findViewById(R.id.toggleBtn_fragMenuBuy_toHere);
 
@@ -171,7 +167,7 @@ public class MenuBuyFragment extends Fragment {
 
         TextView t = (TextView) view.findViewById(R.id.text_fragMenuBuy_totalPrice);
 
-        for(OrderMenu orderMenu: ((MenuActivity)getActivity()).getCart().getOrderMenuList())
+        for(OrderMenu orderMenu: MenuActivity.getCart().getOrderMenuList())
             totalPrice += orderMenu.getQuantity() * orderMenu.getMenu().getPrice();
 
         t.setText(String.valueOf(totalPrice)+"원");
