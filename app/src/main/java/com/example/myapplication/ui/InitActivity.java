@@ -11,10 +11,11 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import com.example.myapplication.R;
+import com.example.myapplication.addfunc.AddFunction;
 import com.example.myapplication.data.menuData.GitHubService;
 import com.example.myapplication.data.menuData.Menu;
 import com.example.myapplication.data.menuData.MenuList;
-import com.example.myapplication.ui.bottomBar.BottomBarCloseFragment;
+import com.example.myapplication.ui.bottombar.BottomBarCloseFragment;
 
 import java.util.List;
 
@@ -30,7 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  *
  * </p>
  * <p>
- * 인스턴스 변수: {@link InitActivity#functionState}, {@link InitActivity#dbMenuList}
+ * 인스턴스 변수: {@link InitActivity#dbMenuList}
  * </p>
  * <p>
  * 메소드: {@link InitActivity#onKeyDown(int, KeyEvent)}(재정의), {@link InitActivity#checkKeyButton(int)},
@@ -40,11 +41,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  *
  * </p>
  */
-public abstract class InitActivity extends Activity {
-    /**
-     * functionState: 기능 플래그 비트로 구성 (1: Wheel 2: bigger 4: color blind)
-     */
-    static int functionState=0;
+public abstract class InitActivity extends Activity implements AddFunction {
     /**
      * DB에서 가져온 항목들을 {@link MenuList} 클래스로 저장
      */
@@ -118,8 +115,8 @@ public abstract class InitActivity extends Activity {
         BottomBarCloseFragment bottomBarCloseFragment = new BottomBarCloseFragment();
         fragmentTransaction.add(R.id.frame_bottom_bar, bottomBarCloseFragment);
 
-        Bundle bundle = new Bundle(); bundle.putInt("bottomBarState", functionState); // Key, Value
-        bottomBarCloseFragment.setArguments(bundle);
+//        Bundle bundle = new Bundle(); bundle.putInt("bottomBarState", functionState); // Key, Value
+//        bottomBarCloseFragment.setArguments(bundle);
 
         fragmentTransaction.commit();
     }
@@ -182,16 +179,8 @@ public abstract class InitActivity extends Activity {
      */
     public abstract void checkFunctionState();
 
-    public static int getFunctionState() {
-        return functionState;
-    }
-
     public static MenuList getDbMenuList() {
         return dbMenuList;
-    }
-
-    public static void setFunctionState(int functionState) {
-        InitActivity.functionState = functionState;
     }
 
     public static void setDbMenuList(MenuList dbMenuList) {

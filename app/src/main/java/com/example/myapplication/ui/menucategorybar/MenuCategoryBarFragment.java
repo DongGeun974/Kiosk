@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.MenuCategoryBar;
+package com.example.myapplication.ui.menucategorybar;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ToggleButton;
 
 import com.example.myapplication.R;
-import com.example.myapplication.ui.MenuMain.MenuActivity;
+import com.example.myapplication.addfunc.AddFunction;
+import com.example.myapplication.ui.menumain.MenuActivity;
+import com.example.myapplication.ui.bottombar.InitBottomBar;
 
 import static com.example.myapplication.ui.InitActivity.getDbMenuList;
 
@@ -24,7 +26,7 @@ import static com.example.myapplication.ui.InitActivity.getDbMenuList;
  * {@link MenuCategoryBarFragment#onCreateView(LayoutInflater, ViewGroup, Bundle)}, {@link MenuCategoryBarFragment#setCategoryButtonEvent(View)}
  * </p>
  */
-public class MenuCategoryBarFragment extends Fragment {
+public class MenuCategoryBarFragment extends Fragment implements AddFunction {
     /**
      * 카테고리들의 이름
      */
@@ -44,7 +46,12 @@ public class MenuCategoryBarFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_menu_categorybar, container, false);
+        View view;
+
+        if((InitBottomBar.getState() & InitBottomBar.WHEEL) == 0)
+            view = inflater.inflate(R.layout.fragment_menu_catebar, container, false);
+        else
+            view = inflater.inflate(R.layout.fragment_menu_catebarwheel, container, false);
 
         setCategoryButtonEvent(view);
 

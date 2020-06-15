@@ -1,4 +1,4 @@
-package com.example.myapplication.data.orderMenuData;
+package com.example.myapplication.data.orderData;
 
 import com.example.myapplication.data.menuData.Menu;
 
@@ -6,14 +6,14 @@ import com.example.myapplication.data.menuData.Menu;
  * 주문 하나를 저장하는 클래스
  * <p>
  * 인스턴스 변수:
- * {@link OrderMenu#quantity}, {@link OrderMenu#menu}
+ * {@link Order#quantity}, {@link Order#menu}
  * </p>
  * <p>
  * 메소드:
  * getter와 setter
  * </p>
  */
-public class OrderMenu {
+public class Order {
     /**
      * 현재 주문의 수량
      */
@@ -23,7 +23,7 @@ public class OrderMenu {
      */
     Menu menu;
 
-    public OrderMenu(Menu menu, int quantity){
+    public Order(Menu menu, int quantity){
         setMenu(menu);
         setQuantity(quantity);
     }

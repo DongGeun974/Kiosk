@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.bottomBar;
+package com.example.myapplication.ui.bottombar;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -38,7 +38,7 @@ public class BottomBarCloseFragment extends InitBottomBar{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        state = getArguments().getInt("bottomBarState");
+//        state = getArguments().getInt("bottomBarState");
         Log.d("Close start", String.valueOf(state));
         view = inflater.inflate(R.layout.fragment_bottom_bar_close, container, false);
 
@@ -82,15 +82,10 @@ public class BottomBarCloseFragment extends InitBottomBar{
         StateView(view);
     }
 
-    /**
-     * {@link BottomBarOpenFragment}에서 돌아오면 현재 state를 {@link InitActivity#setFunctionState(int)} 통해 전달,
-     * 또한 {@link InitActivity#checkFunctionState()} 호출해서 추가기능 여부 확인
-     */
     @Override
     public void onResume(){
         super.onResume();
 
-        ((InitActivity)getActivity()).setFunctionState(state);
         ((InitActivity)getActivity()).checkFunctionState();
 
 

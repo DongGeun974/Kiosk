@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.bottomBar;
+package com.example.myapplication.ui.bottombar;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.example.myapplication.R;
-import com.example.myapplication.ui.InitActivity;
 
 /**
  * 하단 바 클릭시 프래그먼트, {@link InitBottomBar}에서 상속
@@ -45,7 +44,7 @@ public class BottomBarOpenFragment extends InitBottomBar {
         closeBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((InitActivity)getActivity()).setFunctionState(state);
+//                ((InitActivity)getActivity()).setFunctionState(state);
                 change();
             }
         });

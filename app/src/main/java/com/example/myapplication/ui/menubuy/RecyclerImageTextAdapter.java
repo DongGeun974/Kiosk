@@ -1,7 +1,6 @@
-package com.example.myapplication.ui.MenuBuy;
+package com.example.myapplication.ui.menubuy;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
-import com.example.myapplication.data.orderMenuData.OrderMenu;
-import com.example.myapplication.data.orderMenuData.OrderMenuList;
-import com.example.myapplication.ui.MenuMain.MenuActivity;
-import com.example.myapplication.ui.bottomBar.InitBottomBar;
+import com.example.myapplication.addfunc.AddFunction;
+import com.example.myapplication.data.orderData.Order;
+import com.example.myapplication.data.orderData.OrderList;
 
 import java.util.ArrayList;
 
-import static com.example.myapplication.ui.InitActivity.getFunctionState;
 
 /**
  * <p>
@@ -35,9 +32,9 @@ import static com.example.myapplication.ui.InitActivity.getFunctionState;
  * </p>
  * {@link MenuBuyFragment}의 리싸이클러뷰 어댑터, 자세한 설명 생략
  */
-public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImageTextAdapter.ViewHolder> {
+public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImageTextAdapter.ViewHolder> implements AddFunction {
     private ArrayList<RecyclerItem> mData = null ;
-    private OrderMenuList mData2 = null;
+    private OrderList mData2 = null;
     private View view;
     private RecyclerImageTextAdapter.ViewHolder vh;
     private ViewGroup parentViewGroup;
@@ -46,7 +43,7 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
     public RecyclerImageTextAdapter(ArrayList<RecyclerItem> list) {
         mData = list ;
     }
-    public RecyclerImageTextAdapter(OrderMenuList list) {
+    public RecyclerImageTextAdapter(OrderList list) {
         mData2 = list ;
     }
 
@@ -65,12 +62,13 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
 
     @Override
     public void onBindViewHolder(RecyclerImageTextAdapter.ViewHolder holder, int position) {
-        OrderMenu item = mData2.getOrderMenuList().get(position);
+        Order item = mData2.getOrderList().get(position);
 
         String url = item.getMenu().getUrl();
 
-        if((getFunctionState() & InitBottomBar.COLORBLIND) != 0)
-            url = url.replace("original", "colorblind");
+        url = colorBlind.changeURL(url);
+//        if((InitBottomBar.getState() & InitBottomBar.COLORBLIND) != 0)
+//            url = url.replace("original", "colorblind");
 
 
         Glide.with(holder.itemView.getContext())
@@ -84,7 +82,7 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
 
     @Override
     public int getItemCount() {
-        return mData2.getOrderMenuList().size() ;
+        return mData2.getOrderList().size() ;
     }
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
@@ -136,12 +134,12 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
                         afterQuantity = 0;
 
                     menuQuantity.setText(String.valueOf(afterQuantity));
-                    mData2.getOrderMenuList().get(pos).setQuantity(afterQuantity);
+                    mData2.getOrderList().get(pos).setQuantity(afterQuantity);
 
                     TextView tv = ((LinearLayout)parentViewGroup.getParent()).findViewById(R.id.text_fragMenuBuy_totalPrice);
 
-                    for(OrderMenu orderMenu: mData2.getOrderMenuList())
-                        totalPrice += orderMenu.getQuantity() * orderMenu.getMenu().getPrice();
+                    for(Order order : mData2.getOrderList())
+                        totalPrice += order.getQuantity() * order.getMenu().getPrice();
 
                     tv.setText(String.valueOf(totalPrice));
                 }
@@ -155,12 +153,12 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
                     int totalPrice=0;
 
                     menuQuantity.setText(String.valueOf(afterQuantity));
-                    mData2.getOrderMenuList().get(pos).setQuantity(afterQuantity);
+                    mData2.getOrderList().get(pos).setQuantity(afterQuantity);
 
                     TextView tv = ((LinearLayout)parentViewGroup.getParent()).findViewById(R.id.text_fragMenuBuy_totalPrice);
 
-                    for(OrderMenu orderMenu: mData2.getOrderMenuList())
-                        totalPrice += orderMenu.getQuantity() * orderMenu.getMenu().getPrice();
+                    for(Order order : mData2.getOrderList())
+                        totalPrice += order.getQuantity() * order.getMenu().getPrice();
 
                     tv.setText(String.valueOf(totalPrice));
                 }

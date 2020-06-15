@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.MenuMain;
+package com.example.myapplication.ui.menumain;
 
 import android.content.Context;
 import android.util.Log;
@@ -11,22 +11,22 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
-import com.example.myapplication.data.orderMenuData.OrderMenu;
-import com.example.myapplication.data.orderMenuData.OrderMenuList;
-import com.example.myapplication.ui.bottomBar.InitBottomBar;
+import com.example.myapplication.addfunc.AddFunction;
+import com.example.myapplication.data.orderData.Order;
+import com.example.myapplication.data.orderData.OrderList;
+import com.example.myapplication.ui.bottombar.InitBottomBar;
 
-import static com.example.myapplication.ui.InitActivity.getFunctionState;
 
 /**
  * 하단에 보이는 노란 배경 장바구니 리스트뷰 어댑터
  */
-public class MyAdapter extends BaseAdapter {
+public class MyAdapter extends BaseAdapter implements AddFunction {
 
     Context mContext = null;
     LayoutInflater mLayoutInflater = null;
-    OrderMenuList sample;
+    OrderList sample;
 
-    public MyAdapter(Context context, OrderMenuList data) {
+    public MyAdapter(Context context, OrderList data) {
         mContext = context;
         sample = data;
         mLayoutInflater = LayoutInflater.from(mContext);
@@ -34,7 +34,7 @@ public class MyAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return sample.getOrderMenuList().size();
+        return sample.getOrderList().size();
     }
 
     @Override
@@ -43,8 +43,8 @@ public class MyAdapter extends BaseAdapter {
     }
 
     @Override
-    public OrderMenu getItem(int position) {
-        return sample.getOrderMenuList().get(position);
+    public Order getItem(int position) {
+        return sample.getOrderList().get(position);
     }
 
     @Override
@@ -55,19 +55,21 @@ public class MyAdapter extends BaseAdapter {
         TextView name = (TextView)view.findViewById(R.id.listmenuname);
         TextView count = (TextView)view.findViewById(R.id.listmenucount);
 
-        String url = sample.getOrderMenuList().get(position).getMenu().getUrl();
+        String url = sample.getOrderList().get(position).getMenu().getUrl();
 
-        if((getFunctionState() & InitBottomBar.COLORBLIND) != 0)
+        if((InitBottomBar.getState() & InitBottomBar.COLORBLIND) != 0)
             url = url.replace("original", "colorblind");
+
+        url = colorBlind.changeURL(url);
 
         Glide.with(view.getContext())
                 .load(url)
                 .placeholder(R.drawable.ic_loading)
                 .into(imageView);
-        Log.d("마이어뎁터에서", sample.getOrderMenuList().get(position).getMenu().getUrl());
+        Log.d("마이어뎁터에서", sample.getOrderList().get(position).getMenu().getUrl());
 
-        name.setText(String.valueOf(sample.getOrderMenuList().get(position).getMenu().getName()));
-        count.setText(String.valueOf(sample.getOrderMenuList().get(position).getQuantity()));
+        name.setText(String.valueOf(sample.getOrderList().get(position).getMenu().getName()));
+        count.setText(String.valueOf(sample.getOrderList().get(position).getQuantity()));
 
         return view;
     }

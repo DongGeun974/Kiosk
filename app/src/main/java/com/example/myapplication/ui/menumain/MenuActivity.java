@@ -1,9 +1,7 @@
-package com.example.myapplication.ui.MenuMain;
+package com.example.myapplication.ui.menumain;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,28 +11,21 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Magnifier;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.data.orderMenuData.OrderMenu;
-import com.example.myapplication.data.orderMenuData.OrderMenuList;
+import com.example.myapplication.data.orderData.Order;
+import com.example.myapplication.data.orderData.OrderList;
 import com.example.myapplication.data.menuData.Menu;
 import com.example.myapplication.data.menuData.MenuList;
-import com.example.myapplication.ui.MenuBuy.MenuBuyFragment;
-import com.example.myapplication.ui.MenuCategoryBar.MenuCategoryBarFragment;
+import com.example.myapplication.ui.menubuy.MenuBuyFragment;
+import com.example.myapplication.ui.menucategorybar.MenuCategoryBarFragment;
 import com.example.myapplication.ui.InitActivity;
-import com.example.myapplication.ui.MenuQuantity.MenuQuantityFragment;
-import com.example.myapplication.ui.bottomBar.InitBottomBar;
-
-import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
+import com.example.myapplication.ui.menuquantity.MenuQuantityFragment;
+import com.example.myapplication.ui.bottombar.InitBottomBar;
 
 /**
  * <p>
@@ -77,140 +68,24 @@ public class MenuActivity extends InitActivity {
     /**
      * 현재 구매 버튼을 누른 메뉴들을 저장한 객체
      */
-    private static OrderMenuList cart = new OrderMenuList();
-//    /**
-//     *  수정 필요   일반 >> 휠체어 시 일반 액티비티 종료용
-//     */
-//    public static MenuActivity menuActivity;
-//    /**
-//     *  수정 필요   휠체어 >> 일반 시 휠체어 액티비티 종료용
-//     */
-//    MenuWheelActivity menuWheelActivity;
-
-    //돋보기 객체
-    private Magnifier magnifier;
-    //돋보기 레이아웃 접근
-    private ConstraintLayout constraintLayout1;
-    //돋보기 리스
-    private View.OnTouchListener magnifierTouchListener = new View.OnTouchListener() {
-        @RequiresApi(api = Build.VERSION_CODES.P)
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getActionMasked()) {
-                case MotionEvent.ACTION_DOWN:
-                case MotionEvent.ACTION_MOVE: {
-                    final int[] viewPosition = new int[2];
-                    v.getLocationOnScreen(viewPosition);
-                    magnifier.show(event.getRawX() - viewPosition[0],
-                            event.getRawY() - viewPosition[1]);
-                    break;
-                }
-                case MotionEvent.ACTION_CANCEL:
-                case MotionEvent.ACTION_UP: {
-                    magnifier.dismiss();
-                }
-            }
-            return true;
-        }
-    };
-
-        /////////////////////////////////////////////////////////////////////
-    /**
-     * 여기부터 타이머
-     */
-    /*
-    int i = 0; // timer
-    int check = 0;
-    Timer timer = new Timer();
-    TimerTask timerTask = new TimerTask() {
-        @Override
-        public void run() {
-            //timer handling
-            if (i == 20) {
-                Log.i(this.getClass().getName(), "system re-boot");
-                restart();
-            } else if (i == 10) {
-                Log.i(this.getClass().getName(), "voice start");
-                AlarmNoInputSound();
-            }
-            Log.i(this.getClass().getName(), Integer.toString(i) + ", check :" + Integer.toString(check));
-            i++;
-        }
-    };
-
-    public void tempTask() {
-        i = 0;
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                if (i == 20) {
-                    Log.i(this.getClass().getName(), "system re-boot");
-                } else if (i == 10) {
-                    Log.i(this.getClass().getName(), "voice start");
-                }
-                Log.i(this.getClass().getName(), Integer.toString(i) + ", check :" + Integer.toString(check));
-                i++;
-            }
-        };
-        timer = new Timer();
-        timer.schedule(task, 0, 1000);
-    }
+    private static OrderList cart = new OrderList();
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        timer.cancel();
-        i = 0;
-        tempTask();
-        return super.onTouchEvent(event);
-    }
+    public boolean dispatchTouchEvent(MotionEvent event){
+        int action = event.getAction();
+        switch(action){
+            case(MotionEvent.ACTION_DOWN):
+                Log.i("dispatch touch","count reset");
+                alarm.restart();
 
-    public void restart() {
-        finish();
-        startActivity(new Intent(this, MainActivity.class));
-    }
-
-     */
-    /**
-     * 여기까지 타이머
-     */
-    ////////////////////////////////////////////////////////////////////////////////
-
-    /////////////////////////////////////////////////////////////////////
-    /**
-     * 여기부터 음성안내
-     */
-    MediaPlayer Start;
-    MediaPlayer NoInput;
-
-    protected void AlarmStartSound() {
-        try {
-            Start = new MediaPlayer();
-            Start.setDataSource("http://zxcasd3004.dothome.co.kr/project/menu_cart.mp3");
-            Start.prepare();
-            Start.start();
-
-            //Toast.makeText(this, "재생 시작됨.", Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            e.printStackTrace();
+                break;
+            case(MotionEvent.ACTION_MOVE):
+                break;
+            default:
+                break;
         }
+        return super.dispatchTouchEvent(event);
     }
-
-    protected void AlarmNoInputSound() {
-        try {
-            NoInput = new MediaPlayer();
-            NoInput.setDataSource("http://zxcasd3004.dothome.co.kr/project/no_input.mp3");
-            NoInput.prepare();
-            NoInput.start();
-
-            //Toast.makeText(this, "재생 시작됨.", Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    /**
-     * 여기까지 음성안내
-     */
-    ////////////////////////////////////////////////////////////////////////
 
     /**
      * 이벤트 설정({@link MenuActivity#setEvent()}), 카테고리 프래그먼트 실행({@link MenuActivity#displayCategoryBar()},
@@ -224,22 +99,19 @@ public class MenuActivity extends InitActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
 
-        //돋보기
-        constraintLayout1 = findViewById(R.id.lay_actMenu_all);
-        Magnifier.Builder builder = new Magnifier.Builder(constraintLayout1);
-        builder.setSize(600, 400);
-        builder.setInitialZoom(3f);
-        magnifier = builder.build();
-        //돋보기
+        if((InitBottomBar.getState() & InitBottomBar.WHEEL) == 0)
+            setContentView(R.layout.activity_menu);
+        else
+            setContentView(R.layout.activity_menu_wheel);
 
         //////////////////////////////////////////////////
         //타이머 시작
-//        timer.schedule(timerTask, 1000, 1000);
-//
-//        //시작 음성 안내 시작
-//        AlarmStartSound();
+//        timer.schedule(timerTask, 1000 , 1000);
+        alarm.setActivity(this);
+        alarm.start();
+        //시작 음성 안내 시작
+//        MyAlarmPlayer.AlarmStartSound();
         ///////////////////////////////////////////////////
 
         displayCategoryBar();
@@ -255,6 +127,15 @@ public class MenuActivity extends InitActivity {
     protected void onStop() {
         super.onStop();
 //        timer.cancel();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Log.d("메뉴에서", "알람종료");
+
+        alarm.cancel();
     }
 
     /**
@@ -343,8 +224,10 @@ public class MenuActivity extends InitActivity {
                 String imageUrl = selMenu.getUrl();
                 ImageButton iv = (ImageButton) ll2.getChildAt(0);
 
-                if((getFunctionState() & InitBottomBar.COLORBLIND) != 0)
-                    imageUrl = imageUrl.replace("original", "colorblind");
+//                if((InitBottomBar.getState() & InitBottomBar.COLORBLIND) != 0)
+//                    imageUrl = imageUrl.replace("original", "colorblind");
+
+                imageUrl = colorBlind.changeURL(imageUrl);
 
                 Glide.with(this)
                         .load(imageUrl)
@@ -449,9 +332,9 @@ public class MenuActivity extends InitActivity {
         cart.deleteZeroQuantityItem();
 
         //cart에 담겨진 주문들의 총수량, 총합 계산
-        for(OrderMenu orderMenu: cart.getOrderMenuList()){
-            quantity += orderMenu.getQuantity();
-            sum += orderMenu.getQuantity() * orderMenu.getMenu().getPrice();
+        for(Order order : cart.getOrderList()){
+            quantity += order.getQuantity();
+            sum += order.getQuantity() * order.getMenu().getPrice();
         }
 
         //화면에 보여지는 총수량, 총합 수정 부분
@@ -470,7 +353,7 @@ public class MenuActivity extends InitActivity {
     /**
      * {@link InitActivity#checkFunctionState()} 재정의
      * <p>
-     * 휠체어: {@link MenuWheelActivity} 로 전환
+     * 휠체어:
      *
      * </p>
      * <p>
@@ -482,63 +365,96 @@ public class MenuActivity extends InitActivity {
      *
      * </p>
      */
-    @RequiresApi(api = Build.VERSION_CODES.P)
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public void checkFunctionState() {
-        int functionState =  getFunctionState();
+        int functionState = InitBottomBar.getState();
+
+        if((functionState & InitBottomBar.BIGGER) != 0){
+            Log.d("메뉴화면에서", "돋보기 기능");
+            magnify.setMagnifyOnView(findViewById(R.id.lay_actMenu_all), true);
+        }else{
+            Log.d("메뉴화면에서", "돋보기 해제");
+            magnify.setMagnifyOnView(findViewById(R.id.lay_actMenu_all), false);
+        }
+
+        if((functionState & InitBottomBar.COLORBLIND) != 0){
+            Log.d("메뉴화면에서", "색맹으로 전환");
+            colorBlind.setOn(true);
+        }else{
+            Log.d("메뉴화면에서", "색맹 해제");
+            colorBlind.setOn(false);
+        }
 
         if((functionState & InitBottomBar.WHEEL) != 0) {
             Log.d("메뉴화면에서", "휠체어로 변환");
 
-            Intent intent=new Intent(MenuActivity.this, MenuWheelActivity.class);
+            alarm.cancel();
 
-            // 출처: https://wingsnote.com/128 [날개의 노트 (Wing's Note)]
-            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            if (wheel.isOnChange(true)){
+                finish();
+                startActivity(getIntent());
+            }
 
-            startActivity(intent);
-            finish();
         }else{
             Log.d("메뉴화면에서", "휠체어에서 일반으로 변환");
+
+            alarm.cancel();
+
+            if (wheel.isOnChange(false)){
+                finish();
+                startActivity(getIntent());
+            }
         }
 
-        if((functionState & InitBottomBar.BIGGER) != 0){
-            Log.d("메뉴화면에서", "돋보기 기능");
-            constraintLayout1.setOnTouchListener(magnifierTouchListener);
-        }else{
-            Log.d("메뉴화면에서", "돋보기 해제");
-            constraintLayout1.setOnTouchListener(null);
-        }
-
-        if((functionState & InitBottomBar.COLORBLIND) != 0){
-
-            Log.d("메뉴화면에서", "색맹으로 전환");
-        }else{
-
-            Log.d("메뉴화면에서", "색맹 해제");
-        }
         displayMenuList();
-        changeCartState();
+    }
+
+    public String[] getCategoryNameList() {
+        return categoryNameList;
+    }
+
+    public void setCategoryNameList(String[] categoryNameList) {
+        this.categoryNameList = categoryNameList;
+    }
+
+    public int getCategoryState() {
+        return categoryState;
     }
 
     public void setCategoryState(int categoryState) {
         this.categoryState = categoryState;
     }
 
-    public static OrderMenuList getCart() {
-        return cart;
-    }
-
-    public static void setCart(OrderMenuList cart) {
-        MenuActivity.cart = cart;
+    public int getMenuPage() {
+        return menuPage;
     }
 
     public void setMenuPage(int menuPage) {
         this.menuPage = menuPage;
     }
 
+    public int getMenuUISize() {
+        return menuUISize;
+    }
+
+    public void setMenuUISize(int menuUISize) {
+        this.menuUISize = menuUISize;
+    }
 
     public MenuList getCategoryMenuList() {
         return categoryMenuList;
     }
 
+    public void setCategoryMenuList(MenuList categoryMenuList) {
+        this.categoryMenuList = categoryMenuList;
+    }
+
+    public static OrderList getCart() {
+        return cart;
+    }
+
+    public static void setCart(OrderList cart) {
+        MenuActivity.cart = cart;
+    }
 }

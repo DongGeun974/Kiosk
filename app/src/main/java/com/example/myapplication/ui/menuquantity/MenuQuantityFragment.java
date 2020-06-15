@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.MenuQuantity;
+package com.example.myapplication.ui.menuquantity;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -14,13 +14,12 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
-import com.example.myapplication.data.orderMenuData.OrderMenu;
+import com.example.myapplication.data.orderData.Order;
 import com.example.myapplication.data.menuData.Menu;
-import com.example.myapplication.ui.MenuMain.MenuActivity;
-import com.example.myapplication.ui.bottomBar.InitBottomBar;
+import com.example.myapplication.ui.menumain.MenuActivity;
+import com.example.myapplication.ui.bottombar.InitBottomBar;
 
 import static com.example.myapplication.ui.InitActivity.getDbMenuList;
-import static com.example.myapplication.ui.InitActivity.getFunctionState;
 
 /**
  * <p>
@@ -102,9 +101,9 @@ public class MenuQuantityFragment extends Fragment {
         cartAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OrderMenu orderMenu = new OrderMenu(selMenu, quantity[0]);
-                ((MenuActivity)getActivity()).getCart().addOrderMenuAtList(orderMenu);
-                Log.d("At Quantity", String.valueOf(orderMenu));
+                Order order = new Order(selMenu, quantity[0]);
+                ((MenuActivity)getActivity()).getCart().addOrderMenuAtList(order);
+                Log.d("At Quantity", String.valueOf(order));
                 Log.d("At Quantity", String.valueOf(((MenuActivity)getActivity()).getCart()));
                 ((MenuActivity)getActivity()).changeCartState();
 
@@ -125,7 +124,7 @@ public class MenuQuantityFragment extends Fragment {
     private void displaySelMenu(View view, Menu selMenu){
         String url = selMenu.getUrl();
 
-        if((getFunctionState() & InitBottomBar.COLORBLIND) != 0)
+        if((InitBottomBar.getState() & InitBottomBar.COLORBLIND) != 0)
             url = url.replace("original", "colorblind");
 
         Glide.with(this)

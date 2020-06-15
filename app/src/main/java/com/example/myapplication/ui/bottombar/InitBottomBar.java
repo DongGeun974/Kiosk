@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.bottomBar;
+package com.example.myapplication.ui.bottombar;
 
 import android.app.Fragment;
 import android.view.View;
