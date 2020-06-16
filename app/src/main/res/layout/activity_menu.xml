@@ -370,12 +370,14 @@
                     app:layout_constraintTop_toBottomOf="@id/lay_actMenu_eachMenuList">
 
 
-                    <ImageButton
-                        android:id="@+id/imgBtn_actMenu_orderBefore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/btn_actmenu_leftarrow"
-                        android:layout_gravity="center"/>
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/imgBtn_actMenu_orderBefore"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@drawable/btn_actmenu_leftarrow"-->
+<!--                        android:layout_gravity="center"/>-->
+
+
                     <ListView
                         android:id="@+id/lv"
                         android:layout_width="wrap_content"
@@ -435,12 +437,14 @@
 <!--                            android:text="name1"-->
 <!--                            android:gravity="center"/>-->
 <!--                    </LinearLayout>-->
-                    <ImageButton
-                        android:id="@+id/imgBtn_actMenu_orderNext"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/btn_actmenu_rightarrow"
-                        android:layout_gravity="center"/>
+
+
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/imgBtn_actMenu_orderNext"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@drawable/btn_actmenu_rightarrow"-->
+<!--                        android:layout_gravity="center"/>-->
 
                 </LinearLayout>
 

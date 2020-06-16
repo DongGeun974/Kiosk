@@ -14,7 +14,6 @@ import com.example.myapplication.R;
 import com.example.myapplication.addfunc.AddFunction;
 import com.example.myapplication.data.orderData.Order;
 import com.example.myapplication.data.orderData.OrderList;
-import com.example.myapplication.ui.bottombar.InitBottomBar;
 
 
 /**
@@ -57,16 +56,12 @@ public class MyAdapter extends BaseAdapter implements AddFunction {
 
         String url = sample.getOrderList().get(position).getMenu().getUrl();
 
-        if((InitBottomBar.getState() & InitBottomBar.COLORBLIND) != 0)
-            url = url.replace("original", "colorblind");
-
         url = colorBlind.changeURL(url);
 
         Glide.with(view.getContext())
                 .load(url)
                 .placeholder(R.drawable.ic_loading)
                 .into(imageView);
-        Log.d("마이어뎁터에서", sample.getOrderList().get(position).getMenu().getUrl());
 
         name.setText(String.valueOf(sample.getOrderList().get(position).getMenu().getName()));
         count.setText(String.valueOf(sample.getOrderList().get(position).getQuantity()));

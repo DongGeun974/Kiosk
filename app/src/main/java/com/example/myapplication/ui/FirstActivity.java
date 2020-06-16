@@ -23,14 +23,14 @@ import com.example.myapplication.ui.bottombar.InitBottomBar;
 public class FirstActivity extends InitActivity {
 
     /**
-     * activity_main 보여줌
+     * activity_first 보여줌
      * @param savedInstanceState 액티비티 전환 간 데이터 전달하는 {@link Bundle} 객체
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_first);
 
         displayBottomBar();
 
@@ -56,13 +56,6 @@ public class FirstActivity extends InitActivity {
             }
         });
 
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d("시작화면에서", "액티비티 생성");
 
     }
 

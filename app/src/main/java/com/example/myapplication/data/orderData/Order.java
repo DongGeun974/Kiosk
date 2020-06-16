@@ -28,6 +28,11 @@ public class Order {
         setQuantity(quantity);
     }
 
+    public Order(){
+        setMenu(new Menu());
+        setQuantity(0);
+    }
+
     public Menu getMenu() {
         return menu;
     }

@@ -48,6 +48,40 @@ public abstract class InitActivity extends Activity implements AddFunction {
     static MenuList dbMenuList = new MenuList();
 
     /**
+     * 최대화면으로 전환({@link InitActivity#makeFullScreen()}, 네트워크에서 DB 가져오기({@link InitActivity#getFromNetwork()}
+     * @param savedInstanceState 액티비티 전환 간 데이터 전달하는 {@link Bundle} 객체
+     */
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        makeFullScreen();
+
+        getFromNetwork();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        makeFullScreen();
+    }
+
+    /**
+     * 메뉴버튼 클릭 시 액티비티 위치 변경 통해 유지 및 액티비티 전환 애니메이션 삭제
+     */
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        ActivityManager activityManager = (ActivityManager) getApplicationContext()
+                .getSystemService(Context.ACTIVITY_SERVICE);
+        activityManager.moveTaskToFront(getTaskId(), 0);
+
+        //https://wingsnote.com/128
+        overridePendingTransition(0, 0);
+    }
+
+    /**
      * checkKeyButton 메서드를 통해 키 값 확인 후 해당 키 입력 이벤트 재정의해서 지움
      *
      * @param keycode 사용자 입력 키값
@@ -63,6 +97,20 @@ public abstract class InitActivity extends Activity implements AddFunction {
     }
 
     /**
+     * {@link BottomBarCloseFragment}를 화면으로 보여줌
+     */
+    protected void displayBottomBar(){
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        BottomBarCloseFragment bottomBarCloseFragment = new BottomBarCloseFragment();
+        fragmentTransaction.add(R.id.frame_bottom_bar, bottomBarCloseFragment);
+
+        fragmentTransaction.commit();
+    }
+
+
+    /**
      * 입력 키가 백버튼, 볼륨버튼, 왼쪽 소프트키, 오른쪽 소프트키인지 검사
      * @param keycode 사용자 입력 키값
      * @return 조건에 일치 시 true, 아니라면 false
@@ -76,49 +124,6 @@ public abstract class InitActivity extends Activity implements AddFunction {
             return true;
         }else
             return false;
-    }
-
-    /**
-     * 메뉴버튼 클릭 시 액티비티 위치 변경 통해 유지 및 액티비티 전환 애니메이션 삭제
-     */
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        ActivityManager activityManager = (ActivityManager) getApplicationContext()
-                .getSystemService(Context.ACTIVITY_SERVICE);
-        activityManager.moveTaskToFront(getTaskId(), 0);
-
-        //https://wingsnote.com/128
-        overridePendingTransition(0,0);
-    }
-
-    /**
-     * 최대화면으로 전환({@link InitActivity#makeFullScreen()}, 네트워크에서 DB 가져오기({@link InitActivity#getFromNetwork()}
-     * @param savedInstanceState 액티비티 전환 간 데이터 전달하는 {@link Bundle} 객체
-     */
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        makeFullScreen();
-
-        getFromNetwork();
-    }
-
-    /**
-     * {@link BottomBarCloseFragment}를 화면으로 보여줌
-     */
-    protected void displayBottomBar(){
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        BottomBarCloseFragment bottomBarCloseFragment = new BottomBarCloseFragment();
-        fragmentTransaction.add(R.id.frame_bottom_bar, bottomBarCloseFragment);
-
-//        Bundle bundle = new Bundle(); bundle.putInt("bottomBarState", functionState); // Key, Value
-//        bottomBarCloseFragment.setArguments(bundle);
-
-        fragmentTransaction.commit();
     }
 
     /**
@@ -164,13 +169,6 @@ public abstract class InitActivity extends Activity implements AddFunction {
                 Log.e("Not Response", call + " " + t.getLocalizedMessage());
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        makeFullScreen();
     }
 
     /**

@@ -1,7 +1,7 @@
 package com.example.myapplication.addfunc;
 
 public class Wheel {
-    public boolean on;
+    private boolean on;
 
     public boolean isOnChange(boolean currentState){
         boolean result;

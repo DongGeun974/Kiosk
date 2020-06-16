@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="#0D000000"
     app:layout_constraintVertical_bias="0.5">
 
 
@@ -12,7 +14,6 @@
         android:id="@+id/img_recyclerBuy_menu"
         android:layout_width="@dimen/ic_buy_menu_height"
         android:layout_height="@dimen/ic_buy_menu_height"
-
         app:layout_constraintBottom_toTopOf="@id/text_recyclerNuy_menuName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="#666666"
+        android:textColor="#000000"
         android:textSize="30dp"
         android:text="이름"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +37,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="#666666"
+        android:textColor="#000000"
         android:textSize="30dp"
         android:text="가격"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +63,7 @@
         android:layout_height="wrap_content"
         android:text="수량"
         android:textSize="30dp"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/btn_recyclerBuy_minus"
         app:layout_constraintEnd_toStartOf="@id/btn_recyclerBuy_plus"
         app:layout_constraintStart_toEndOf="@id/btn_recyclerBuy_minus"

@@ -87,7 +87,5 @@ public class BottomBarCloseFragment extends InitBottomBar{
         super.onResume();
 
         ((InitActivity)getActivity()).checkFunctionState();
-
-
     }
 }

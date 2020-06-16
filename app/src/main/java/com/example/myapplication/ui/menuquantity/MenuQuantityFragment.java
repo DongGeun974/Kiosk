@@ -102,7 +102,7 @@ public class MenuQuantityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Order order = new Order(selMenu, quantity[0]);
-                ((MenuActivity)getActivity()).getCart().addOrderMenuAtList(order);
+                ((MenuActivity)getActivity()).getCart().addOrderAtList(order);
                 Log.d("At Quantity", String.valueOf(order));
                 Log.d("At Quantity", String.valueOf(((MenuActivity)getActivity()).getCart()));
                 ((MenuActivity)getActivity()).changeCartState();

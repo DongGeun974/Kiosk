@@ -44,7 +44,6 @@ public class BottomBarOpenFragment extends InitBottomBar {
         closeBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                ((InitActivity)getActivity()).setFunctionState(state);
                 change();
             }
         });

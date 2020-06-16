@@ -31,9 +31,9 @@ public class InitBottomBar extends Fragment {
      *
      */
     static int state;
-    public static int WHEEL = 0x00000001;
-    public static int BIGGER = 0x00000002;
-    public static int COLORBLIND = 0x00000004;
+    public static final int WHEEL = 0x00000001;
+    public static final int BIGGER = 0x00000002;
+    public static final int COLORBLIND = 0x00000004;
 
     /**
      * xml의 6가지 이미지 뷰를 현재 상태에 맞게 수정함(아주 안 좋은 방법)

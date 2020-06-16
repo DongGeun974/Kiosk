@@ -8,13 +8,13 @@ import android.widget.Magnifier;
 import androidx.annotation.RequiresApi;
 
 public class Magnify {
-    //돋보기 객체
-    private Magnifier magnifier;
     private boolean on;
 
-    private int width = 600;
-    private int height = 400;
-    private float zoom = 3;
+    private int width;
+    private int height;
+    private float zoom;
+    //돋보기 객체
+    private Magnifier magnifier;
 
     //돋보기 리스너
     private View.OnTouchListener magnifierTouchListener = new View.OnTouchListener() {
@@ -38,6 +38,12 @@ public class Magnify {
             return true;
         }
     };
+
+    Magnify(){
+        width = 600;
+        height = 400;
+        zoom = 3;
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     public void setMagnifyOnView(View view, boolean isOn){

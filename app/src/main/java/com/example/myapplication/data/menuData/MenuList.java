@@ -14,7 +14,7 @@ import java.util.List;
  * <p>
  * 메소드:
  * {@link MenuList#setMenuListWithCategory(MenuList, String...)},
- * {@link MenuList#addMenuList(Menu)}, {@link MenuList#getMenuWithId(int)}
+ * {@link MenuList#getMenuWithId(int)}
  * </p>
  */
 public class MenuList {
@@ -29,14 +29,6 @@ public class MenuList {
 
     public List<Menu> getMenuList(){
         return menuList;
-    }
-
-    /**
-     * {@link MenuList#menuList}에 메뉴 추가
-     * @param menu 추가하고 싶은 메뉴
-     */
-    public void addMenuList(Menu menu){
-        getMenuList().add(menu);
     }
 
     /**

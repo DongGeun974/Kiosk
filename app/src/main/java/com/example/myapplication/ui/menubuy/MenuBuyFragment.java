@@ -24,7 +24,6 @@ import com.example.myapplication.R;
 import com.example.myapplication.addfunc.AddFunction;
 import com.example.myapplication.data.orderData.Order;
 import com.example.myapplication.ui.menumain.MenuActivity;
-//import com.example.myapplication.ui.MenuMain.MenuWheelActivity;
 
 /**
  * 구매 확인하는 창 띄우는 프래그먼트
@@ -49,9 +48,9 @@ public class MenuBuyFragment extends Fragment implements AddFunction {
 
     /**
      * 화면의 각종 이벤트 설정 및 리싸이클러뷰 적용
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
+     * @param inflater .
+     * @param container .
+     * @param savedInstanceState .
      * @return
      */
     @RequiresApi(api = Build.VERSION_CODES.Q)
@@ -127,9 +126,6 @@ public class MenuBuyFragment extends Fragment implements AddFunction {
             totalPrice += order.getQuantity() * order.getMenu().getPrice();
 
         t.setText(String.valueOf(totalPrice)+"원");
-
-//        if(getActivity() instanceof MenuWheelActivity){
-//        }
 
         ////////////////////////////////
         // 리사이클러 뷰

@@ -19,7 +19,6 @@ public class Menu {
     private String name;
     private int price;
     private String url;
-    private Image img;
 
     public int getId() {
         return id;

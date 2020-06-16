@@ -124,12 +124,6 @@ public class MenuActivity extends InitActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-//        timer.cancel();
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
 
@@ -329,7 +323,7 @@ public class MenuActivity extends InitActivity {
         int sum = 0;
         int quantity = 0;
 
-        cart.deleteZeroQuantityItem();
+        cart.deleteZeroQuantityOrder();
 
         //cart에 담겨진 주문들의 총수량, 총합 계산
         for(Order order : cart.getOrderList()){
@@ -408,6 +402,7 @@ public class MenuActivity extends InitActivity {
         }
 
         displayMenuList();
+        changeCartState();
     }
 
     public String[] getCategoryNameList() {

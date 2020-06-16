@@ -29,20 +29,18 @@ import java.util.ArrayList;
  * Glide 사용법
  * https://black-jin0427.tistory.com/100
  * 리사이클러뷰와 glide
+ * https://recipes4dev.tistory.com/168
+ * 리사이클러뷰 기초
  * </p>
  * {@link MenuBuyFragment}의 리싸이클러뷰 어댑터, 자세한 설명 생략
  */
 public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImageTextAdapter.ViewHolder> implements AddFunction {
-    private ArrayList<RecyclerItem> mData = null ;
     private OrderList mData2 = null;
     private View view;
     private RecyclerImageTextAdapter.ViewHolder vh;
     private ViewGroup parentViewGroup;
 
     // 생성자에서 데이터 리스트 객체를 전달받음.
-    public RecyclerImageTextAdapter(ArrayList<RecyclerItem> list) {
-        mData = list ;
-    }
     public RecyclerImageTextAdapter(OrderList list) {
         mData2 = list ;
     }
@@ -67,9 +65,6 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
         String url = item.getMenu().getUrl();
 
         url = colorBlind.changeURL(url);
-//        if((InitBottomBar.getState() & InitBottomBar.COLORBLIND) != 0)
-//            url = url.replace("original", "colorblind");
-
 
         Glide.with(holder.itemView.getContext())
                 .load(url)
@@ -105,23 +100,6 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
             minus = itemView.findViewById(R.id.btn_recyclerBuy_minus);
             plus = itemView.findViewById(R.id.btn_recyclerBuy_plus);
 
-            ////////////////////////////////////////////////////////////////////
-            //https://recipes4dev.tistory.com/168
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int pos = getAdapterPosition() ;
-                    if (pos != RecyclerView.NO_POSITION) {
-                        // 리스너 객체의 메서드 호출.
-                        if (mListener != null) {
-                            mListener.onItemClick(v, pos) ;
-                        }
-                    }
-                }
-            });
-
-
-            //////////////////////////////////////////////////////////////
             //수량 조절 버튼 이벤트
             minus.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -163,23 +141,6 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
                     tv.setText(String.valueOf(totalPrice));
                 }
             });
-            ////////////////////////////////////////////////////////////////
         }
     }
-
-    //////////////////////////////////////////////////////
-    //https://recipes4dev.tistory.com/168
-    public interface OnItemClickListener {
-        void onItemClick(View v, int position) ;
-    }
-
-    // 리스너 객체 참조를 저장하는 변수
-    private OnItemClickListener mListener = null ;
-
-    // OnItemClickListener 리스너 객체 참조를 어댑터에 전달하는 메서드
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.mListener = listener ;
-    }
-
-    ///////////////////////////////////////////////////////
 }
