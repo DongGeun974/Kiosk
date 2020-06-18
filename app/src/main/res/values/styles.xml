@@ -13,8 +13,13 @@
     </style>
     
     <style name="btn_act_menu_normal">
+        <!--    Tablet    -->
         <item name = "android:layout_width">140dp</item>
         <item name = "android:layout_height">140dp</item>
+        <!--    Phone    -->
+<!--        <item name = "android:layout_width">140dp</item>-->
+<!--        <item name = "android:layout_height">140dp</item>-->
+
         <item name = "android:gravity">center|bottom</item>
         <item name = "android:textColor">@color/dark_grey</item>
         <item name = "android:textSize">20dp</item>
@@ -24,14 +29,31 @@
     </style>
 
     <style name="btn_act_menu_wheelSel">
+        <!--    Tablet    -->
         <item name = "android:layout_width">80dp</item>
         <item name = "android:layout_height">80dp</item>
+        <!--    Phone    -->
+<!--        <item name = "android:layout_width">140dp</item>-->
+<!--        <item name = "android:layout_height">140dp</item>-->
+
         <item name = "android:gravity">center|bottom</item>
         <item name = "android:textColor">@color/dark_grey</item>
         <item name = "android:textSize">12dp</item>
         <item name = "android:paddingBottom">5dp</item>
         <item name = "android:layout_marginTop">8dp</item>
         <item name = "android:layout_marginBottom">8dp</item>
+    </style>
+
+
+    <style name="btn_buy_recycler">
+        <!--    Tablet    -->
+        <item name = "android:layout_width">80dp</item>
+        <item name = "android:layout_height">80dp</item>
+        <!--    Phone    -->
+<!--        <item name = "android:layout_width">140dp</item>-->
+<!--        <item name = "android:layout_height">140dp</item>-->
+
+        <item name = "android:textSize">50dp</item>
     </style>
 
 <!--    <style name="act_buy_menu_sel" parent="act_buy_menu">-->

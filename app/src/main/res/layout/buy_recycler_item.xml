@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="#000000"
-        android:textSize="30dp"
+        android:textSize="@dimen/font_size_buy_recycler"
         android:text="이름"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="#000000"
-        android:textSize="30dp"
+        android:textSize="@dimen/font_size_buy_recycler"
         android:text="가격"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,10 +48,8 @@
 
     <Button
         android:id="@+id/btn_recyclerBuy_minus"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
         android:text="-"
-        android:textSize="50dp"
+        style="@style/btn_buy_recycler"
         app:layout_constraintEnd_toStartOf="@id/text_fragMenuBuy_quantity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_recyclerBuy_menuPrice"
@@ -62,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="수량"
-        android:textSize="30dp"
+        android:textSize="@dimen/font_size_buy_recycler"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/btn_recyclerBuy_minus"
         app:layout_constraintEnd_toStartOf="@id/btn_recyclerBuy_plus"
@@ -70,15 +68,10 @@
         app:layout_constraintTop_toTopOf="@id/btn_recyclerBuy_minus" />
     <Button
         android:id="@+id/btn_recyclerBuy_plus"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
         android:text="+"
-        android:textSize="50dp"
+        style="@style/btn_buy_recycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_fragMenuBuy_quantity"
         app:layout_constraintTop_toTopOf="@id/btn_recyclerBuy_minus" />
 
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+</androidx.constraintlayout.widget.ConstraintLayout>

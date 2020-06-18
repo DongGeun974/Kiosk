@@ -81,7 +81,7 @@
                 <!--                android:padding="10dp">-->
                 <!--            </androidx.recyclerview.widget.RecyclerView>-->
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:id="@+id/lay"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -92,30 +92,17 @@
                     app:layout_constraintStart_toEndOf="@id/lay_actMain_menuBar"
                     app:layout_constraintTop_toTopOf="@id/lay_actMain_menuBar">
 
-                    <ImageButton
-                        android:id="@+id/imgBtn_actMenu_menuBefore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/btn_actmenu_leftarrow"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/lay_actMenu_eachMenuList"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
                     <LinearLayout
                         android:id="@+id/lay_actMenu_eachMenuList"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="10dp"
-                        app:layout_constraintTop_toTopOf="@id/lay"
-                        app:layout_constraintStart_toEndOf="@id/imgBtn_actMenu_menuBefore"
-                        app:layout_constraintEnd_toStartOf="@id/imgBtn_actMenu_menuNext">
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
-                            android:layout_weight="3"
-                            android:padding="5dp">
+                            android:layout_weight="3">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -138,10 +125,11 @@
                                     android:layout_height="0dp"
                                     android:layout_margin="3dp"
                                     android:layout_weight="1"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="2dp"
                                     android:gravity="center"
                                     android:text="갓양념블랙라벨치킨 3조각"
-                                    android:textColor="#000000"
-                                    android:autoSizeTextType="uniform" />
+                                    android:textColor="#000000" />
                                 <!--                                    android:textSize="12dp" />-->
 
                                 <TextView
@@ -150,9 +138,10 @@
                                     android:layout_margin="3dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="2dp"
                                     android:text="1000"
-                                    android:textColor="#000000"
-                                    android:textSize="18dp" />
+                                    android:textColor="#000000"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -177,10 +166,11 @@
                                     android:layout_height="0dp"
                                     android:layout_margin="3dp"
                                     android:layout_weight="1"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="2dp"
                                     android:gravity="center"
                                     android:text="클릭가능 항목"
-                                    android:textColor="#000000"
-                                    android:autoSizeTextType="uniform" />
+                                    android:textColor="#000000" />
                                 <!--                                    android:textSize="12dp"/>-->
 
                                 <TextView
@@ -188,9 +178,10 @@
                                     android:layout_height="0dp"
                                     android:layout_margin="3dp"
                                     android:layout_weight="1"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="2dp"
                                     android:gravity="center"
-                                    android:textColor="#000000"
-                                    android:textSize="18dp" />
+                                    android:textColor="#000000"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -215,20 +206,22 @@
                                     android:layout_height="0dp"
                                     android:layout_margin="3dp"
                                     android:layout_weight="1"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="2dp"
                                     android:gravity="center"
                                     android:text="클릭가능 항목"
-                                    android:textColor="#000000"
-                                    android:autoSizeTextType="uniform" />
-<!--                                android:textSize="12dp" />-->
+                                    android:textColor="#000000" />
+                                <!--                                android:textSize="12dp" />-->
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
                                     android:layout_margin="3dp"
                                     android:layout_weight="1"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="2dp"
                                     android:gravity="center"
-                                    android:textColor="#000000"
-                                    android:textSize="18dp" />
+                                    android:textColor="#000000"/>
                             </LinearLayout>
 
                         </LinearLayout>
@@ -262,11 +255,12 @@
                                     android:layout_height="0dp"
                                     android:layout_margin="3dp"
                                     android:layout_weight="1"
+                                    android:autoSizeTextType="uniform"
+                                    android:autoSizeMinTextSize="2dp"
                                     android:gravity="center"
                                     android:text="클릭가능 항목"
-                                    android:textColor="#000000"
-                                    android:autoSizeTextType="uniform" />
-<!--                                    android:textSize="18dp" />-->
+                                    android:textColor="#000000" />
+                                <!--                                    android:textSize="18dp" />-->
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -301,10 +295,10 @@
                                     android:layout_height="0dp"
                                     android:layout_margin="3dp"
                                     android:layout_weight="1"
+                                    android:autoSizeTextType="uniform"
                                     android:gravity="center"
                                     android:text="클릭가능 항목"
-                                    android:textColor="#000000"
-                                    android:autoSizeTextType="uniform" />
+                                    android:textColor="#000000" />
                                 <!--                                    android:textSize="18dp" />-->
 
                                 <TextView
@@ -339,10 +333,10 @@
                                     android:layout_height="0dp"
                                     android:layout_margin="3dp"
                                     android:layout_weight="1"
+                                    android:autoSizeTextType="uniform"
                                     android:gravity="center"
                                     android:text="클릭가능 항목"
-                                    android:textColor="#000000"
-                                    android:autoSizeTextType="uniform" />
+                                    android:textColor="#000000" />
                                 <!--                                    android:textSize="18dp" />-->
 
                                 <TextView
@@ -358,17 +352,33 @@
                         </LinearLayout>
 
                     </LinearLayout>
-                    <ImageButton
-                        android:id="@+id/imgBtn_actMenu_menuNext"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/btn_actmenu_rightarrow"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/lay_actMenu_eachMenuList"
-                        app:layout_constraintTop_toTopOf="parent" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <ImageButton
+                            android:id="@+id/imgBtn_actMenu_menuNext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/btn_actmenu_rightarrow"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgBtn_actMenu_menuBefore"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                            android:id="@+id/imgBtn_actMenu_menuBefore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/btn_actmenu_leftarrow"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/imgBtn_actMenu_menuNext"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/lay_actMenu_basket"
@@ -382,12 +392,12 @@
                     app:layout_constraintTop_toBottomOf="@id/lay">
 
 
-                    <ImageButton
-                        android:id="@+id/imgBtn_actMenu_orderBefore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/btn_actmenu_leftarrow" />
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/imgBtn_actMenu_orderBefore"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:background="@drawable/btn_actmenu_leftarrow" />-->
 
                     <ListView
                         android:id="@+id/lv"
@@ -448,12 +458,12 @@
                     <!--                            android:text="name1"-->
                     <!--                            android:gravity="center"/>-->
                     <!--                    </LinearLayout>-->
-                    <ImageButton
-                        android:id="@+id/imgBtn_actMenu_orderNext"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/btn_actmenu_rightarrow" />
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/imgBtn_actMenu_orderNext"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:background="@drawable/btn_actmenu_rightarrow" />-->
 
                 </LinearLayout>
 
@@ -490,7 +500,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="#000000"
-                                android:textSize="30dp" />
+                                android:textSize="@dimen/font_size_menu_act_sum" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -511,7 +521,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="#000000"
-                                android:textSize="30dp" />
+                                android:textSize="@dimen/font_size_menuwheel_act_sum" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -524,7 +534,7 @@
                         android:background="#A5A5A5"
                         android:text="취소"
                         android:textColor="#FFFFFF"
-                        android:textSize="40dp" />
+                        android:textSize="@dimen/font_size_menuwheel_act_sum" />
 
                     <Button
                         android:id="@+id/btn_actMenu_Buy"
@@ -535,7 +545,7 @@
                         android:background="#FF2929"
                         android:text="구매"
                         android:textColor="#FFFFFF"
-                        android:textSize="40dp" />
+                        android:textSize="@dimen/font_size_menuwheel_act_sum" />
 
                 </LinearLayout>
 

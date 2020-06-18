@@ -15,7 +15,7 @@ import com.example.myapplication.R;
  * </p>
  * <p>
  * 메소드:
- * {@link InitBottomBar#StateView(View)}, {@link InitBottomBar#WheelViewChange(View)},
+ * {@link InitBottomBar#updateView(View)}, {@link InitBottomBar#WheelViewChange(View)},
  * {@link InitBottomBar#BiggerViewChange(View)}, {@link InitBottomBar#BlindViewChange(View)}
  * </p> */
 public class InitBottomBar extends Fragment {
@@ -39,7 +39,7 @@ public class InitBottomBar extends Fragment {
      * xml의 6가지 이미지 뷰를 현재 상태에 맞게 수정함(아주 안 좋은 방법)
      * @param v
      */
-    public void StateView(View v){
+    public void updateView(View v){
         ImageView WheelSel = (ImageView) v.findViewById(R.id.icon_wheel_selected);
         ImageView WheelUnSel = (ImageView) v.findViewById(R.id.icon_wheel_unselected);
         ImageView BiggerSel = (ImageView) v.findViewById(R.id.icon_bigger_selected);

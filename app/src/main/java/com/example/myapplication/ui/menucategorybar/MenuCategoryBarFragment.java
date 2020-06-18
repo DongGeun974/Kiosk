@@ -19,7 +19,7 @@ import static com.example.myapplication.ui.InitActivity.getDbMenuList;
  * {@link MenuActivity}의 카테고리 바 프래그먼트
  * <p>
  * 인스턴스 변수:
- * {@link MenuCategoryBarFragment#categoryList}, {@link MenuCategoryBarFragment#categoryState}
+ * {@link MenuCategoryBarFragment#categoryNameList}, {@link MenuCategoryBarFragment#categoryState}
  * </p>
  * <p>
  * 메소드:
@@ -30,7 +30,7 @@ public class MenuCategoryBarFragment extends Fragment implements AddFunction {
     /**
      * 카테고리들의 이름
      */
-    private String[] categoryList = {"chicken", "burger&set&box", "side", "beverage"};
+    private String[] categoryNameList = {"chicken", "burger&set&box", "side", "beverage"};
     /**
      * 현재 선택된 카테고리
      */
@@ -96,10 +96,10 @@ public class MenuCategoryBarFragment extends Fragment implements AddFunction {
                         //MenuActivity의 메소드들을 통해 현재 카테고리의 메뉴들을 보여주도록 변경
                         ((MenuActivity)getActivity()).setMenuPage(0);
                         ((MenuActivity)getActivity()).setCategoryState(categoryState);
-                        ((MenuActivity)getActivity()).getCategoryMenuList().setMenuListWithCategory(getDbMenuList(), categoryList[categoryState].split("&"));
+                        ((MenuActivity)getActivity()).getCategoryMenuList().setMenuListWithCategory(getDbMenuList(), categoryNameList[categoryState].split("&"));
                         ((MenuActivity)getActivity()).displayMenuList();
 
-                        Log.d("Menu_bar", "버튼 On & "+categoryList[categoryState]);
+                        Log.d("Menu_bar", "버튼 On & "+ categoryNameList[categoryState]);
 
                     }else if(menuBtn == beforeOnBtn){
                         menuBtn.setTextColor(getResources().getColor(R.color.white));

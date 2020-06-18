@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/listmenuimg"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/img_menucart_list_size"
+            android:layout_height="@dimen/img_menucart_list_size"
             android:layout_margin="8dp"
             android:scaleType="fitCenter"
             android:background="@drawable/frame_fragbottombar_icunselected" />
@@ -34,26 +34,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="선택메뉴"
-                android:textSize="20dp"/>
+                android:textSize="@dimen/font_size_menucart_list"/>
             <TextView
                 android:id="@+id/listmenuname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="20dp"
+                android:textSize="@dimen/font_size_menucart_list"
                 android:textColor="#000000"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="수량"
-                android:textSize="20dp"/>
+                android:textSize="@dimen/font_size_menucart_list"/>
             <TextView
                 android:id="@+id/listmenucount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="20dp"
+                android:textSize="@dimen/font_size_menucart_list"
                 android:textColor="#000000"/>
 
         </LinearLayout>

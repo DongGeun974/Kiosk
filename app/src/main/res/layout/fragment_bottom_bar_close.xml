@@ -43,15 +43,15 @@
                 android:layout_gravity="bottom">
                 <ImageView
                     android:id="@+id/icon_wheel_unselected"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/ic_bottombar_frag_size"
+                    android:layout_height="@dimen/ic_bottombar_frag_size"
                     android:background="@drawable/frame_fragbottombar_icunselected"
                     android:src="@drawable/ic_fragbottombar_wheel"
                     android:visibility="visible" />
                 <ImageView
                     android:id="@+id/icon_wheel_selected"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/ic_bottombar_frag_size"
+                    android:layout_height="@dimen/ic_bottombar_frag_size"
                     android:background="@drawable/frame_fragbottombar_icselected"
                     android:src="@drawable/ic_fragbottombar_wheel"
                     android:visibility="gone" />
@@ -68,15 +68,15 @@
                 android:visibility="visible">
                 <ImageView
                     android:id="@+id/icon_bigger_unselected"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/ic_bottombar_frag_size"
+                    android:layout_height="@dimen/ic_bottombar_frag_size"
                     android:background="@drawable/frame_fragbottombar_icunselected"
                     android:src="@drawable/ic_fragbottombar_bigger"
                     android:visibility="visible" />
                 <ImageView
                     android:id="@+id/icon_bigger_selected"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/ic_bottombar_frag_size"
+                    android:layout_height="@dimen/ic_bottombar_frag_size"
                     android:background="@drawable/frame_fragbottombar_icselected"
                     android:src="@drawable/ic_fragbottombar_bigger"
                     android:visibility="gone" />
@@ -93,15 +93,15 @@
                 android:visibility="visible">
                 <ImageView
                     android:id="@+id/icon_blind_unselected"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/ic_bottombar_frag_size"
+                    android:layout_height="@dimen/ic_bottombar_frag_size"
                     android:background="@drawable/frame_fragbottombar_icunselected"
                     android:src="@drawable/ic_fragbottombar_colorblind"
                     android:visibility="visible" />
                 <ImageView
                     android:id="@+id/icon_blind_selected"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/ic_bottombar_frag_size"
+                    android:layout_height="@dimen/ic_bottombar_frag_size"
                     android:background="@drawable/frame_fragbottombar_icselected"
                     android:src="@drawable/ic_fragbottombar_colorblind"
                     android:visibility="gone" />

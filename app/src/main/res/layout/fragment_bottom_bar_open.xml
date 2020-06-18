@@ -40,16 +40,16 @@
 
                 <ImageView
                     android:id="@+id/icon_wheel_unselected"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/ic_bottombar_frag_size"
+                    android:layout_height="@dimen/ic_bottombar_frag_size"
                     android:background="@drawable/frame_fragbottombar_icunselected"
                     android:src="@drawable/ic_fragbottombar_wheel"
                     android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/icon_wheel_selected"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/ic_bottombar_frag_size"
+                    android:layout_height="@dimen/ic_bottombar_frag_size"
                     android:background="@drawable/frame_fragbottombar_icselected"
                     android:src="@drawable/ic_fragbottombar_wheel"
                     android:visibility="gone" />
@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="화면을 아래쪽으로 이동합니다."
-                android:textSize="40dp"
+                android:textSize="@dimen/font_size_bottombar_frag_explain"
                 android:background="#FFFFFF"
                 android:layout_marginLeft="10dp"
                 android:padding="10dp"/>
@@ -82,16 +82,16 @@
 
                 <ImageView
                     android:id="@+id/icon_bigger_unselected"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/ic_bottombar_frag_size"
+                    android:layout_height="@dimen/ic_bottombar_frag_size"
                     android:background="@drawable/frame_fragbottombar_icunselected"
                     android:src="@drawable/ic_fragbottombar_bigger"
                     android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/icon_bigger_selected"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/ic_bottombar_frag_size"
+                    android:layout_height="@dimen/ic_bottombar_frag_size"
                     android:background="@drawable/frame_fragbottombar_icselected"
                     android:src="@drawable/ic_fragbottombar_bigger"
                     android:visibility="gone" />
@@ -101,7 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="돋보기 기능이 제공됩니다."
-                android:textSize="40dp"
+                android:textSize="@dimen/font_size_bottombar_frag_explain"
                 android:background="#FFFFFF"
                 android:layout_marginLeft="10dp"
                 android:padding="10dp"/>
@@ -124,16 +124,16 @@
 
                 <ImageView
                     android:id="@+id/icon_blind_unselected"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/ic_bottombar_frag_size"
+                    android:layout_height="@dimen/ic_bottombar_frag_size"
                     android:background="@drawable/frame_fragbottombar_icunselected"
                     android:src="@drawable/ic_fragbottombar_colorblind"
                     android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/icon_blind_selected"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/ic_bottombar_frag_size"
+                    android:layout_height="@dimen/ic_bottombar_frag_size"
                     android:background="@drawable/frame_fragbottombar_icselected"
                     android:src="@drawable/ic_fragbottombar_colorblind"
                     android:visibility="gone" />
@@ -144,7 +144,7 @@
                 android:layout_height="match_parent"
                 android:text="색맹 전용 UI로 변경합니다."
                 android:background="#FFFFFF"
-                android:textSize="40dp"
+                android:textSize="@dimen/font_size_bottombar_frag_explain"
                 android:layout_marginLeft="10dp"
                 android:padding="10dp"/>
         </LinearLayout>

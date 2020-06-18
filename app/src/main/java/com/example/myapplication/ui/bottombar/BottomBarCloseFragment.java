@@ -42,7 +42,7 @@ public class BottomBarCloseFragment extends InitBottomBar{
         Log.d("Close start", String.valueOf(state));
         view = inflater.inflate(R.layout.fragment_bottom_bar_close, container, false);
 
-        StateView(view);
+        updateView(view);
 
         LinearLayout l = (LinearLayout) view.findViewById(R.id.lay_fragBottombarClose_bottomBar);
         l.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +79,7 @@ public class BottomBarCloseFragment extends InitBottomBar{
     public void onStart() {
         super.onStart();
 
-        StateView(view);
+        updateView(view);
     }
 
     @Override

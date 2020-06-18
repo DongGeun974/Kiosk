@@ -37,7 +37,7 @@ public class BottomBarOpenFragment extends InitBottomBar {
         Log.d("open start", String.valueOf(state));
         View view = inflater.inflate(R.layout.fragment_bottom_bar_open, container, false);
 
-        StateView(view);
+        updateView(view);
 
         View closeBar = (View) view.findViewById(R.id.view_close_bottom_bar);
 

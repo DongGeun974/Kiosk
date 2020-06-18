@@ -2,4 +2,48 @@
 <resources>
     <dimen name="ic_buy_menu_width">150dp</dimen>
     <dimen name="ic_buy_menu_height">150dp</dimen>
+    <dimen name="ic_bottombar_frag_size">100dp</dimen>
+    <dimen name="ic_menubuy_frag_size">100dp</dimen>
+    <dimen name="img_menuquan_frag_size">400dp</dimen>
+    <dimen name="img_menucart_list_size">150dp</dimen>
+
+    <dimen name="font_size_first_act">40dp</dimen>
+    <dimen name="font_size_menu_act_title">40dp</dimen>
+    <dimen name="font_size_menu_act_menu_name">18dp</dimen>
+    <dimen name="font_size_menu_act_sum">30dp</dimen>
+    <dimen name="font_size_menu_act_buy_btn">40dp</dimen>
+    <dimen name="font_size_menuwheel_act_sum">30dp</dimen>
+    <dimen name="font_size_menuwheel_act_buy_btn">40dp</dimen>
+    <dimen name="font_size_buy_recycler">30dp</dimen>
+    <dimen name="font_size_buy_recycler_btn">50dp</dimen>
+    <dimen name="font_size_bottombar_frag_explain">40dp</dimen>
+    <dimen name="font_size_menubuy_frag_sum">30dp</dimen>
+    <dimen name="font_size_menubuy_frag_buy_btn">30dp</dimen>
+    <dimen name="font_size_menuquan_frag">30dp</dimen>
+    <dimen name="font_size_menuquan_btn">30dp</dimen>
+    <dimen name="font_size_menucart_list">20dp</dimen>
+
+
+<!--    <dimen name="ic_buy_menu_width">150dp</dimen>-->
+<!--    <dimen name="ic_buy_menu_height">150dp</dimen>-->
+<!--    <dimen name="ic_bottombar_frag_size">100dp</dimen>-->
+<!--    <dimen name="ic_menubuy_frag_size">100dp</dimen>-->
+<!--    <dimen name="img_menuquan_frag_size">400dp</dimen>-->
+<!--    <dimen name="img_menucart_list_size">150dp</dimen>-->
+
+<!--    <dimen name="font_size_first_act">30dp</dimen>-->
+<!--    <dimen name="font_size_menu_act_title">20dp</dimen>-->
+<!--    <dimen name="font_size_menu_act_menu_name">12dp</dimen>-->
+<!--    <dimen name="font_size_menu_act_sum">15dp</dimen>-->
+<!--    <dimen name="font_size_menu_act_buy_btn">30dp</dimen>-->
+<!--    <dimen name="font_size_menuwheel_act_sum">30dp</dimen>-->
+<!--    <dimen name="font_size_menuwheel_act_buy_btn">40dp</dimen>-->
+<!--    <dimen name="font_size_buy_recycler">30dp</dimen>-->
+<!--    <dimen name="font_size_buy_recycler_btn">50dp</dimen>-->
+<!--    <dimen name="font_size_bottombar_frag_explain">40dp</dimen>-->
+<!--    <dimen name="font_size_menubuy_frag_sum">30dp</dimen>-->
+<!--    <dimen name="font_size_menubuy_frag_buy_btn">30dp</dimen>-->
+<!--    <dimen name="font_size_menuquan_frag">30dp</dimen>-->
+<!--    <dimen name="font_size_menuquan_btn">30dp</dimen>-->
+<!--    <dimen name="font_size_menucart_list">20dp</dimen>-->
 </resources>
