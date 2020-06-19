@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
+import com.example.myapplication.addfunc.AddFunction;
 import com.example.myapplication.data.orderData.Order;
 import com.example.myapplication.data.menuData.Menu;
 import com.example.myapplication.ui.menumain.MenuActivity;
@@ -30,7 +31,7 @@ import static com.example.myapplication.ui.InitActivity.getDbMenuList;
  * {@link MenuQuantityFragment#displaySelMenu(View, Menu)}
  * </p>
  */
-public class MenuQuantityFragment extends Fragment {
+public class MenuQuantityFragment extends Fragment implements AddFunction {
     /**
      *
      * @param inflater 어디를 기준으로 확장할 것인지(자세히 모름)
@@ -124,8 +125,10 @@ public class MenuQuantityFragment extends Fragment {
     private void displaySelMenu(View view, Menu selMenu){
         String url = selMenu.getUrl();
 
-        if((InitBottomBar.getState() & InitBottomBar.COLORBLIND) != 0)
-            url = url.replace("original", "colorblind");
+        url = colorBlind.changeURL(url);
+
+//        if((InitBottomBar.getState() & InitBottomBar.COLORBLIND) != 0)
+//            url = url.replace("original", "colorblind");
 
         Glide.with(this)
                 .load(url)
