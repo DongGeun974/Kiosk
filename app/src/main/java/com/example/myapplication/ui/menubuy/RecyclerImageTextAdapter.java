@@ -21,31 +21,45 @@ import java.util.ArrayList;
 
 
 /**
+ * {@link MenuBuyFragment}의 카테고리 바 프래그먼트
  * <p>
- * 참고
- * https://chebaum.tistory.com/10
- * 리사이클러뷰에 구분선 넣기
- * https://itpangpang.xyz/243
- * Glide 사용법
- * https://black-jin0427.tistory.com/100
- * 리사이클러뷰와 glide
- * https://recipes4dev.tistory.com/168
- * 리사이클러뷰 기초
+ * 인스턴스 변수:
+ * {@link #mData2}, {@link #view}, {@link #vh}, {@link #parentViewGroup}
  * </p>
- * {@link MenuBuyFragment}의 리싸이클러뷰 어댑터, 자세한 설명 생략
+ * <p>
+ * 메소드:
+ * {@link #onCreateViewHolder(ViewGroup, int)} , {@link #onBindViewHolder(ViewHolder, int)}, {@link ViewHolder}
+ * </p>
  */
 public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImageTextAdapter.ViewHolder> implements AddFunction {
+    /**
+     * 보여주고자 하는 데이터
+     */
     private OrderList mData2 = null;
+    /**
+     * 현재 뷰
+     */
     private View view;
+    /**
+     * 뷰홀더 클래스
+     */
     private RecyclerImageTextAdapter.ViewHolder vh;
+    /**
+     * 현재 뷰 그룹
+     */
     private ViewGroup parentViewGroup;
 
-    // 생성자에서 데이터 리스트 객체를 전달받음.
+    /**
+     * 생성자로 데이터 입력받음
+     * @param list 보여주고자 하는 데이터
+     */
     public RecyclerImageTextAdapter(OrderList list) {
         mData2 = list ;
     }
 
-    // onCreateViewHolder() - 아이템 뷰를 위한 뷰홀더 객체 생성하여 리턴.
+    /**
+     * 아이템 뷰를 위한 뷰홀더 객체 생성하여 리턴.
+     */
     @Override
     public RecyclerImageTextAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext() ;
@@ -58,6 +72,11 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
         return vh ;
     }
 
+    /**
+     * 뷰홀더와 데이터 연결
+     * @param holder 뷰홀더
+     * @param position 현재 데이터 인덱스
+     */
     @Override
     public void onBindViewHolder(RecyclerImageTextAdapter.ViewHolder holder, int position) {
         Order item = mData2.getOrderList().get(position);
@@ -75,12 +94,18 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
         holder.menuPrice.setText(String.valueOf(item.getMenu().getPrice())+"원");
     }
 
+    /**
+     * 총 데이터 개수 리턴
+     * @return 총 데이터 개수
+     */
     @Override
     public int getItemCount() {
         return mData2.getOrderList().size() ;
     }
 
-    // 아이템 뷰를 저장하는 뷰홀더 클래스.
+    /**
+     * 아이템 뷰를 저장하는 뷰홀더 클래스.
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView menuImg ;
         TextView menuName ;
@@ -89,6 +114,10 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
         Button minus;
         Button plus;
 
+        /**
+         * 생성자로 뷰에 대한 정보 반환 및 이벤트 설정
+         * @param itemView
+         */
         ViewHolder(View itemView) {
             super(itemView) ;
 
@@ -100,7 +129,7 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
             minus = itemView.findViewById(R.id.btn_recyclerBuy_minus);
             plus = itemView.findViewById(R.id.btn_recyclerBuy_plus);
 
-            //수량 조절 버튼 이벤트
+            //수량 빼기 버튼 이벤트
             minus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -123,6 +152,7 @@ public class RecyclerImageTextAdapter extends RecyclerView.Adapter<RecyclerImage
                 }
             });
 
+            //수량 더하기 버튼 이벤트
             plus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

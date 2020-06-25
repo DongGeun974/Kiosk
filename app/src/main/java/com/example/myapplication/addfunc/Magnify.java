@@ -7,16 +7,26 @@ import android.widget.Magnifier;
 
 import androidx.annotation.RequiresApi;
 
+/**
+ * 돋보기 관련된 기능 수행
+ * <p>
+ * {@link #setMagnifyOnView(View)} 통해 해당 뷰에 돋보기 기능 제공
+ * </p>
+ */
 public class Magnify {
     private boolean on;
 
     private int width;
     private int height;
     private float zoom;
-    //돋보기 객체
+    /**
+     * 돋보기 객체
+     */
     private Magnifier magnifier;
 
-    //돋보기 리스너
+    /**
+     * 뷰 클릭 리스너
+     */
     private View.OnTouchListener magnifierTouchListener = new View.OnTouchListener() {
         @RequiresApi(api = Build.VERSION_CODES.P)
         @Override
@@ -45,10 +55,13 @@ public class Magnify {
         zoom = 3;
     }
 
+    /**
+     * 해당 뷰에 돋보기 기능하는 뷰 리스너 설정
+     * @param view 기능을 제공하고자 하는 뷰
+     */
     @RequiresApi(api = Build.VERSION_CODES.Q)
-    public void setMagnifyOnView(View view, boolean isOn){
-        on = isOn;
-        if(isOn){
+    public void setMagnifyOnView(View view){
+        if(on){
             Magnifier.Builder builder = new Magnifier.Builder(view);
             builder.setSize(width, height);
             builder.setInitialZoom(zoom);

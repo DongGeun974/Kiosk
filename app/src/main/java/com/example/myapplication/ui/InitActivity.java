@@ -77,7 +77,6 @@ public abstract class InitActivity extends Activity implements AddFunction {
                 .getSystemService(Context.ACTIVITY_SERVICE);
         activityManager.moveTaskToFront(getTaskId(), 0);
 
-        //https://wingsnote.com/128
         overridePendingTransition(0, 0);
     }
 

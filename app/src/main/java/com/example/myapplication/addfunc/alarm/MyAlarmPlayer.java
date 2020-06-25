@@ -4,31 +4,41 @@ import android.media.MediaPlayer;
 
 import java.io.IOException;
 
-public class MyAlarmPlayer {
+/**
+ * 서버 음성 파일 재생 관련 클래스
+ * <p>
+ * 메소드: {@link #AlarmStartSound()}, {@link #AlarmNoInputSound()}
+ * </p>
+ */
+class MyAlarmPlayer {
     private static MediaPlayer Start;
     private static MediaPlayer NoInput;
 
-    public static void AlarmStartSound() {
+    /**
+     * 메뉴 화면으로 넘어갈 시 재생
+     */
+    static void AlarmStartSound() {
         try {
             Start = new MediaPlayer();
             Start.setDataSource("http://zxcasd3004.dothome.co.kr/project/menu_cart.mp3");
             Start.prepare();
             Start.start();
 
-            //Toast.makeText(this, "재생 시작됨.", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void AlarmNoInputSound() {
+    /**
+     * 메뉴 화면에서 입력 없을 시 재생
+     */
+    static void AlarmNoInputSound() {
         try {
             NoInput = new MediaPlayer();
             NoInput.setDataSource("http://zxcasd3004.dothome.co.kr/project/no_input.mp3");
             NoInput.prepare();
             NoInput.start();
 
-            //Toast.makeText(this, "재생 시작됨.", Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
         }

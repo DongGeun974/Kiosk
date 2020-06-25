@@ -105,14 +105,8 @@ public class MenuActivity extends InitActivity {
         else
             setContentView(R.layout.activity_menu_wheel);
 
-        //////////////////////////////////////////////////
-        //타이머 시작
-//        timer.schedule(timerTask, 1000 , 1000);
         alarm.setActivity(this);
         alarm.start();
-        //시작 음성 안내 시작
-//        MyAlarmPlayer.AlarmStartSound();
-        ///////////////////////////////////////////////////
 
         displayCategoryBar();
         displayBottomBar();
@@ -335,13 +329,10 @@ public class MenuActivity extends InitActivity {
         ((TextView)findViewById(R.id.text_actMenu_quantity)).setText(String.valueOf(quantity));
         ((TextView)findViewById(R.id.text_actMenu_sum)).setText(String.valueOf(sum));
 
-/////////////////////////////리스트뷰 내용(임시로 둠)
         ListView lv = (ListView) findViewById(R.id.lv);
         final MyAdapter myAdapter = new MyAdapter(this, cart);
 
         lv.setAdapter(myAdapter);
-////////////////////////////
-
     }
 
     /**
@@ -366,10 +357,14 @@ public class MenuActivity extends InitActivity {
 
         if((functionState & InitBottomBar.BIGGER) != 0){
             Log.d("메뉴화면에서", "돋보기 기능");
-            magnify.setMagnifyOnView(findViewById(R.id.lay_actMenu_all), true);
+
+            magnify.setOn(true);
+            magnify.setMagnifyOnView(findViewById(R.id.lay_actMenu_all));
         }else{
             Log.d("메뉴화면에서", "돋보기 해제");
-            magnify.setMagnifyOnView(findViewById(R.id.lay_actMenu_all), false);
+
+            magnify.setOn(false);
+            magnify.setMagnifyOnView(findViewById(R.id.lay_actMenu_all));
         }
 
         if((functionState & InitBottomBar.COLORBLIND) != 0){

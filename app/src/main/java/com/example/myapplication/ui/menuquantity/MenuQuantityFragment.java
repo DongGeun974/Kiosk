@@ -127,9 +127,6 @@ public class MenuQuantityFragment extends Fragment implements AddFunction {
 
         url = colorBlind.changeURL(url);
 
-//        if((InitBottomBar.getState() & InitBottomBar.COLORBLIND) != 0)
-//            url = url.replace("original", "colorblind");
-
         Glide.with(this)
                 .load(url)
                 .placeholder(R.drawable.ic_loading)

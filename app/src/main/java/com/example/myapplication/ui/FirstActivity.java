@@ -48,7 +48,6 @@ public class FirstActivity extends InitActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(FirstActivity.this, MenuActivity.class);
 
-                // 출처: https://wingsnote.com/128 [날개의 노트 (Wing's Note)]
                 intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
 
                 MenuActivity.setCart(new OrderList());
@@ -82,7 +81,6 @@ public class FirstActivity extends InitActivity {
         Log.d("시작화면에서", String.valueOf(functionState));
 
         if((functionState & InitBottomBar.WHEEL) != 0) {
-            // https://stackoverrun.com/ko/q/11380534
             ConstraintLayout c = (ConstraintLayout)findViewById(R.id.lay_actMain_screen);
             ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) c.getLayoutParams();
             layoutParams.matchConstraintPercentHeight = 0.6F;
@@ -93,7 +91,6 @@ public class FirstActivity extends InitActivity {
 
             Log.d("시작화면에서", "휠체어로 변환");
         }else{
-            //            https://stackoverrun.com/ko/q/11380534
             ConstraintLayout c = (ConstraintLayout)findViewById(R.id.lay_actMain_screen);
             ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) c.getLayoutParams();
             layoutParams.matchConstraintPercentHeight = 0.9F;
@@ -108,11 +105,13 @@ public class FirstActivity extends InitActivity {
         if((functionState & InitBottomBar.BIGGER) != 0){
             Log.d("시작화면에서", "돋보기 기능");
 
-            magnify.setMagnifyOnView(findViewById(R.id.lay_actMain_root), true);
+            magnify.setOn(true);
+            magnify.setMagnifyOnView(findViewById(R.id.lay_actMain_root));
         }else{
             Log.d("시작화면에서", "돋보기 해제");
 
-            magnify.setMagnifyOnView(findViewById(R.id.lay_actMain_root), false);
+            magnify.setOn(false);
+            magnify.setMagnifyOnView(findViewById(R.id.lay_actMain_root));
         }
 
         if((functionState & InitBottomBar.COLORBLIND) != 0){
